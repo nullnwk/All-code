@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<ul id="uu">
+    <li>dsfsdfsdfdsdsf</li>
+    <li>dsff</li>
+    <li id="pp">dsff</li>
+    <li>dsff</li>
+    <li>dssdfsdfdsfsd</li>
+</ul>
+<script>
+    //获取第一个子节点
+    function getFirstElement(parent) {
+        if(parent.firstElementChild){
+            return parent.firstElementChild;
+        }else{
+            var node = parent.firstChild;
+            while(node && node.nodeType != 1){
+                node = node.nextSibling;
+            }
+            return node
+        }
+    }
+    //获取最后一个子节点
+    function getLastElement(parent) {
+        if(parent.lastElementChild){
+            return parent.lastElementChild;
+        }else{
+            var node = parent.lastChild;
+            while(node && node.nodeType != 1){
+                node = node.previousSibling;
+            }
+            return node;
+        }
+    }
+//    console.log(getLastElement(my$("uu")).innerText);
+    console.log(getFirstElement(my$("uu")).innerText);
+    console.log(getPreviousElementSibling(my$("pp")).innerText);
+
+    console.log(getChildren(my$("uu")).innerText);
+
+</script>
+</body>
+</html>

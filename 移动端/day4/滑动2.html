@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var startX,startY,endX,endY;
+    document.addEventListener("touchstart", function (e) {
+        var touches = e.targetTouches[0];
+        startX = touches.clientX;
+        startY = touches.clientY;
+    });
+    document.addEventListener("touchend", function (e) {
+        var touches = e.changedTouches[0];
+        endX = touches.clientX;
+        endY = touches.clientY;
+        var absX = Math.abs(endX - startX);
+        var absY = Math.abs(endY - startY);
+        var direction = absX > absY ? (endX > startX ? "向右":"向左") : endY > startY ? "向下": "向上";
+        console.log(direction);
+    })
+
+</script>
+
+</body>
+</html>

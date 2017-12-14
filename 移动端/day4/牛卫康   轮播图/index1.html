@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 1000%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        li {
+            width: 10%;
+            list-style: none;
+            float: left;
+        }
+
+        li a {
+            display: block;
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><a href="###"> <img src="image/0.png" alt=""></a></li>
+        <li><a href="###"> <img src="image/1.png" alt=""></a></li>
+        <li><a href="###"> <img src="image/2.png" alt=""></a></li>
+        <li><a href="###"> <img src="image/3.png" alt=""></a></li>
+        <li><a href="###"> <img src="image/4.png" alt=""></a></li>
+        <li><a href="###"> <img src="image/5.png" alt=""></a></li>
+        <li><a href="###"> <img src="image/6.png" alt=""></a></li>
+        <li><a href="###"> <img src="image/7.png" alt=""></a></li>
+    </ul>
+</div>
+
+<script>
+    var box = document.querySelector(".box");
+    var boxWidth = box.offsetWidth;
+    var ul = document.querySelector("ul");
+    var firstLi = document.querySelector("li:first-child");
+    var lastLi = document.querySelector("li:last-child");
+    var index = 1;
+
+    function Slide() {
+    }
+    Slide.prototype.init = function (ul, boxWidth) {
+        //前后添加图片
+        ul.appendChild(firstLi.cloneNode(true));
+        ul.insertBefore(lastLi.cloneNode(true), firstLi);
+        this.autoplay();
+        this.aaa();
+    };
+    //显示第一张图片
+    Slide.prototype.aaa = function () {
+        var li = document.querySelectorAll("li");
+        for (var i = 0; i < li.length; i++) {
+            li[i].style.width = box.offsetWidth + "px";
+            console.log(li[i].offsetWidth)
+        }
+//        index++;
+        ul.style.width = box.offsetWidth * li.length + "px";
+        console.log(ul.style.width);
+        //显示第一张图片
+        ul.style.left = -box.offsetWidth * index + "px";
+        console.log(ul.style.left);
+    };
+    //自动轮播
+    Slide.prototype.autoplay = function () {
+        var that = this;
+        var timer = setInterval(function () {
+            index++;
+            ul.style.left = -boxWidth * index + "px";
+            ul.style.transition = "0.8s all";
+
+            that.reveal(ul, box);
+
+//            console.log(index+"======"+ul.style.left);
+        }, 1000 );
+
+    };
+    //正确显示图片
+    Slide.prototype.reveal = function (ul, box) {
+        //正确显示图片
+        ul.addEventListener("webkitTransitionEnd", function () {
+            if (index == 0) {
+                index = 8;
+                ul.style.left = -box.offsetWidth * index + "px";
+                ul.style.transition = "";
+            }
+            if (index == 9) {
+                index = 1;
+                ul.style.left = -box.offsetWidth * index + "px";
+                ul.style.transition = "";
+            }
+        });
+    };
+
+    var slide = new Slide();
+    slide.init(ul, box);
+
+
+//bug：
+//    第一次循环可以，第二次有时候就会坏了，直接从索引10往后走了（情况有时出现有时不出现）；
+//    循环进不到索引2，不显示图片0.png。
+//
+</script>
+
+</body>
+</html>

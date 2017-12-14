@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+        
+        
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+    var box = document.querySelector(".box");
+    var startX,startY,startT,endX,endY,endT;
+    box.addEventListener("touchstart", function (e) {
+        var touches = e.targetTouches[0];
+        startX = touches.clientX;
+        startY = touches.clientY;
+        startT = new Date().getTime();
+    });
+    box.addEventListener("touchend", function (e) {
+        var touches = e.changedTouches[0];
+        endX = touches.clientX;
+        endY = touches.clientY;
+        endT = new Date().getTime();
+
+        if(Math.abs(endX - startX) < 5 && Math.abs(endY -startY) < 5 && endT-endT < 500){
+            console.log("点击了");
+        }
+    })
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<ul id="uu">
+    <li>sdfdsfds</li>
+    <li>sdfdsfds</li>
+    <li>sdfdsfds</li>
+    <li>sdfdsfds</li>
+    <li>sdfdsfds</li>
+</ul>
+<script>
+    var list = my$("uu").children;
+    btn.onclick = function () {
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].nodeName == "LI") {
+                list[i].style.backgroundColor = i % 2 == 0 ? "red" : "yellow";
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

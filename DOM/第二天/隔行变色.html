@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<ul id="uu">
+    <li>asddasd</li>
+    <li>asddasd</li>
+    <li>asddasd</li>
+    <li>asddasd</li>
+    <li>asddasd</li>
+</ul>
+<script>
+    var list = my$("uu").getElementsByTagName("li");
+    for(var i =0; i<list.length; i++){
+        list[i].onmouseover = function () {
+            this.style.backgroundColor = "pink";
+        };
+        list[i].onmouseout = function () {
+            this.style.backgroundColor = "";
+        }
+    }
+    //排他方式
+   /* for(var i=0; i<list.length; i++){
+        list[i].onmouseover = function () {
+            for(var j=0; j<list.length; j++){
+                list[j].style.backgroundColor = "";
+            }
+            this.style.backgroundColor = "pink";
+        };
+    }*/
+
+
+
+</script>
+
+</body>
+</html>

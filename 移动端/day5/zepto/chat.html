@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ajax</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		h3 {
+			text-align: center;
+		}
+
+		.chatbox {
+			width: 100%;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid #CCC;
+			background-color: #FFF;
+			border-radius: 5px;
+		}
+
+		.messages {
+			height: 350px;
+			padding: 20px 40px;
+			box-sizing: border-box;
+			border-bottom: 1px solid #CCC;
+			overflow: scroll;
+		}
+
+		.messages h5 {
+			font-size: 20px;
+			margin: 10px 0;
+		}
+
+		.messages p {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.self {
+			text-align: left;
+		}
+
+		.other {
+			text-align: right;
+		}
+
+		.form {
+			height: 150px;
+		}
+
+		.form .input {
+			height: 110px;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.form .btn {
+			height: 40px;
+			box-sizing: border-box;
+			border-top: 1px solid #CCC;
+		}
+
+		.form textarea {
+			display: block;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: none;
+			resize: none;
+			outline: none;
+			font-size: 20px;
+		}
+
+		.form input {
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin-top: 5px;
+			margin-right: 20px;
+			float: right;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>简单的Ajax实例</h3>
+	<div class="chatbox">
+		<!-- 聊天内容 -->
+		<div class="messages">
+		</div>
+		<!-- 表单 -->
+		<div class="form">
+			<!-- 输入框 -->
+			<div class="input">
+				<textarea name="" id="zxc" cols="30" rows="10" ></textarea>
+			</div>
+			<!-- 按钮 -->
+			<div class="btn">
+				<input type="button" value="发送">
+			</div>
+		</div>
+	</div>
+	<!--type属性告诉浏览器如何解析标签中的代码-->
+	<!--请不要使用javascript的方式解析下面的代码 给我解析成template-->
+	<!--总结就是不要当js去运行 不要显示在浏览器的界面上-->
+	<!-- 这是模板 是以后学习模板引擎用的东西 现在不用管 -->
+	<script type="text/template">
+		<div class="self">
+			<h5>我说</h5>
+			<p>你好</p>
+		</div>
+	
+
+		<div class="other">
+			<h5>对方说</h5>
+			<p>你好</p>
+		</div>
+	</script>
+	<!-- 1.引入库 -->
+	<script src="js/zepto.js"></script>
+	<script>
+		// 1.输入内容 获取到自己的内容
+		var selfInput = $('.input textarea');
+		// 2.点击按钮的时候 把自己说的话展示到聊天对话框中
+		$('.btn input').tap(function () {
+// 2.1 添加点击事件 把自己说的话组织成要求的结构
+			var selfMessage = createMessage('self', selfInput.val());
+// 2.2 添加到聊天对话框
+			$('.messages').append(selfMessage);
+// 3.获取到别人说的话
+//  3.1 发起ajax请求
+			$.ajax({
+				url: './chat.php',
+				data: {},
+				type: 'post',
+				success: function (data) {
+// 3.2 后端响应获取到内容
+// console.log(data);
+// 3.3 把对方说的话组织成要求的结果
+					var otherMessage = createMessage('other', data);
+// 3.4 添加到聊天对话框
+					$('.messages').append(otherMessage);
+				}
+			})
+
+		})
+
+		function createMessage(flag, text) {
+			var item = $('<div></div>');
+			var h5 = $('<h5></h5>');
+			var p = $('<p></p>');
+
+			item.addClass(flag);
+
+			switch (flag) {
+				case 'self':
+					h5.html('我说');
+					break;
+				case 'other':
+					h5.html('对方说');
+					break;
+			}
+
+			p.html(text);
+
+			item.append(h5);
+			item.append(p);
+			return item;
+		}
+
+	</script>
+</body>
+
+</html>

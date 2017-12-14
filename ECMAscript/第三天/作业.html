@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组中所有元素的和以及平均值
+     /*var arr = [1,2,3,4,5,6];
+     var sum = 0;
+     for(var i=0; i<arr.length; i++){
+     sum += arr[i];
+     }
+     var avg = sum/arr.length;
+     console.log(sum,avg);*/
+    /*//数组中所有元素的最大值、最小值
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    var max = arr[0];
+    var min = arr[0];
+    for (var i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
+        }
+        if (min > arr[i]) {
+            min = arr[i];
+        }
+    }
+    console.log(max, min);*/
+
+
+    //倒序遍历数组
+    /*var arr = [1, 2, 3, 4, 5, 6];
+    for (var i = arr.length - 1; i >= 0; i--) {
+        console.log(arr[i]);
+    }*/
+
+
+    //把数组中的每个元素用|分割；
+   /* var arr = [1, 2, 3, 4, 5, 6];
+    var str = "1";
+    var arr1 = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+        arr1 += "|" + arr[i]
+    }
+    console.log(arr1);*/
+
+
+    //消除数组中的0；
+    /*var arr = [1, 2, 3, 0, 8, 0, 4];
+    var arr1 = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] != 0) {
+            arr1[arr1.length] = arr[i]
+        }
+    }
+    console.log(arr1);*/
+
+
+    //翻转数组
+   /* var arr = [1, 2, 3, 6, 4, 7];
+    for (var i = 0; i < arr.length / 2; i++) {
+        var temp = arr[arr.length - 1 - i];
+        arr[arr.length - 1 - i] = arr[i];
+        arr[i] = temp;
+    }
+    console.log(arr);*/
+
+
+    //提示输入班级总人数，求总成绩，最高分，平均值。
+    /*var perCount = parseInt(prompt("请输入班级总人数："));
+    var perSores = [];//存放分数；
+    var sum = 0;
+    var avg = 0;
+    //把每个人的成绩存入数组；
+    for (var i = 0; i < perCount; i++) {
+        perSores[perSores.length] = parseInt(prompt("请输入第" + (i + 1) + "个人的成绩"));
+        var max = perSores[0];
+        var min = perSores[0];
+        sum += perSores[i];
+        if (max < perSores[i]) {
+            max = perSores[i];
+        }
+        if (min > perSores[i]) {
+            min = perSores[i];
+        }
+    }
+    avg = sum / perSores.length;
+    console.log("总成绩：" + sum);
+    console.log("平均分：" + avg);
+    console.log("最高分：" + max);
+    console.log("最低分：" + min);
+*/
+
+    /*//冒泡
+    var arr = [1, 2, 4, 3, 6];
+    for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = 0; j < arr.length - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    console.log(arr);
+*/
+    //求整数1～100的累加值，但要求碰到个位为3的数则停止累加
+    var sum = 0;
+    for (var i = 0; i <= 100; i++) {
+        if (i % 10 != 3) {
+            sum += i;
+        }
+    }
+    console.log(sum);
+
+
+    //求1-100之间不能被7整除的整数的和（用continue）
+    /*
+     var sum = 0;
+     for(var i=0;i<=100; i++){
+     if(i%7 == 0){
+     continue;
+     }else {
+     sum += i;
+     }
+     }
+     console.log(sum);*/
+
+
+    //求200-300之间所有的奇数的和（用continue）
+    /*
+     var sum = 0;
+     for(var i=200; i<=300; i++){
+     if(i%2 == 0){
+     continue;
+     }else {
+     sum += i;
+     }
+     }
+     console.log(sum);*/
+
+
+    //    - 求2个数中的最大值
+    /*
+     function getMax(n1, n2) {
+     var maxValue = n1>n2 ? n1:n2;
+     return maxValue;
+     }
+     console.log(getMax(6, 4));*/
+
+
+    //    - 求3个数中的最大值
+    function max(n1, n2, n3) {
+        if (n1 > n2 && n1 > n3) {
+            return n1;
+        } else if (n2 > n1 && n2 > n3) {
+            return n2;
+        } else {
+            return n3;
+        }
+    }
+    console.log(max(1, 4, 3));
+
+    //函数
+    //判断一个数是否是素数(质数)
+    /*function isZh(x) {
+        var zh = true;
+        for (var i = 2; i < x; i++) {
+            if (x % i == 0) {
+                zh = false;
+                return false;
+            }
+        }
+        if (zh) {
+            return true;
+        }
+    }
+    console.log(isZh(4) ? "是质数" : "不是质数");*/
+
+
+    //1到100之间的质数
+    /*for(var i=0; i<=100; i++){
+        var isZh = true;
+        for(var j=2; j<i; j++){
+            if(i%j == 0){
+                isZh = false;
+                break;
+            }
+        }
+        if(isZh && i>1){
+            console.log(i);
+        }
+    }*/
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="inp1">
+    <input type="text" v-model="inp2">
+    <p>{{inp1}} {{inp2}}</p>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            inp1:"",
+            inp2:""
+        }
+    })
+
+
+</script>
+
+</body>
+</html>

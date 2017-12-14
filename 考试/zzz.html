@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
+        p{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p>sdfsdf</p>
+</div>
+<script src="../jQuery/jquery-1.12.1.min.js"></script>
+<script>
+    $(function () {
+       $("p").on("click", function (e) {
+           console.log(1);
+           e.stopPropagation();
+       });
+        $("div").on("click", function () {
+            console.log(2);
+        });
+    });
+
+</script>
+</body>
+</html>

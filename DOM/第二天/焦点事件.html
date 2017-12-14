@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="请输入搜索内容">
+<script>
+    var inp = document.getElementsByTagName("input")[0];
+    inp.onfocus = function () {
+        if(this.value == "请输入搜索内容"){
+            this.value = "";
+            this.style.color = "black";
+        }
+    };
+    inp.onblur = function () {
+        if(this.value ==""){
+            this.value = "请输入搜索内容";
+            this.style.color = "gray";
+        }
+    }
+
+
+
+
+
+</script>
+
+</body>
+</html>

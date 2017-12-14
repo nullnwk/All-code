@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid chartreuse;
+        }
+        span{
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: rebeccapurple;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box" draggable="true" id="boxId"></div>
+    <span draggable="true" id="spanId"></span>
+
+    <script>
+        var box = document.querySelector(".box");
+        var span = document.querySelector("span");
+
+        box.ondrop = function (e){
+            e.target.appendChild(span);
+        };
+        box.ondragover = function (e) {
+            e.preventDefault();
+        };
+        document.body.ondrop = function (e){
+            e.target.appendChild(span);
+        };
+        document.body.ondragover = function (e) {
+            e.preventDefault();
+        };
+
+
+    </script>
+
+</body>
+</html>

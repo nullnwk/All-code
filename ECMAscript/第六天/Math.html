@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*function MyMath() {
+        this.getMax = function () {
+            var max = arguments[0];
+            for(var i=0; i<arguments.length; i++){
+                if(max < arguments[i]){
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+    }
+    var mt = new MyMath();
+    console.log(mt.getMax(10, 20, 30, 40));*/
+
+
+    //16进制随机值
+    function Color() {
+        this.getColor = function () {
+            var str = "#";
+            var arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d","e", "f"];
+            for(var i=0; i<6; i++){
+                var num = parseInt(Math.random()*16);
+                str += arr[num];
+            }
+            return str;
+        };
+        this.setColor = function () {
+
+        }
+    }
+    var getColor = new Color();
+    console.log(getColor.getColor());
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+@import "adapter.less";
+@import "adapter.less";
+@import "variable.less";
+@import "reset.less";
+
+body{
+  background: #F0EFF3;
+}
+//头部
+.lt-header {
+  .lt-header();
+}
+
+//底部
+.lt-footer {
+  .lt-footer();
+}
+
+//主体
+.lt-comment{
+  width: 100%;
+  .details{
+    width: 100%;
+    padding: 10px 20px 5px 20px;
+    box-sizing: border-box;
+    position: relative;
+    background: @write;
+
+    p{
+      padding: 10px 0;
+        color: @black;
+      span{
+        color: #999;
+      }
+    }
+    .price{
+      font-size: 26px;
+      color: red;
+      padding-top: 2px;
+      span{
+        border: 1px solid orange;
+        border-radius: 2px;
+        color: orange;
+        font-size: 12px;
+        vertical-align: middle;
+
+      }
+    }
+    .fenxiang{
+      position: absolute;
+      top: 0;
+      right: -10px;
+      width: 100px;
+      height: 50px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .xihuan{
+    width: 100%;
+    background: @write;
+    margin-top: 10px;
+    &>p{
+      padding: 10px 0 2px 20px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    .sport{
+      width: 100%;
+      .s_b{
+        width: 100%;
+        text-align: justify;
+        padding-bottom:80px;
+        &:after{
+          content:"";
+          display: inline-block;
+          width: 100%;
+          overflow: hidden;
+        }
+        .sport-show{
+          display: inline-block;
+          width: 49%;
+          margin: 5px 0;
+          color: #f0f0f0;
+          border: 1px solid @sport-show;
+          box-shadow: 0 0 6px @sport-showShadow;
+          border-radius: 2px;
+          position: relative;
+          p{
+            padding: 3px 15px;
+            font-size: 14px;
+            &.price{
+              text-align: left;
+              i{
+                color: @sportPrice;
+              }
+              span{
+                text-decoration: line-through;
+              }
+            }
+          }
+          .buy{
+            position: absolute;
+            bottom: 3px;
+            right: 9px;
+            font-size: 24px;
+            padding: 5px;
+            color:@write;
+            background: red;
+            border-radius: 50%;
+            }
+          }
+        }
+        a:first-child{
+          display: inline-block;
+          width: 100%;
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+  .comment-b {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    height:35px;
+    line-height: 35px;
+    color: @sportPrice;
+    background: #ebebeb;
+    z-index: 10000;
+    span {
+      margin-left: 30px;
+      font-size: 16px;
+    }
+    a{
+      display: inline-block;
+      width: 100px;
+      height: 100%;
+      font-size: 16px;
+      color: @write;
+      float: right;
+      text-align: center;
+      background: red;
+      border-radius: 5px;
+    }
+  }
+
+

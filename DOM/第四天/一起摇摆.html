@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">一起摇摆</button>
+<button id="btn1">停止</button>
+<div id="dv" style="position: absolute">
+    <img src="images/bird.png" alt="">
+    <img src="images/bird.png" alt="">
+</div>
+
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+       timer = setInterval(function () {
+            var x = parseInt(Math.random()*100+1);
+            var y = parseInt(Math.random()*100+1);
+            my$("dv").style.left = x+"px";
+            my$("dv").style.top = y+"px";
+
+
+        },10);
+    };
+    my$("btn1").onclick =function () {
+        clearInterval(timer);
+    }
+
+
+
+</script>
+</body>
+</html>

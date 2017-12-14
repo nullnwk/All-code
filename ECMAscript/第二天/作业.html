@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*从05开始到18结束*/
+    //1.问小杨帅不帅,则输出真的好帅
+
+    /*var str = prompt("小样帅不帅：")
+     if (str == "帅") {
+     console.log("真帅");
+     }*/
+
+
+    //2:找到两个数字中的最大值(自己拓展 数组)
+    /*
+     var arr = [1, 2, 3, 4, 5];
+     var arrMax = arr[0]
+     for (var i = 0; i < arr.length; i++) {
+     arrMax < arr[i] ? arrMax = arr[i]:arrMax;
+     }
+     console.log(arrMax)*/
+
+
+    //3:判断这个数字是奇数还是偶数
+    /*
+     var str = prompt("请输入数字：")
+     console.log(str % 2 == 0 ? "偶数" : "奇数");*/
+
+    //4:判断一个年份是不是闰年(自己扩展，输出1000年到2020年所有的闰年)
+    /*for (var i = 1000; i < 2020; i++) {
+        if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0) {
+            console.log(i);
+        }
+    }*/
+    //5.成绩
+    /*
+     var cj = parseInt(prompt("请输入成绩："));
+     if(cj<=100){
+     if(cj>90){
+     console.log("A");
+     }else if(cj>80){
+     console.log("B");
+     }else if(cj>70){
+     console.log("C");
+     }else if(cj>60){
+     console.log("D");
+     }else {
+     console.log("你太垃圾了");
+     }
+     }else {
+     console.log("你太垃圾了");
+     }*/
+    //6:根据月份显示对应的天数
+    /*
+     var month = parseInt(prompt("请输入月份："));
+     switch(month){
+     case 1:
+     case 3:
+     case 5:
+     case 7:
+     case 8:
+     case 10:
+     case 12:
+     console.log("31天");
+     break;
+     case 2:
+     console.log("28天");
+     break;
+     case 4:
+     case 6:
+     case 9:
+     case 11:
+     console.log("30天");
+     break;
+     }*/
+    //7:计算1-100之间所有数字的和
+   /* var num = 0;
+    var i = 0
+    while (i <= 100) {
+        num += i;
+        i++;
+    }
+    console.log(num);*/
+    /*//8.问用户:您觉得我帅吗?提示用户请输入y/n ,如果n就一直问,我帅不帅,如果用户输入的y,则结束,并提示用户,您真有眼光
+    do {
+        var str = prompt("您觉得我帅吗y/n")
+    } while (str != "y");*/
+    /*//9.求1-100之间所有能被7整除的数字的和
+     var sum = 0;
+     for(var i=0; i<100; i++){
+     i%7==0 ? sum+=i:0;
+     }
+     console.log(sum);*/
+
+
+    /*//10.正三角形
+    for (var i = 0; i < 5; i++) {
+        for (var k = 5; k > i; k--) {
+            document.write("&nbsp")
+        }
+        for (var j = 0; j < i; j++) {
+            document.write("☆");
+        }
+        document.write("<br />")
+    }
+
+    //11.乘法口诀表
+    for (var i = 1; i <= 9; i++) {
+        for (var j = 1; j <= i; j++) {
+            document.write(j + "*" + i + "=" + i * j + "&nbsp;&nbsp;&nbsp;")
+        }
+        document.write("<br />")
+    }*/
+
+
+    //12. 本金10000元存入银行，年利率是千分之三，每过1年，将本金和利息相加作为新的本金。计算5年后，获得的本金是多少？
+    var bj = 10000;
+    for (var i = 0; i < 5; i++) {
+        var ll = bj * 0.003;
+        bj += ll;
+    }
+    console.log(bj);
+
+
+    //有个人想知道，一年之内一对兔子能繁殖多少对？于是就筑了一道围墙把一对兔子关在里面。
+    // 已知一对兔子每个月可以生一对小兔子，而一对兔子从出生后第3个月起每月生一对小兔子。
+    // 假如一年内没有发生死亡现象，那么，一对兔子一年内（12个月）能繁殖成多少对？
+    // （兔子的规律为数列，1，1，2，3，5，8，13，21）
+    var num1 = 1;
+    var num2 = 1;
+    var mouth = null;
+    for (var i = 3; i <= 12; i++) {
+        mouth = num1 + num2;
+        num1 = num2;
+        num2 = mouth;
+    }
+    console.log(mouth);
+
+
+</script>
+
+</body>
+</html>

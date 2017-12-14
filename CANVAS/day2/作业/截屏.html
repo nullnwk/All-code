@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video id="video" src="fun.mp4" controls></video>
+<button id="btn" onclick="catchpic()">按钮</button>
+<button id="btn1">按钮1</button>
+<div class="box" style="position: absolute;left:0; top: 0">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    var video = document.querySelector("#video");
+    var btn = document.querySelector("#btn");
+    var btn1 = document.querySelector("#btn1");
+    var box = document.querySelector(".box");
+    var canvas = document.querySelector("#canvas");
+    function catchpic() {
+        box.style.display = "none";
+        var ctx = canvas.getContext("2d");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 50, 0, 600, 320);
+        box.style.display = "block";
+        video. pause();
+    }
+    window.onload = function () {
+        btn1.onclick = function () {
+            var imgUrl = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            window.location.href = imgUrl;
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

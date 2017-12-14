@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<input type="radio" name="sex" value="1">男
+<input type="radio" name="sex" value="2" id="inp">女
+<br>
+<input type="button" value="按钮" id="btn1">
+<input type="checkbox" name="xingqu">跑步
+<input type="checkbox" name="xingqu">跑步
+<input type="checkbox" name="xingqu" class="inp">跑步
+<input type="checkbox" name="xingqu" class="inp">跑步
+<script>
+    var inp = document.getElementsByClassName("inp");
+    my$("btn").onclick = function () {
+        my$("inp").checked = true;
+    };
+    my$("btn1").onclick = function () {
+        for(var i=0; i<inp.length;i++){
+            inp[i].checked = true;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

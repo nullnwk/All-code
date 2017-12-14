@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>使用类名切换实现盒子变色</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      box-shadow: 0 0 1px #000;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn">变色</button>
+
+  <div class="box red"></div>
+
+<script src="dist/zepto.min.js"></script>
+<script>
+  // var btn = $('.btn');
+
+  // console.log(btn);
+
+  // $('.btn').click(function(){
+  //   console.log(1);
+  // })
+      
+
+  $('.btn').click(function(){
+
+    $('.box').toggleClass('blue');
+  })
+</script>
+</body>
+
+</html>

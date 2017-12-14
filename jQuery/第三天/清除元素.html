@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+               // $("div").empty();
+               // $("div").html("");
+                $("div").children("span").remove();
+            });
+        });
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+<input type="button" value="创建按钮" id="btn">
+<div>
+    <p>sdfsdfds</p>
+    <p>sdfsdfds</p>
+    <span>sdfsdfssfggggggg</span>
+</div>
+<p>sdfsd</p>
+</body>
+</html>

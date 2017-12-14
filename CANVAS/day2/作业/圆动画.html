@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    //设置起始点、结束点
+    var s_angle= -90;
+    var e_angle= -90;
+    //设置增量
+    var step = 2;
+    setInterval(function () {
+        ctx.moveTo(100,100);
+        ctx.arc(100,100,50,aTor(s_angle),aTor(e_angle));
+        ctx.fill();
+        e_angle+=step;
+
+    },20);
+
+
+
+
+
+
+    function aTor(a) {
+        return a * Math.PI / 180
+    }
+
+
+</script>
+</body>
+</html>

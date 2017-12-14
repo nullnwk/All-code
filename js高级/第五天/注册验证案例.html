@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            background: #ccc;
+        }
+
+        label {
+            width: 40px;
+            display: inline-block;
+        }
+
+        span {
+            color: red;
+        }
+
+        .container {
+            margin: 100px auto;
+            width: 400px;
+            padding: 50px;
+            line-height: 40px;
+            border: 1px solid #999;
+            background: #efefef;
+        }
+
+        span {
+            margin-left: 30px;
+            font-size: 12px;
+        }
+
+        .wrong {
+            color: red
+        }
+
+        .right {
+            color: green;
+        }
+
+        .defau {
+            width: 200px;
+            height: 20px;
+        }
+
+        .de1 {
+            background-position: 0 -20px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container" id="dv">
+    <label for="qq">Q Q</label><input type="text" id="qq"><span></span><br/>
+    <label>手机</label><input type="text" id="phone"><span></span><br/>
+    <label>邮箱</label><input type="text" id="e-mail"><span></span><br/>
+    <label>座机</label><input type="text" id="telephone"><span></span><br/>
+    <label>姓名</label><input type="text" id="fullName"><span></span><br/>
+</div>
+<script src="common.js"></script>
+<script>
+    myElement("#qq").onblur = function () {
+        if(/\d{5,11}/.test(this.value)){
+            this.nextElementSibling.innerHTML = "正确"
+        }else {
+            this.nextElementSibling.innerHTML = "错误"
+        }
+    }
+</script>
+
+</body>
+</html>

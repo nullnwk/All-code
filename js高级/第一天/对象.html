@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.play = function () {
+            console.log("好好玩");
+        }
+    }
+    var per = new Person("小红", 20);
+    console.log(per.name);
+    per.play();
+    console.log(per instanceof Person);
+
+
+    function f1(name, age) {
+        var obj = new Object();
+        obj.name =name;
+        obj.age = age;
+        obj.play = function () {
+            console.log(111);
+        }
+        return obj;
+    }
+    var f1 = f1("zxc",8);
+    console.log(f1.name);
+    f1.play();
+
+
+</script>
+
+</body>
+</html>

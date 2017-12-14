@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.moveTo(100,100);
+    ctx.arc(100,100,50,aTor(-90),aTor(120));
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.arc(100,100,50,aTor(120),aTor(270));
+    ctx.fillStyle = "red";
+    ctx.fill();
+
+
+    function aTor(a) {
+        return a * Math.PI / 180
+    }
+
+
+</script>
+</body>
+</html>

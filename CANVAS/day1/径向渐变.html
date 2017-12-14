@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var txc = canvas.getContext("2d");
+
+    var rgd = txc.createRadialGradient(150,150,20,150,150,150);
+    rgd.addColorStop(0,"red");
+    rgd.addColorStop(1,"blue");
+
+    txc.moveTo(50, 50);
+    txc.lineTo(250,50);
+    txc.lineTo(250,250);
+    txc.lineTo(50,250);
+    txc.closePath();
+
+    txc.fillStyle = rgd;
+    txc.fill();
+
+</script>
+</body>
+</html>

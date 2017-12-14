@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var startX,startY,startT,endX,endY,endT;
+    document.addEventListener("touchstart", function (e) {
+        var touches = e.targetTouches[0];
+        startX = touches.clientX;
+        startY = touches.clientY;
+        startT = new Date().getTime();
+    });
+    document.addEventListener("touchend", function (e) {
+        var touches = e.changedTouches[0];
+        endX = touches.clientX;
+        endY = touches.clientY;
+        endT = new Date().getTime();
+        if(Math.abs(endX - startX) < 5 && Math.abs(endY - startY) < 5 && endT - startT < 500){
+            console.log(1);
+        }
+    });
+
+
+
+</script>
+
+</body>
+</html>

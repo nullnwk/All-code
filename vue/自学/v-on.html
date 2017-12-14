@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background:#ccc
+    }
+    p{
+      width: 100px;
+      height: 100px;
+      background: bisque
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div @click="divColor">
+      <p @click.stop.prevent="pColor"></p>
+      <input type="text" v-model="message" @keyup.enter="pColor">
+      <p>{{pMessage}}</p>
+    </div>
+
+
+  </div>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        message:"",
+        pMessage:""
+      },
+      methods:{
+        divColor(){
+          console.log("div");
+        },
+        pColor(){
+          console.log("p");
+        },
+        // 点击输入框，p中文字改变
+        pColor(){
+          this.pMessage = this.message
+        }
+      }
+
+
+    })
+  </script>
+</body>
+
+</html>

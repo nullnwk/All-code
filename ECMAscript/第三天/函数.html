@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //函数：把一些重复的代码封装，在需要的时候直接调用即可；
+    //函数的作用： 代码的重用；
+    /*
+     * 函数的定义：
+     *   function 函数名（）{
+     *       函数体
+     *   }
+     * 函数调用：
+     *   函数名（）；
+     *
+     *
+     *
+     * 函数需要先定义，然后在调用；
+     * 命名要遵循驼峰命名法；
+     * 函数一旦重名，后面会覆盖前面的
+     * 一个函数最好只有一个功能
+     *
+     *
+     *
+     *
+     *
+     * 如果一个函数中有return，那么这个函数就有返回值
+     * 如果一个函数中没有return，那么这个函数就没有返回值
+     *
+     * 形参的个数和实参的个数可以不一致，实参个数可以多于形参数，但不能少于实参数
+     *函数唯有返回值，但是在调用的时候接收了就是
+     * 函数中没有明确的返回值，
+     *
+     * */
+    /*
+     function eat() {
+     console.log("切菜");
+     console.log("切菜");
+     console.log("切菜");
+     console.log("切菜");
+     }
+     console.log(eat());*/
+
+    //求两个数的和
+    /* function getSum() {
+     var num = 10;
+     var num1 = 20;
+     var sum = num+num1;
+     console.log(sum);
+     }*/
+
+    //两个数之间的和
+    /*
+     function getSum(num1, num2) {
+     return num1+num2;
+     }
+     console.log(getSum(10, 10));*/
+
+    function getevery(n, m) {
+        var sum = 0;
+        for (var i = n; i <= m; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+    console.log(getevery(1, 100));
+</script>
+
+</body>
+</html>

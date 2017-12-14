@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: #DB192A;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen"><!--相框-->
+        <ul>
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+        </ol>
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+<script src="common.js"></script>
+<script>
+    var screen = document.getElementsByClassName("screen")[0];
+    var imgWidth = screen.offsetWidth;
+    var ulObj = screen.children[0];
+    var list = ulObj.children;
+    var olObj = screen.children[1];
+    var arr = my$("arr");
+    var pic = 0;
+
+    for(var i=0; i<list.length; i++){
+        //创建ol
+        var olst = document.createElement("li");
+        olst.innerHTML = (i+1);
+        olObj.appendChild(olst);
+        //设置自定义属性，获取索引值
+        olst.index = i;
+        //注册鼠标进入事件
+        olst.onmouseover = function () {
+            //排他思想
+            for (var j = 0; j < olObj.children.length; j++) {
+                olObj.children[j].removeAttribute("class");
+            }
+            this.className = "current";
+            pic = this.index;
+            //获取索引值
+           animate(ulObj, -pic * imgWidth)
+        };
+    }
+    olObj.children[0].className = "current";
+
+    //克隆第一个li；放到ul中的最后。
+    ulObj.appendChild(ulObj.children[0].cloneNode(true));
+
+    //自动播放
+    var timer = setInterval(clickHandle,1000);
+
+    //鼠标进入显示隐藏左右小箭头
+    my$("box").onmouseover = function () {
+        arr.style.display = "block";
+        clearInterval(timer);
+    };
+    my$("box").onmouseout = function () {
+        timer = setInterval(clickHandle,1000);
+        arr.style.display = "none";
+    };
+
+    //右边小按钮
+    my$("right").onclick = clickHandle;
+            function clickHandle() {
+        //从第六个图跳转到第一个图
+        if(pic == list.length-1){
+            pic = 0;
+            ulObj.style.left = 0 + "px";
+        }
+        pic++;//立即设置pic加1，那么用户看到的会是第二张图片
+        animate(ulObj, -pic*imgWidth);
+
+        //如果pic等于5，那么显示第六张图，内容是第一张图，那么第一个小按钮高亮显示
+        if(pic ==list.length-1){
+            //第五个小按钮颜色干掉
+            olObj.children[olObj.children.length-1].className = "";
+            //第1个小按钮颜色加上
+            olObj.children[0].className = "current";
+        }else {
+            //排他思想，干掉其余小按钮背景色
+            for(var j=0; j<olObj.children.length; j++){
+                olObj.children[j].className = "";
+            }
+            olObj.children[pic].className = "current"
+        }
+    }
+
+    //左边小按钮
+    my$("left").onclick = function () {
+        if(pic ==0){
+            pic = 5;
+            ulObj.style.left = -pic*imgWidth+ "px";
+        }
+        pic--;
+        animate(ulObj, -pic*imgWidth);
+        for(var j=0; j<olObj.children.length; i++){
+            olObj.children[i].className = "";
+        }
+        olObj.children[pic].className = "current";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: rebeccapurple;
+            position: absolute;
+        }
+    </style>
+</head>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script src="../common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        animate(my$("dv"), {"width": 500, "left": 400, "opacity": 0.3}, function () {
+            animate(my$("dv"), {"width": 50, "left": 40, "opacity": 1})
+        })
+    };
+
+    //获取任意元素的任意属性
+    function getStyle(ele, attr) {
+        return window.getComputedStyle ? window.getComputedStyle(ele, null)[attr] : ele.currentStyle[attr];
+    }
+    //缓动
+    function animate(ele, json, fn) {
+        clearInterval(ele.timer);
+        ele.timer = setInterval(function () {
+            var tool = true;
+            for (var attr in json) {
+                if (attr == "opacity") {
+                    //当前位置
+                    var screen = parseInt(getStyle(ele, attr) * 100);
+                    //移动的步长
+                    var target = json[attr] * 100;
+                    var step = (target - screen) / 10;
+                    step = target > screen ? Math.ceil(step) : Math.floor(step);
+                    screen += step;
+                    ele.style[attr] = screen / 100;
+                } else if (attr == "zIndex") {
+                    ele.style[attr] = json[attr];
+                } else {
+                    var screen = parseInt(getStyle(ele, attr));
+                    //移动的步长
+                    var target = json[attr];
+                    var step = (target - screen) / 10;
+                    step = target > screen ? Math.ceil(step) : Math.floor(step);
+                    screen += step;
+                    ele.style[attr] = screen + "px";
+                }
+                if (target != screen) {
+                    tool = false;
+                }
+            }
+            if (tool) {
+                clearInterval(ele.timer);
+                if (fn) {
+                    fn();
+                }
+            }
+
+
+        }, 10);
+    }
+
+
+</script>
+</body>
+</html>

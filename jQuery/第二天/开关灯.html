@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .creen {
+            background-color: #000;
+        }
+
+    </style>
+    <script src="../jquery-1.12.1.min.js"></script>
+    <script>
+        /* $(function () {
+         $("#btn").click(function () {
+         $("body").toggleClass("creen")
+         });
+         });*/
+        $(function () {
+            $("#btn").click(function () {
+                if ($("body").hasClass("creen")) {
+                    $("body").removeClass("creen")
+                }else {
+                    $("body").addClass("creen")
+                }
+
+            });
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+<input type="button" value="按钮" id="btn">
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<ul id="uu">
+    <li>sdgfdffds</li>
+    <li>sdgfdffds</li>
+    <li>sdgfdffds</li>
+    <li>sdgfdffds</li>
+    <li>sdgfdffds</li>
+    <li>sdgfdffds</li>
+    <li>sdgfdffds</li>
+    <li>sdgfdffds</li>
+</ul>
+<script>
+    var nodes = my$("uu").children;
+    var index = 0;
+    my$("btn").onclick = function () {
+        for(var i=0; i<nodes.length; i++){
+            index++;
+            if(nodes[i].nodeName == "LI"){
+              nodes[i].style.backgroundColor = i%2 == 0 ? "red":"yellow"
+            }
+
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

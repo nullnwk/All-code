@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    function f1() {
+    //        var a =[];
+    //        for(var i=0; i<3; i++){
+    //            a[i]= function () {
+    //                console.log(i);
+    //            };
+    //        }
+    //        return a;
+    //    }
+    //    var f = f1();
+    //    console.log(f[0]());
+    //    console.log(f[1]());
+    //    console.log(f[2]());
+
+
+        // function f1() {
+        //     var a =[];
+        //     for(var i=0; i<3; i++){
+        //         a[i]= (function (x) {
+        //            return function () {
+        //                 return x;
+        //             }
+        //         }(i));
+        //     }
+        //     return a;
+        // }
+        // var f = f1();
+        // console.log(f[0]());
+        // console.log(f[1]());
+        // console.log(f[2]());
+
+
+    //改变闭包中变量值
+       function f1() {
+           var n = 0;
+           test = function () {
+               n+=1;
+           };
+           return function f2() {
+               alert(n);
+           }
+           
+       }
+       var f = f1();
+       f();
+       test();
+       f();
+
+
+    //函数内访问与设置
+    // var getValue, setValue;
+    // (function () {
+    //     var n = 0;
+    //     getValue = function () {
+    //         return n;
+    //     };
+    //     setValue = function (x) {
+    //         n = x;
+    //     }
+    // }());
+    //    var get = getValue();
+    //    console.log(get);
+
+
+    // console.log(getValue());
+    // setValue(10);
+    // console.log(getValue());
+
+</script>
+
+</body>
+</html>

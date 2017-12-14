@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    String.prototype.myReverse = function () {
+        for(var i= this.length-1; i>=0; i--){
+            console.log(this[i]);
+        }
+    };
+    var a = "12345";
+    a.myReverse();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //函数模式的闭包
+    function f1() {
+        var num =1;
+        return function () {
+            console.log(num);
+        }
+    }
+    f1()();
+    //对象模式的闭包
+    function f2() {
+        var num = 3;
+        return{
+            num : num
+        }
+    }
+    console.log(f2().num);;
+
+
+</script>
+</body>
+</html>

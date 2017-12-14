@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <p>{{num}}</p>
+      <p>{{num1()}}</p>
+    </div>
+  </div>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      computed: {
+        num() {
+          return new Date();
+        }
+      },
+      methods: {
+        num1() {
+          return new Date();
+        }
+      }
+      
+    })
+  </script>
+</body>
+
+</html>

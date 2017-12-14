@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/userManage.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="box">
+    <div class="header">
+        <h2 class="header-l">ITCAST</h2>
+        <div class="header-l">
+            <a href="###"><img src="images/header-l.png" alt=""> </a>
+        </div>
+        <div class="header-r">
+            <a href="###" class="btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"><img src="images/header-r.png" alt=""></a>
+        </div>
+    </div>
+    <div class="commin">
+        <div class="com-l">
+            <div class="com-l-top">
+                <a href="###"><img src="images/default.png" alt=""></a>
+                超级管理员
+            </div>
+            <ul>
+                <li><a href="userManage.html"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+                <li><a href="first.html"><i class="glyphicon glyphicon-align-justify"></i>分类管理</a>
+                    <ol>
+                        <li>一级分类</li>
+                        <li><a href="second.html">二级分类</a></li>
+                    </ol>
+                </li>
+                <li><i class="glyphicon glyphicon-tags"></i>商品管理</li>
+
+            </ul>
+        </div>
+        <div class="com-r">
+            <div class="com-r-t">
+                <a href="###">管理系统</a> /
+                <a href="###">用户管理</a>
+            </div>
+            <table class="table table-bordered table-hover text-center">
+                <tr>
+                    <td>序号</td>
+                    <td>用户名</td>
+                    <td>手机号</td>
+                    <td>状态</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>itcast</td>
+                    <td>12345678909</td>
+                    <td>正常</td>
+                    <td><button type="button" class="btn btn-danger btn-xs">禁用</button></td>
+                </tr>
+            </table>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <!--退出-->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>您确定要退出后台系统吗</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="js/userManage.js"></script>
+</body>
+</html>

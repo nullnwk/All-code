@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin: 10px;
+            border: 2px solid pink;
+            float: left;
+        }
+
+
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    var divs = document.getElementsByTagName("div");
+    for(var i=0; i<divs.length; i++){
+        divs[i].onmouseover = function () {
+            this.style.border = "2px solid blue"
+        }
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: #DB192A;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen"><!--相框-->
+        <ul>
+            <li><img src="../images/1.jpg" width="500" height="200"/></li>
+            <li><img src="../images/2.jpg" width="500" height="200"/></li>
+            <li><img src="../images/3.jpg" width="500" height="200"/></li>
+            <li><img src="../images/4.jpg" width="500" height="200"/></li>
+            <li><img src="../images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+        </ol>
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+<script src="../common.js"></script>
+<script>
+    var screen = document.getElementsByClassName("screen")[0];
+    var imgWidth = screen.offsetWidth;//相框宽度
+    var ulObj = screen.children[0];
+    var list = ulObj.children;
+    var olObj = screen.children[1];
+    var pic = 0;
+
+    //循环设置小按钮
+    for (var i = 0; i < list.length; i++) {
+        var ol = document.createElement("li");
+        ol.innerText = i + 1;
+        olObj.appendChild(ol);
+        ol.index = i;
+        //设置小按钮点击事件
+        ol.onclick = function () {
+            for (var j = 0; j < olObj.children.length; j++) {
+                olObj.children[j].className = "";
+            }
+            this.className = "current";
+            pic = this.index;
+            animate(ulObj, -pic * imgWidth);
+        };
+    }
+
+    //第一个小按钮高亮显示
+    olObj.children[0].className = "current";
+
+    //克隆
+    ulObj.appendChild(list[0].cloneNode(true));
+
+    //自动播放
+    var timer = setInterval(rightClick, 1000);
+
+    //两边箭头显示隐藏
+    addEventListener(my$("box"), "mouseover", show);
+    function show() {
+        my$("arr").style.display = "block";
+        clearInterval(timer);
+    }
+    addEventListener(my$("box"), "mouseout", hide);
+    function hide() {
+        my$("arr").style.display = "none";
+        timer = setInterval(rightClick, 1000);
+
+    }
+
+    //右边小箭头
+    addEventListener(my$("right"), "click", rightClick);
+    function rightClick() {
+        if (pic == list.length - 1) {
+            pic = 0;
+            ulObj.style.left = 0 + "px";
+        }
+        pic++;
+        animate(ulObj, -pic * imgWidth);
+        if (pic == list.length - 1) {
+            olObj.children[olObj.children.length - 1].className = "";
+            olObj.children[0].className = "current";
+        } else {
+            for (var j = 0; j < olObj.children.length; j++) {
+                olObj.children[j].className = "";
+            }
+            olObj.children[pic].className = "current";
+        }
+    }
+
+    //左边小箭头
+    addEventListener(my$("left"), "click", leftClick);
+    function leftClick() {
+        if (pic == 0) {
+            pic = list.length - 1;
+            ulObj.style.left = -pic * imgWidth + "px";
+        }
+        pic--;
+        animate(ulObj, -pic * imgWidth);
+        for (var j = 0; j < olObj.children.length; j++) {
+            olObj.children[j].className = "";
+        }
+        olObj.children[pic].className = "current";
+
+    }
+
+</script>
+
+</body>
+</html>

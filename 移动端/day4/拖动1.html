@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 20px;
+            height: 20px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+
+<script>
+    var box = document.querySelector(".box");
+    var startX, startY, currentX, currentY, _left, _top;
+    box.addEventListener("touchstart", function (e) {
+        var touches = e.targetTouches[0];
+        console.log(e);
+        startX = touches.clientX;
+        startY = touches.clientY;
+        _left = this.offsetLeft;
+        _top = this.offsetTop;
+    });
+    box.addEventListener("touchmove", function (e) {
+        var touches = e.targetTouches[0];
+        endX = touches.clientX;
+        endY = touches.clientY;
+    })
+
+
+
+
+
+
+</script>
+</body>
+</html>

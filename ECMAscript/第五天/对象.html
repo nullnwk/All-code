@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+     * 创建对象三种方式：
+     * 1.调用对象
+     * var obj = new Object();
+     * obj.name = "axc";
+     *
+     *
+     *
+     *
+     *
+     *
+     * 如何获取该变量（对象）是不是
+     * */
+
+    /*
+     var obj = new Object();
+     obj.name = "xiaoming";
+     obj.age = 18;
+     obj.sex = "man";
+     obj.eat = function () {
+     console.log("吃");
+     }
+     obj.look = function () {
+     console.log("做饭");
+     }
+     console.log(obj.name);
+     console.log(obj.age);
+     obj.eat();
+
+
+     var dog = new Object();
+     dog.name = "大黄";
+     dog.age = 3;
+     dog .weight = 250;
+     dog.walk = function () {
+     console.log("慢");
+     }
+     dog.eat = function () {
+     console.log("吃骨头");
+     }
+
+     var phone = new Object();
+     phone.name = "三星s8 ";
+     phone.color = "红色";
+     phone.call = function () {
+     console.log("打电话");
+     }*/
+
+
+    //工厂模式
+    /* function Person(name, age) {
+     var obj = new Object();
+     obj.name = name;
+     obj.age = age;
+     obj.sayHi = function () {
+     console.log("我叫" + this.name + "，我今年" + this.age + "岁了");
+     }
+     return obj;
+     }
+     var student = Person("小明", 17);
+     console.log(student.name);
+     console.log(student.age);
+
+     function Dog(name, age) {
+     this.name = name;
+     this.age  =age;
+     }
+     var dog = new Dog("大黄", 12);
+     console.log(dog);*/
+
+    //中午练习
+    //创建一个图片的对象,图片有宽,有高,有大小(4M),图片可以展示内容
+    /*function Pic(w, h, size) {
+        this.w = w;
+        this.h = h;
+        this.size = size;
+        this.content = function () {
+            console.log("这是一幅宽" + this.w + "高" + this.h + this.size + "大小的画");
+        }
+    }
+    var pic = new Pic("20px", "20px", "4M")
+    pic.content()
+    //创建一个小猫的对象,猫有颜色，体重，年龄,小猫可以抓耗子,可以打架
+    function Cat(color, weight, name) {
+        this.color = color;
+        this.name = "小喵";
+        this.name = 12;
+        this.catch = function () {
+            console.log("可以抓耗子");
+        }
+        this.fight = function () {
+            console.log("打架");
+        }
+    }
+    var cat = new Cat();
+    cat.catch()
+*/
+    var obj = {
+        name : "牛卫康",
+        age : "21",
+        sex : "男",
+        sayHi : function () {
+            console.log("hello,我叫" + this.name + ",我" + this.age + "岁了");
+        }
+    };
+    /*obj.sayHi();
+    obj["sayHi"]();
+    obj["name"] = 1;
+    console.log(obj["name"]);*/
+    for(var key in obj){
+        console.log(obj[key]);
+    }
+
+
+    /*var name = "The niuweikang";
+    var object = {
+        name : "myasd",
+        getName : function () {
+            console.log(this.name);
+            return function () {
+                return this.name;
+            };
+        }
+    };
+    console.log(object.getName()());*/
+
+
+</script>
+
+</body>
+</html>

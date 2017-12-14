@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.eat = function () {
+        console.log("吃饭");
+    };
+
+    function Student(name, age) {
+
+    }
+    Student.prototype = new Person("小明",18);
+    Student.prototype.study = function () {
+        console.log("学习");
+    };
+    Student.prototype.consturator = Student;
+    var stu = new Student();
+    console.log(stu.name);
+    stu.eat();
+
+    console.log(stu instanceof Student);
+    console.log(stu instanceof Person);
+    console.dir(stu);
+    console.dir(Student);
+    console.dir(Person);
+
+</script>
+
+</body>
+</html>

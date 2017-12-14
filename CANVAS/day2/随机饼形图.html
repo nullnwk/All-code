@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+    //分成三到8份
+    var fen = myRandom(3,8);
+
+    //确定每份所占比例（份数）
+    var arr = [];
+    for(var i=0; i<fen; i++){
+        arr.push(myRandom(0,360));
+    }
+//    console.log(arr);
+    //确定每一份对应的角度： 份数总和：360度= 每一份：角度
+    //先求和
+    var sum = 0;
+    for(var i=0;i<arr.length; i++){
+        sum += arr[i];
+    }
+    //将每一份转为角度数
+    var angle_ary=[];
+    for(var i=0; i<arr.length; i++){
+        angle_ary.push(360*arr[i]/sum);
+    }
+    var colors=["red", "green" ,"pink", "yellow", "yellowgreen", "#000", "#999" , "blue"];
+
+    //开始绘制
+    var s_range =-90;
+    for(var i=0; i<angle_ary.length; i++){
+        ctx.beginPath();
+        ctx.moveTo(200,200);
+        ctx.arc(200,200,100,aTor(s_range),aTor(s_range+=angle_ary[i]));
+        ctx.fillStyle = colors[i];
+        ctx.fill();
+    }
+
+
+    function myRandom(min,max) {
+        return ~~((max-min)*Math.random())+min;
+    }
+
+    function aTor(a) {
+        return a * Math.PI / 180
+    }
+
+
+</script>
+</body>
+</html>

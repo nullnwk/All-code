@@ -1,0 +1,76 @@
+@import "adapter.less";
+@import "adapter.less";
+@import "variable.less";
+@import "reset.less";
+
+//头部
+//头部
+.lt-header {
+  .lt-header();
+  .mui-plus-visible {
+    display: inline-block !important;
+  }
+}
+
+//底部
+.lt-footer {
+  .lt-footer();
+}
+
+//主体
+.comment {
+  margin-top: 44px;
+  a {
+    font: 16px/1.16 arial;
+    &.mui-navigate-right:after, .mui-push-right:after {
+      content: '>';
+      right: 15px;
+      font-size: 20px;
+    }
+  }
+  .user_h {
+    position: relative;
+    overflow: hidden;
+    padding:20px 0 ;
+    box-sizing: border-box;
+    .head-portrait {
+      display: inline-block;
+      width: 55px;
+      height: 55px;
+      //background: red;
+      margin-left: 20px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      position: relative;
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 55px;
+        height: 53px;
+      }
+    }
+    strong {
+      position: absolute;
+      top: 18px;
+      left:80px;
+      font-size: 14px;
+    }
+    i {
+      position: absolute;
+      top: 42px;
+      left:80px;
+      font-size: 14px;
+
+    }
+  }
+  .quitBtn {
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    button {
+      width: 100%;
+      height: 40px;
+    }
+  }
+}

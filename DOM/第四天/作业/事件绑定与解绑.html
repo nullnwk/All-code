@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<button id="btn1">解绑</button>
+<script src="../common.js"></script>
+<script>
+    //onclick
+    my$("btn").onclick = function () {
+        console.log(1);
+    };
+    my$("btn1").onclick = function () {
+        my$("btn").onclick = null;
+    };
+
+    //addEventListener
+    my$("btn").addEventListener("click", f1);
+    my$("btn1").addEventListener("click", function () {
+        my$("btn").removeEventListener("click", f1)
+    });
+    function f1() {
+        console.log(1);
+    }
+
+    //attachEvent
+    my$("btn").attachEvent("onclick", f1);
+    my$("btn1").attachEvent("onclick", function () {
+        detachEvent("onclick", f1);
+    });
+    function f1() {
+        console.log(1);
+    }
+</script>
+</body>
+</html>

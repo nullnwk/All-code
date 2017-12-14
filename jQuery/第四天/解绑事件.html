@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 400px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        p {
+            background: #CCE8CF;
+        }
+    </style>
+    <script src="06动态添加行的案例/jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+
+            /*$("div").click(function () {
+                console.log(1);
+            });
+            $("p").click(function () {
+                console.log(2);
+            });
+            $("#btn1").click(function () {
+                $("div").unbind();
+            });*/
+           /* $("div").on("click", function () {
+                console.log(1);
+            });
+            $("div").delegate("p", "click", function () {
+                console.log(2);
+            });
+            $("#btn1").click(function () {
+                $("div").undelegate();
+            });*/
+
+            //on添加解绑
+            $("div").on("click", function () {
+                console.log(1);
+            });
+            $("div").on("click","p", function () {
+                console.log(2);
+            });
+            $("div").on("mouseover","p", function () {
+                console.log(3);
+            });
+            $("#btn1").on("click",function () {
+                $("div").off("click","p");
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">按钮2</button>
+<div><p>sdfsddsddd</p>
+</div>
+</body>
+</html>

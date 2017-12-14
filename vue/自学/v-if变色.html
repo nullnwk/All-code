@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .redColor {
+      background: red
+    }
+
+    ;
+    .greenColor {
+      background: green
+    }
+
+    ;
+    .blueColor {
+      background: blue
+    }
+
+    ;
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="color">按钮{{num}}</button><br>
+    <!--<p v-if="num == 1" :class="{redColor:isRed}">我是红色</p>
+    <p v-else-if="num == 2" :class="{greenColor:isGreen}">我是绿色</p>
+    <p v-else :class="{blueColor:isBlue}">我是蓝色</p>-->
+
+
+    <span v-if="num === 1" style="background-color:red;color:white;">我是红色</span>
+    <span v-else-if="num === 2" style="background-color:green;color:white;">我是绿色</span>
+    <span v-else style="background-color:blue;color:white;">我是蓝色</span>
+  </div>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        num: 1,
+        isRed: 1,
+        isGreen: 1,
+        isBlue: 1,
+      },
+      methods: {
+        color() {
+          if (this.num++ === 3) {
+            this.num = 1;
+            return false;
+          }
+
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

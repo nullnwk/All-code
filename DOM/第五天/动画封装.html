@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="移动到400" id="btn">
+<input type="button" value="移动到800" id="btn1">
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        animate(my$("dv"), "left", 400)
+    };
+    my$("btn1").onclick = function () {
+        animate(my$("dv"), 800)
+    };
+
+
+
+</script>
+
+
+</body>
+</html>

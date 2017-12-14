@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dv{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script>
+    var arr=[
+        {name:"百度",href:"http://www.baidu.com"},
+        {name:"谷歌",href:"http://www.google.com"},
+        {name:"优酷",href:"http://www.youku.com"},
+        {name:"土豆",href:"http://www.tudou.com"},
+        {name:"快播",href:"http://www.kuaibo.com"},
+        {name:"爱奇艺",href:"http://www.aiqiyi.com"}
+    ];
+    my$("btn").onclick = function () {
+        //创建表格
+        var table = document.createElement("table");
+        my$("dv").appendChild(table);
+
+        for(var i=0; i<arr.length; i++){
+            //创建行，把每行放到table中
+            var tr = document.createElement("tr");
+            table.appendChild(tr);
+            //创建列，放到tr中
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            var td1 = document.createElement("td");
+            tr.appendChild(td1);
+            //arr中的每个对象
+            var dt = arr[i];
+            //设置值
+            td.innerHTML = dt.name;
+            td1.innerHTML = "<a href="+dt.href+">"+dt.name+"</a>"
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

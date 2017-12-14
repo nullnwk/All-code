@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<ul id="uu">
+    <li>sdfsdfds</li>
+    <li>sdfsdfds</li>
+    <li>sdfsdfds</li>
+    <li>sdfsdfds</li>
+    <li>sdfsdfds</li>
+</ul>
+<script>
+    var lis = my$("uu").getElementsByTagName("li");
+    var color = "";
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].style.backgroundColor = i % 2 == 0 ? "pink" : "yellow";
+        lis[i].onmouseover = function () {
+            color = this.style.backgroundColor
+            this.style.backgroundColor = "blue"
+        }
+        lis[i].onmouseout = function () {
+            this.style.backgroundColor = color;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #DB192A;
+            float: left;
+        }
+    </style>
+    <script src="../../jquery-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $("div").each(function (index, ele) {
+                $(ele).css("opacity", (1+index)/10)
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

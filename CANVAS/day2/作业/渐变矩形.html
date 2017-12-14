@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       canvas{
+           border: 1px solid red;
+       }
+
+
+
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        var canvas = document.querySelector("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var clg = ctx.createLinearGradient(50,50,200,50);
+        clg.addColorStop(0,"red");
+        clg.addColorStop(1,"yellow");
+        ctx.rect(50,50, 200,200);
+        ctx.fillStyle = clg;
+        ctx.fill()
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box"></div>
+
+<script>
+    var box = document.querySelector(".box");
+    var startX, startY, currentX, currentY, _left, _top;
+    box.addEventListener("touchstart", function (e) {
+        var touches = e.targetTouches[0];
+        startX = touches.clientX;
+        startY = touches.clientY;
+        _left = this.offsetLeft;
+        _top = this.offsetTop;
+    });
+    box.addEventListener("touchmove", function (e) {
+        var touches = e.changedTouches[0];
+        currentX = touches.clientX;
+        currentY = touches.clientY;
+        this.style.left = _left + (currentX - startX) + "px";
+        this.style.top = _top + (currentY - startY) + "px";
+    })
+
+
+</script>
+
+</body>
+</html>

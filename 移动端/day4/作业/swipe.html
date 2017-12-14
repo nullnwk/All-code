@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .swipe{
+            width: 100%;
+            overflow: hidden;
+        }
+        .swipe {
+            overflow: hidden;
+            visibility: hidden;
+            position: relative;
+        }
+        div{
+            float: left;
+            width: 100%;
+            height: 200px;
+            position: relative;
+        }
+
+
+        .swipe-wrap>div:nth-child(1) {
+            background-color: red;
+        }
+
+        .swipe-wrap>div:nth-child(2) {
+            background-color: blue;
+        }
+
+        .swipe-wrap>div:nth-child(3) {
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id='slider' class='swipe'>
+    <div class='swipe-wrap'>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</div>
+<script src="swipe.js"></script>
+<script>
+    window.mySwipe = new Swipe(document.getElementById('slider'), {
+        // 开始的一张图片的索引
+        // startSlide: 2,
+        // 过度的速度
+        speed: 200,
+        // 当自动播放的时候 每隔3000ms轮播一次
+        auto: 2000,
+        // 是否循环轮播
+        continuous: true,
+        // 停止冒泡
+        stopPropagation: false,
+        // 回调
+        // callback: function (index, elem) { },
+        // 过渡完成的事件
+        // transitionEnd: function (index, elem) { }
+    });
+
+
+</script>
+</body>
+</html>

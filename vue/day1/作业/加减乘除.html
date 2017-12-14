@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<body>
+  <div id="app">
+
+    <input type="number" v-model="num1">
+    <select name="" id="" v-model="operation">
+    <option value="1">+</option>
+    <option value="2">-</option>
+    <option value="3">*</option>
+    <option value="4">/</option>
+    <option value="5">%</option>
+  </select>
+    <input type="number" v-model="num2">
+    <button @click="evaluate">=</button>
+    <span>{{worth}}</span>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        num1: 1,
+        num2: 1,
+        worth: '',
+        operation: "1"
+      },
+      methods: {
+        evaluate() {
+          this.operation = Number(this.operation);
+          this.num1 = Number(this.num1);
+          this.num2 = Number(this.num2);
+          switch (this.operation) {
+            case 1:
+              this.worth = this.num1 + this.num2;
+              break;
+            case 2:
+              this.worth = this.num1 - this.num2;
+              break;
+            case 3:
+              this.worth = this.num1 * this.num2;
+              break;
+            case 4:
+              this.worth = this.num1 / this.num2;
+              break;
+            case 5:
+              this.worth = this.num1 % this.num2;
+              break;
+          }
+          console.log(this.worth);
+        }
+      }
+    })
+  </script>
+
+</body>
+
+
+</html>

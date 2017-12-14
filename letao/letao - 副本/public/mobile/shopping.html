@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LGo,一起购</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="lib/mui/mui.min.css">
+    <link rel="stylesheet" href="lib/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="css/shopping.css">
+</head>
+<body class="mui-android mui-android-5 mui-android-5-0">
+<div class="lt-shopping">
+    <!--头部-->
+    <header class="lt-header mui-bar mui-bar-nav">
+        <a class="mui-icon fa fa-arrow-left mui-plus-visible"></a>
+        <a id="info" class="mui-icon fa fa-refresh mui-pull-right"></a>
+        <h1 class="mui-title">购物车</h1>
+    </header>
+
+    <!--底部-->
+    <footer class="lt-footer mui-bar mui-bar-tab ">
+        <a class="mui-item" href="goodsIndex.html">
+            <span class="mui-icon fa fa-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-item" href="classify.html">
+            <span class="mui-icon fa fa-align-justify"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-item mui-active" href="shopping.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-item" href="user/user.html">
+            <span class="mui-icon fa fa-user"></span>
+            <span class="mui-tab-label mui-active">我的</span>
+        </a>
+    </footer>
+
+    <!--主体-->
+    <div class="comment w">
+        <div class="zhezhao"></div>
+
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="commentB" id="wrapper">
+                    <div class="commentBox"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="commentB" id="wrapper">-->
+            <!--<div class="commentBox"></div>-->
+        <!--</div>-->
+
+        <div class="comment-bottom">
+            <span>订单总额：&yen;<i class="term">0.00</i></span>
+            <a href="###">生成订单</a>
+        </div>
+    </div>
+</div>
+
+<!--商品模板-->
+<script type="text/template" id="getShopping">
+    {{each list}}
+    <div class="com-box">
+        <div class="clear">
+            <p><a href="###">找相似</a></p>
+            <p><a href="###">移入收藏夹</a></p>
+            <p><a class="removeComBox" data-id="{{$value.id}}" href="###">{{$value.id}}</a></p>
+        </div>
+
+
+
+        <label class="cheBox">
+            <i></i>
+        </label>
+        <div class="com_l">
+            <a href="###"><img src="{{$value.pic[0].picAddr}}" alt=""></a>
+        </div>
+        <div class="com_r">
+            <p>{{$value.proName}}</p>
+            <p class="price">
+                &yen;<i>{{$value.price}}</i>
+                <span class="del">&yen;{{$value.oldPrice}}</span>
+                <span>×<i>{{$value.size}}</i>双</span>
+            </p>
+            <p>鞋码：<i>{{$value.num}}</i></p>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+
+
+<script src="lib/mui/mui.min.js"></script>
+<script src="lib/artTemplate/template.js"></script>
+<script src="js/callback.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+
+<script src="js/shopping.js"></script>
+<!--<script src="lib/isscroll/iscroll.js"></script>-->
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            /*float: left;*/
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="box">
+    <img src="1.png" alt="" draggable="true">
+</div>
+<div class="box1"></div>
+<script>
+   var box = document.querySelector(".box");
+   var box1 = document.querySelector(".box1");
+   var img = document.querySelector("img");
+    box.ondrop = function () {
+        this.appendChild(img);
+    };
+    box.ondragover = function (e) {
+        e.preventDefault();
+        console.log(e);
+    };
+   box1.ondrop = function () {
+       this.appendChild(img);
+   };
+   box1.ondragover = function (e) {
+       e.preventDefault();
+   }
+
+
+</script>
+</body>
+</html>

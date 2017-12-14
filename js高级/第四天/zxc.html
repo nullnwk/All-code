@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//function f1(x,y) {
+//    console.log(x+y);
+//}
+//var obj = {
+//    name:"zxc",
+//    age : 18
+//};
+//f1.apply(obj, [10,10])
+
+    function Person(name) {
+        this.name = name;
+    }
+    Person.prototype.play = function (x,y) {
+        console.log(x+y);
+    };
+
+    function Student() {
+    }
+    var per = new Person("zxc");
+    var stu = new Student();
+    per.play.apply(stu, [10,20]);
+
+
+</script>
+
+</body>
+</html>

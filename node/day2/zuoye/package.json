@@ -1,0 +1,18 @@
+{
+  "name": "zuoye",
+  "version": "1.0.0",
+  "main": "comments.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "mime": "^2.0.3",
+    "art-template": "^4.12.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

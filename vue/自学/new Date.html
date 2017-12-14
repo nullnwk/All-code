@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p v-bind:title="message">鼠标悬停{{message}}</p>
+  </div>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    var app =new Vue({
+      el:"#app",
+      data:{
+        message:new Date()
+      }
+
+
+
+    })
+
+
+  </script>
+</body>
+
+</html>

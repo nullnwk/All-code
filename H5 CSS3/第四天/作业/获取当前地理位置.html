@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.navigator.geolocation.getCurrentPosition(success,error);
+    function success() {
+        console.log(position.coords.longitude+"==="+position.coords.latitude);
+    }
+    function error() {
+        console.log("错误");
+    }
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="06动态添加行的案例/jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            $("#inp").focus(function () {
+                console.log(1);
+                $(this).next("span").text("出发了");
+            });
+           /* $("#btn").click(function () {
+                $("#inp").focus();
+            });*/
+           /* $("#btn").click(function () {
+                $("#inp").trigger("focus");
+            });*/
+            $("#btn").click(function () {
+                $("#inp").triggerHandler("focus");
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<input type="text" id="inp"><span></span>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script src="common.js"></script>
+<script>
+    var timer = setInterval(function () {
+        console.log(1);
+    }, 1000);
+    my$("btn").onclick = function () {
+        clearInterval(timer);
+    }
+
+</script>
+
+</body>
+</html>

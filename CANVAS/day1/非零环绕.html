@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.moveTo(50,50);
+    ctx.lineTo(350,50);
+    ctx.lineTo(350,350);
+    ctx.lineTo(50,350);
+    ctx.closePath();
+
+    ctx.moveTo(200,200);
+    ctx.lineTo(100,100);
+    ctx.lineTo(150,100);
+    ctx.lineTo(150,150);
+    ctx.lineTo(250,150);
+    ctx.lineTo(150,100);
+    ctx.lineTo(150,300);
+    ctx.lineTo(200,200);
+    ctx.fill();
+
+
+
+
+
+</script>
+</body>
+</html>

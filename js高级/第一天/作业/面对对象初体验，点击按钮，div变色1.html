@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn"></button>
+<div id="dv"></div>
+<script src="../common.js"></script>
+<script>
+    function Person(btn, dv, json) {
+        this.btn = btn;
+        this.dv = dv;
+        this.json = json;
+    }
+    Person.prototype.init = function () {
+        var that = this;
+        this.btn.onclick = function () {
+            for(var k in that.json){
+                that.dv.style[k] = that.json[k];
+            }
+        }
+    };
+    var per = new Person(my$("btn"),my$("dv"),{
+        "width":"500px",
+        "height":"500px",
+        "backgroundColor":"pink",
+        "opacity":"0.4"
+    } )
+    per.init()
+</script>
+</body>
+</html>

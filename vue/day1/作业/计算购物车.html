@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+<body>
+    <div id="app">
+        单价：<input type="num" v-model="spare"><br> 数量：
+        <button @click="reduce(spare)">-</button>
+        <span>{{count}}</span>
+        <button @click="add(spare)">+</button>
+        <br> 总价：
+        <strong>{{spare*count}}</strong>
+
+    </div>
+
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                spare: 5,
+                count: 5
+            },
+            methods: {
+                reduce(spare) {
+                    if (this.count>0) {
+                        this.count--;
+                    }
+
+                },
+                add(spare) {
+                    this.count++;
+                }
+
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

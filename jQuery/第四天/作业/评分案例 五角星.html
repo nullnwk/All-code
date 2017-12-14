@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            color: yellow;
+        }
+
+        .comment li {
+            float: left;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="../../jquery-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".comment li").mouseenter(function () {
+                $(this).text("★").prevAll("li").text("★").end().nextAll("li").text("☆");
+            }).click(function () {
+                $(this).attr("index", "1").siblings().removeAttr("index");
+            }).mouseleave(function () {
+                $(".comment>li").text("☆");
+                $(".comment li[index]").text("★").prevAll("li").text("★");
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+</body>
+</html>

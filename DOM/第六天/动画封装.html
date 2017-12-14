@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="移动到400" id="btn">
+<input type="button" value="移动到800" id="btn1">
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        animate1(my$("dv"), {"width": 400,"height":400,"left":300})
+    };
+    my$("btn1").onclick = function () {
+        animate1(my$("dv"), "height", 800)
+    };
+
+
+    /**
+     * 获取任意元素的任意属性值
+     * @param ele  元素名
+     * @param attr 属性名
+     * @returns {*} 返回的是属性值
+     */
+    function getStyle(ele, attr) {
+        return window.getComputedStyle ? window.getComputedStyle(ele, null)[attr] : ele.currentStyle[attr];
+    }
+    /**
+     *缓动动画
+     * @param ele 元素名
+     * @param attr 属性名
+     * @param target 目标位置
+     */
+    function animate1(ele, json) {
+        clearInterval(ele.timer);
+        ele.timer = setInterval(function () {
+            var bool = true;
+            for (var attr in json) {
+                //获取当前位置
+                var current = parseInt(getStyle(ele, attr));
+                //移动的步数
+                var target = json[attr];
+                var step = (target - current) / 10;//固定的一个公式
+                step = step > 0 ? Math.ceil(step) : Math.ceil(step);
+                //每次移动后的距离
+                current += step;
+                ele.style[attr] = current + "px";
+                if (target != current) {
+                    bool = false;
+                }
+            }
+            //如果当前位置等于目标位置，清除定时器
+            if (bool) {
+                clearInterval(ele.timer);
+            }
+            console.log("目标位置:" + target + ",当前位置:" + current + ",每次移动步数:" + step);
+        }, 10)
+    }
+
+
+</script>
+
+
+</body>
+</html>

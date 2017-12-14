@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").bind("click", function () {
+                $(this).css("backgroundColor", "red")
+            }).bind("mouseenter", function () {
+                $(this).css("backgroundColor", "green")
+            }).bind("mouseleave", function () {
+                $(this).css("backgroundColor", "yellow")
+            });
+        });
+        $(function () {
+            $("#btn").bind({
+                "click": function () {
+                    $(this).css("backgroundColor", "red")
+                }, "mouseenter": function () {
+                    $(this).css("backgroundColor", "green")
+                }, "mouseleave": function () {
+                    $(this).css("backgroundColor", "yellow")
+                }
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+<button id="btn">按钮</button>
+</body>
+</html>

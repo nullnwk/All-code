@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div>111</div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script src="../jquery-1.12.1.js"></script>
+<script>
+   $("#btn").click(function () {
+       $("div").eq(0).attr({"width":"200px", "height":"100px", "backgroundColor":"red"});
+   });
+
+
+//   $("#btn").click(function () {
+//       $("div").text("hhh");
+//   })
+
+</script>
+</body>
+</html>

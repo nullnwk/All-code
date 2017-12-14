@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //递归求和
+    function getSum(num) {
+        if (num == 1) {
+            return 1;
+        }
+        return num + getSum(num - 1)
+    }
+    console.log(getSum(5));
+
+
+    //斐波那契数列
+    function getF(num) {
+        if(num ==1 || num ==2){
+            return 1;
+        }
+        return getF(num-1)+getF(num-2);
+    }
+    console.log(getF(12));
+
+    //求一个数字各个位置上的和
+    function getEverySum(x) {
+        if(x<10){
+            return x;
+        }
+        //获取的是这个数字的个位数
+        return x%10+getEverySum(parseInt(x/10));
+    }
+    console.log(getEverySum(1364));
+</script>
+
+</body>
+</html>

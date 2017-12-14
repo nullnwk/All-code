@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script>
+        //正则表达式中:g 表示的是全局模式匹配
+        //正则表达式中:i 表示的是忽略大小写
+
+        //把里面所有的数字全部显示出来
+        var str="中国移动:10086,中国联通:10010,中国电信:10000";
+        console.log(str.match(/[0-9]{5}/g));
+
+        //把每个邮箱提取出来
+        var str1 = "123123@xx.com,fangfang@valuedopinions.cn 286669312@qq.com 2、emailenglish@emailenglish.englishtown.com 286669312@qq.com...";
+        console.log(str1.match(/\w+@\w+\.\w+(\.\w+)?/g));
+
+        //提取这里的日
+        var str3="2017-11-12";
+        console.log(str3.match(/(\d{4})[-](\d{2})[-](\d[2])/g));
+        console.log(RegExp.$3);
+
+        //提取用户名  域名
+        var email="shuaiyangtaishuaile@itcast.com.cn";
+        console.log(email.match(/(\w+)@(\w+)\.(\w+(\.\w+)?)/g));
+        console.log(RegExp.$1);
+        console.log(RegExp.$2);
+        console.log(RegExp.$3);
+
+        //把帅变成猥琐
+        var str4="小名好帅哦,真的是太帅了,帅,就是真帅";
+        console.log(str4.replace(/帅/g, "shuai"));
+
+        //去掉所有空格
+        var str5="  哦买噶的    ,太幸福了  ";
+        console.log(str5.replace(/\s/g, ""));
+
+        //所有的h都替换成S
+        var str6="HhpphH";//SSppSS
+        console.log(str6.replace(/h/gi, "s"));
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

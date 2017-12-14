@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* function f1() {
+        sum  = 0;
+        for(var i=0; i<arguments.length; i++){
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    console.log(f1(1, 2, 3, 4));*/
+
+   function f1() {
+       for(var i=0; i<arguments.length/2; i++) {
+               var temp = arguments[i];
+               arguments[i] = arguments[arguments.length-1-i];
+               arguments[arguments.length-1-i] = temp;
+       }
+       return arguments;
+   }
+   console.log(f1(1, 2, 3, 4, 5));
+
+
+   /*function f1(n1) {
+       for(var i=2; i<n1; i++){
+           if(n1%i == 0){
+               return false
+           }
+       }
+       return true;
+   }
+   console.log(f1(4));*/
+
+  /* function f1(n1, n2) {
+       var sum = 0;
+       for(var i=n1; i<=n2; i++){
+           sum += i;
+       }
+       return sum;
+   }
+   console.log(f1(2, 4));*/
+
+</script>
+
+</body>
+</html>

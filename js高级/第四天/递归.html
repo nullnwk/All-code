@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*var index = 0;
+    function f1() {
+        index++;
+        index<5?f1():null;
+        console.log(111);
+    }
+    f1();*/
+
+
+    //递归求和
+    function getSum(num) {
+        if(num ==1){
+            return 1;
+        }
+        return num + getSum(num-1);
+    }
+
+    console.log(getSum(5));
+</script>
+
+</body>
+</html>

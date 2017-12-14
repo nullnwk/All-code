@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div id="dv">
+        <p>sdfhjdskfh</p>
+        <p>sdfh</p>
+        <p id="pp">sdfhdsdfsdfdsjdskfh</p>
+        <p>dddddddddddd</p>
+        <p>gggggggggg</p>
+    </div>
+</div>
+<script>
+    var dv = document.getElementById("dv");
+    var pp = document.getElementById("pp");
+    //父节点、父元素
+    console.log(dv.parentNode);
+    console.log(dv.parentElement);
+    //所有子节点、子元素
+    console.log(dv.childNodes);
+    console.log(dv.children);
+    //第一个子节点、子元素
+    console.log(dv.firstChild);
+    console.log(dv.firstElementChild);
+    //最后一个子节点、子元素
+    console.log(dv.lastChild);
+    console.log(dv.lastElementChild);
+    //上一个兄弟节点、元素
+    console.log(pp.previousSibling);
+    console.log(pp.previousElementSibling);
+    //下一个兄弟节点、元素
+    console.log(pp.nextSibling);
+    console.log(pp.nextElementSibling);
+</script>
+</body>
+</html>

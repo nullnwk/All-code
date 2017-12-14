@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name= name;
+        this.age = age;
+    }
+    Person.prototype.init = function () {
+            console.log(11);
+    };
+    var per = new Person("xiao", 19);
+    per.init();
+
+</script>
+
+</body>
+</html>

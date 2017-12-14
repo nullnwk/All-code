@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LGo,一起购</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="lib/mui/mui.min.css">
+    <link rel="stylesheet" href="lib/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="css/classify.css">
+    <link rel="icon" href="favicon.ico">
+
+    <script src="../../../letao-master/public/mobile/js/cart.js"></script>
+</head>
+<body class="mui-android mui-android-5 mui-android-5-0">
+<div class="lt-classify">
+    <!--头部-->
+    <header class="lt-header mui-bar mui-bar-nav">
+        <a class="mui-icon fa fa-arrow-left mui-plus-visible"></a>
+        <a href="search/search.html" id="info" class="mui-icon fa fa-search mui-pull-right"></a>
+        <h1 class="mui-title">乐淘云购1</h1>
+    </header>
+
+    <!--底部-->
+    <footer class="lt-footer mui-bar mui-bar-tab ">
+        <a class="mui-item" href="goodsIndex.html">
+            <span class="mui-icon fa fa-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-item mui-active" href="classify.html">
+            <span class="mui-icon fa fa-align-justify"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-item" href="shopping.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-item" href="user/user.html">
+            <span class="mui-icon fa fa-user"></span>
+            <span class="mui-tab-label mui-active">我的</span>
+        </a>
+    </footer>
+
+    <!--主体-->
+    <div class="lt-comment">
+        <div class="left" id="wrapper">
+            <ul>
+                <li>
+                    <a class="active" href="javascript:;">运动馆</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">女士馆</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">男士馆</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">帆布馆</a>
+                </li>
+                <li>
+                    <a href="javascript:;">户外管</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">女士馆</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">男士馆</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">帆布馆</a>
+                </li>
+                <li>
+                    <a href="javascript:;">户外管</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">女士馆</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">男士馆</a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">帆布馆</a>
+                </li>
+                <li>
+                    <a href="javascript:;">户外管</a>
+                </li>
+
+
+            </ul>
+        </div>
+        <div class="right">
+            <div class="brand">
+                <h4>热门品牌</h4>
+                <ul>
+                    <li>
+                        <a href="###"><img src="images/brand1.png" alt="">
+                        </a>
+                        <span>耐克</span>
+                    </li>
+                    <li>
+                        <a href="###"><img src="images/brand2.png" alt=""></a>
+                        <span>阿迪</span>
+                    </li>
+                    <li>
+                        <a href="###"><img src="images/brand3.png" alt=""></a>
+                        <span>新百伦</span>
+                    </li>
+                    <li>
+                        <a href="###"><img src="images/brand4.png" alt=""></a>
+                        <span>哥伦比亚</span>
+                    </li>
+                    <li>
+                        <a href="###"><img src="images/brand5.png" alt=""></a>
+                        <span>匡威</span>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="hot-guider">
+                <h4>热门品类</h4>
+                <a href="###"><img src="images/sort_1.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_2.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_3.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_4.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_5.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_6.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_7.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_8.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_9.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_10.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_11.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_12.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_13.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_14.jpg" alt=""></a>
+                <a href="###"><img src="images/sort_15.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--一级菜单渲染-->
+<script type="text/template" id="first">
+    {{each rows}}
+        {{if $index == 0}}
+             <li><a href="###" class="active" data-id="{{$value.id}}">{{$value.categoryName}}</a></li>
+        {{else}}
+             <li><a href="###" data-id="{{$value.id}}">{{$value.categoryName}}</a></li>
+         {{/if}}
+    {{/each}}
+</script>
+<!--二级菜单渲染-->
+<script type="text/template" id="second">
+    {{each rows}}
+    <li>
+        <a href="###"><img src={{$value.brandLogo}} alt="">
+        </a>
+        <span>{{$value.brandName}}</span>
+    </li>
+    {{/each}}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<!--一级联动模板-->
+<!--<script type="text/template" id="first-menu">-->
+    <!--<%for(var i = 0; i < rows.length; i++){%>-->
+        <!--<%if(i == 0){%>-->
+            <!--<li>-->
+                <!--<a class="active" data-id="<%=rows[i].id%>" href="javascript:;"><%=rows[i].categoryName%></a>-->
+            <!--</li>-->
+        <!--<%}else{%>-->
+            <!--<li>-->
+            <!--<a data-id="<%=rows[i].id%>" href="javascript:;"><%=rows[i].categoryName%></a>-->
+            <!--</li>-->
+        <!--<%}%>-->
+    <!--<%}%>-->
+<!--</script>-->
+<!--<script type="text/template" id="second-menu">-->
+    <!--<%if(rows.length == 0){%>-->
+        <!--<p>暂无商品</p>-->
+     <!--<%}else{%>-->
+        <!--<ul>-->
+        <!--<%for(var i=0 ;i < rows.length; i++){%>-->
+             <!--<li>-->
+                <!--<a href="###">-->
+                    <!--<img src="<%=rows[i].brandLogo%>" alt="<%=rows[i].brandName%>">-->
+                <!--</a>-->
+                <!--<span><%=rows[i].brandName%></span>-->
+             <!--</li>-->
+        <!--<%}%>-->
+        <!--</ul>-->
+     <!--<%}%>-->
+
+
+
+<!--</script>-->
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/artTemplate/template.js"></script>
+<!--<script src="lib/artTemplate/template-native.js"></script>-->
+<script src="lib/mui/mui.min.js"></script>
+<script src="js/callback.js"></script>
+<script src="lib/isscroll/iscroll.js"></script>
+<script src="js/classify.js"></script>
+
+
+</body>
+</html>

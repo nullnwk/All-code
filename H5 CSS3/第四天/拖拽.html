@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid chartreuse;
+        }
+        span{
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: rebeccapurple;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box" draggable="true" id="boxId"></div>
+    <span draggable="true" id="spanId"></span>
+
+    <script>
+        var box = document.querySelector(".box");
+        var span = document.querySelector("span");
+
+        span.ondragstart = function (e) {
+            //保存元素
+            e.dataTransfer.setData("text","spanId");
+        };
+        box.ondrop = function (e) {
+            //获取保存的元素
+            var spanid = e.dataTransfer.getData("text");
+            var span1 = document.getElementById(spanid);
+            e.target.appendChild(span1);
+        };
+        box.ondragover = function (e) {
+            e.preventDefault();
+        };
+
+
+    </script>
+
+</body>
+</html>

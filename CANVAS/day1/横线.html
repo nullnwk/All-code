@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border:1px solid #ccc;
+            display: block;
+            margin: 50px auto;
+        }
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    var n=20;
+    for(var i=0; i<40; i++){
+        ctx.beginPath();
+        ctx.moveTo(0,n*i);
+        ctx.lineTo(600,n*i);
+        ctx.strokeStyle = "#ccc";
+        ctx.stroke();
+    }
+    for(var i=0; i<40; i++){
+        ctx.beginPath();
+        ctx.moveTo(n*i,0);
+        ctx.lineTo(n*i,400);
+        ctx.strokeStyle = "#ccc";
+        ctx.stroke();
+    }
+
+
+
+    var l_p=20;
+    var r_p =20;
+    var t_p =20;
+    var b_p =20;
+    ctx.beginPath();
+    //纵坐标
+    ctx.moveTo(l_p,canvas.height-b_p);
+    ctx.lineTo(l_p,t_p);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+
+
+    //横坐标
+    ctx.beginPath();
+    ctx.moveTo(canvas.width-l_p,canvas.height-b_p);
+    ctx.lineTo(l_p,canvas.height-b_p);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+
+    //小三角
+    var t_w = 10;
+    var t_h = 10;
+
+    ctx.moveTo(l_p,t_p);
+    ctx.lineTo(l_p-t_w/2,t_p+t_h);
+    ctx.lineTo(l_p-t_w/2+t_w,t_p+t_h);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+
+    ctx.moveTo(canvas.width-r_p,canvas.height-b_p);
+    ctx.lineTo(canvas.width-r_p-t_w,canvas.height-b_p-t_w/2);
+    ctx.lineTo(canvas.width-r_p-t_w,canvas.height-b_p+t_w/2);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+
+
+
+
+    //随机生成点  3, 10
+    var rnum=myRandom(3,10);  //确定生成点的个数
+
+    //确定点的位置
+
+    var ary=[];  //用来保存这些点
+
+    for(var i=0; i<rnum; i++) {
+
+        var ox=myRandom(20, 580);
+
+        var oy=myRandom(20, 380);
+
+        var obj= {
+
+            x: ox,
+            y: oy
+        }
+
+        ary.push(obj);
+    }
+    //开始绘制点 约定正方形10
+    ctx.fillStyle="red";
+    for(var i=0; i<ary.length; i++) {
+
+        ctx.beginPath();
+        ctx.moveTo(ary[i].x-5, ary[i].y-5);
+        ctx.lineTo(ary[i].x-5+10, ary[i].y-5);
+        ctx.lineTo(ary[i].x-5+10, ary[i].y-5+10);
+        ctx.lineTo(ary[i].x-5,ary[i].y-5+10);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+
+    //连线自己完成
+    //
+    //
+
+
+    //随机函数
+    function myRandom (min, max) {
+        return Math.floor( (max-min)*Math.random() )+min;
+    }
+
+
+
+</script>
+</body>
+</html>

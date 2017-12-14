@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv">
+    <p>sdfsfdsdf</p>
+    <p>sdfsfdsdf</p>
+    <span>dsfdfd</span>
+    <p>sdfsfdsdf</p>
+    <p>sdfsfdsdf</p>
+    <a href="##">sdfds</a>
+    <p>sdfsfdsdf</p>
+</div>
+
+<script>
+    /*  var btn = document.getElementById("btn");
+    var dv = document.getElementById("dv");
+    var dvObj = dv.childNodes;
+   btn.onclick = function () {
+        for(var i=0; i<dvObj.length; i++){
+            if(dvObj[i].nodeType == 1 && dvObj[i].nodeName == "P"){
+                dvObj[i].style.backgroundColor = "red";
+            }
+        }
+    };*/
+    var btn = document.getElementById("btn");
+    var dv = document.getElementById("dv");
+    var dvObj = dv.children;
+    btn.onclick = function () {
+        for(var i=0; i<dvObj.length; i++){
+            if(dvObj[i].nodeName == "P"){
+                dvObj[i].style.backgroundColor = "red";
+            }
+        }
+    };
+
+
+
+</script>
+</body>
+</html>

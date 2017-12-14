@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script>
+    var arr = [111,222,3333,4444,555,666];
+    my$("btn").onclick = function () {
+        var ul = document.createElement("ul");
+        my$("dv").appendChild(ul);
+        for(var i=0; i<arr.length; i++){
+            var lis = document.createElement("li");
+            lis.innerHTML = arr[i];
+            ul.appendChild(lis);
+            lis.onmouseover = mouseoverHande;
+            lis.onmouseout = mouseoutHande;
+        }
+    };
+    function mouseoverHande() {
+        this.style.backgroundColor = "red";
+    }
+    function mouseoutHande() {
+        this.style.backgroundColor = "";
+    }
+
+
+
+</script>
+</body>
+</html>

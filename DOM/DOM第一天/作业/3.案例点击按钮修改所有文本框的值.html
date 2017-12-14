@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<input type="text" value="zzzz">
+<input type="text" value="zzzz">
+<input type="text" value="zzzz">
+<input type="text" value="zzzz">
+<input type="text" value="zzzz">
+<input type="text" value="zzzz">
+<script>
+    var btn =document.querySelector("#btn");
+    var ipts = document.querySelectorAll("input");
+    btn.onclick= function () {
+        for(var i=1; i<ipts.length; i++){
+            ipts[i].value = "11111111"
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

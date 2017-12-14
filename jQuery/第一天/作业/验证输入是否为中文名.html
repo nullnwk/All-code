@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../jquery-1.12.1.js"></script>
+<script>
+    $(function () {
+        $("#btn").on("click", function () {
+            if(/^[\u4e00-\u9fa5]{2,6}$/.test($("input").val())){
+                $("input").css("backgroundColor","yellow");
+            }else {
+                $("input").css("backgroundColor","red");
+            }
+        });
+    });
+
+
+
+
+</script>
+<body>
+<button id="btn">按钮</button>
+<input type="text">
+</body>
+</html>

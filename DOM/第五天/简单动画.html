@@ -1,0 +1,173 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        img {
+            vertical-align: top
+        }
+
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .inner {
+            width: 730px;
+            height: 454px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .inner li {
+            float: left;
+        }
+
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+
+        #focusD {
+            display: none;
+        }
+
+        #focusD span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #focusD #right {
+            right: 5px;
+            left: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="inner"><!--相框-->
+        <ul>
+            <li><a href="#"><img src="images/1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/6.jpg" alt=""/></a></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+        </div>
+        <div id="focusD"><span id="left">&lt;</span><span id="right">&gt;</span>
+        </div>
+    </div>
+    <script src="common.js"></script>
+    <script>
+        var box = my$("box");
+        var inner = box.children[0];
+        var innerImg = inner.offsetWidth;
+        var ulObj = inner.children[0];
+        var square = inner.children[1].children;
+
+        for (var i = 0; i < square.length; i++) {
+            square[i].index = i;
+            // square[i].setAttribute("index", i);
+            square[i].onmouseover = function () {
+                //鼠标经过小圆点变色，排他思想
+                for (var j = 0; j < square.length; j++) {
+                    square[j].className = "";
+                }
+                //设置当前span的颜色
+                this.className = "current";
+                //移动ul，移动的距离等于图片的宽度+span索引值
+                //var index = this.getAttribute("index");
+                animate(ulObj, -this.index * innerImg);
+            }
+        }
+
+
+        //获取左右焦点的div
+        var focusD = my$("focusD");
+        //左右焦点的显示与隐藏
+        my$("box").onmouseover = function () {
+            focusD.style.display = "block";
+        };
+        my$("box").onmouseout = function () {
+            focusD.style.display = "none";
+        };
+        //左右按钮
+        var ind = 0;
+        my$("left").onclick = function () {
+            if (ind > 0) {
+                ind--;
+                animate(ulObj, -ind * innerImg)
+            }
+        };
+        my$("right").onclick = function () {
+            if (ind < ulObj.children.length - 1) {
+                ind++;
+                animate(ulObj, -ind * innerImg)
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+

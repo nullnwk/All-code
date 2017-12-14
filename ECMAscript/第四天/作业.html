@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //求一个数组中的最大值和最小值还有和
+    /*function getMaxMinSum(arr) {
+     var sum = 0;
+     var max = arr[0];
+     var min = arr[0];
+     for(var i=0; i<arr.length; i++){
+     sum += arr[i];
+     if(max < arr[i]){
+     max = arr[i];
+     }
+     if(min > arr[i]){
+     min = arr[i];
+     }
+     }
+     var array = [sum, max, min];
+     return array;
+     }
+     console.log(getMaxMinSum([1, 2, 3, 4, 5]));*/
+
+    //求一个数字的阶乘
+    /* function jieCheng(n) {
+     var jc = 1;
+     for(var i=1; i<=n; i++){
+     jc *= i;
+     }
+     return jc;
+     }
+     console.log(jieCheng(5));
+     //求一个数字的阶乘和
+     function jieChengHe(n) {
+     var sum = 0;
+     for(var i=0; i<=n; i++){
+     sum += jieCheng(n);
+     }
+     return sum;
+     }
+     console.log(jieChengHe(5));*/
+
+
+    //输入,年月日,获取这个日期是这一年的第多少天
+    function getDays(years, month, day) {
+        var days = day;
+        if (month == 1) {
+            return days;
+        }
+        var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        for (var i = 0; i < month - 1; i++) {
+            days += months[i];
+        }
+        if (isRn(years) && month > 2) {
+            days++;
+        }
+        return days;
+    }
+    function isRn(year) {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
+    console.log(getDays(2107, 2, 4));
+
+
+   //计算n个数的和
+    /*function getSum() {
+        var sum = 0;
+        for(var i=0; i<arguments.length; i++){
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    console.log(getSum());*/
+
+    //回调函数
+    function sayHi (fn) {
+        console.log(222);
+        fn();
+    }
+    function suSay() {
+        console.log(111);
+    }
+    sayHi(suSay);
+
+    //函数自调用这两种写法都可以
+    (function () {
+                console.log(1);
+            })();
+    (function () {
+                console.log(2);
+            }());
+</script>
+
+</body>
+</html>

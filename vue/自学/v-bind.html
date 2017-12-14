@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .color{color:red}
+  
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!--v-bind 单个写属性要有括号，传对象不需要括号,穿多个对象的时候用数组-->
+    <p :class="{color:isPColor}">{{message}}</p>
+    <div :style="[divStyle,divStyle1]">asdf</div>
+    <span :style='isStyle ? divStyle:""' @click="show">sadfsdf</span>
+    <span v-show="isShow">sadfsdf</span>
+
+
+
+  </div>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el:"#app",
+      data:{
+        message:"niuweikang",
+        isPColor:true,
+        divStyle:{
+          color:'red',
+          fontSize:'20px'
+        },
+        divStyle1:{
+          backgroundColor:"blue"
+        },
+        isStyle:1,
+        isShow:true
+      },
+      methods:{
+        show(){
+          this.isShow = !this.isShow;
+        }
+
+      }
+
+
+    })
+  </script>
+</body>
+</html>

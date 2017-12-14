@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<!--为同一个元素绑定相同的事件，指向同一个处理函数-->
+<button id="btn">按钮</button>
+<script>
+    my$("btn").onclick = f1;
+    my$("btn").onmouseover = f1;
+    my$("btn").onmouseout = f1;
+
+    function f1(e) {
+        switch(e.type){
+            case "click":
+                alert(111);
+                break;
+            case "mouseover":
+                this.style.backgroundColor = "red";
+                break;
+            case "mouseout":
+                this.style.backgroundColor = "yellow";
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

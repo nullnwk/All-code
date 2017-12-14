@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+        ctx.arc(canvas.width/2,canvas.height/2,100,0,Math.PI*2);
+        ctx.stroke();
+
+        ctx.beginPath();
+
+
+            var x =canvas.width/2 + 100 *Math.cos(aTor(0*6-90));
+            var y =canvas.height/2 + 100 *Math.sin(aTor(0*6-90));
+            ctx.arc(x,y,10,0,10);
+            ctx.fill();
+
+    var x =canvas.width/2 + 100 *Math.cos(aTor(0*6-90));
+    var y =canvas.height/2 + 100 *Math.sin(aTor(0*6-90));
+    ctx.arc(x,y,10,0,10);
+    ctx.fill();
+
+    var x =canvas.width/2 + 100 *Math.cos(aTor(0*6-90));
+    var y =canvas.height/2 + 100 *Math.sin(aTor(0*6-90));
+    ctx.arc(x,y,10,0,10);
+    ctx.fill();
+
+
+
+
+
+    function aTor(a) {
+        return a *Math.PI/180;
+    }
+</script>
+</body>
+</html>

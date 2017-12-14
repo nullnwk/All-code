@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //人的构造函数
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.play = function () {
+        console.log("啊啊啊啊");
+        return 11111;
+    };
+    var per = new Person("小明", 10);
+    console.log(per.name);
+    //学生的构造函数
+    function Student(sex) {
+        this.sex = sex;
+    }
+    var stu = new Student("男");
+    console.log(stu.sex);
+    //指向
+    per.play.apply(stu);
+
+
+//    console.log(Object.prototype.toString.call(stu));
+
+</script>
+
+</body>
+</html>

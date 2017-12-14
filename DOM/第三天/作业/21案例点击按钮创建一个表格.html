@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script>
+    var arr=[
+        {name:"百度",href:"http://www.baidu.com"},
+        {name:"谷歌",href:"http://www.google.com"},
+        {name:"优酷",href:"http://www.youku.com"},
+        {name:"土豆",href:"http://www.tudou.com"},
+        {name:"快播",href:"http://www.kuaibo.com"},
+        {name:"爱奇艺",href:"http://www.aiqiyi.com"}
+    ];
+    my$("btn").onclick = function () {
+        var table = document.createElement("table");
+        my$("dv").appendChild(table);
+        table.border = "1";
+        for(var i=0; i<arr.length; i++){
+            var tr = document.createElement("tr");
+            table.appendChild(tr);
+            var td1 = document.createElement("td");
+            tr.appendChild(td1);
+            var td2 = document.createElement("td");
+            tr.appendChild(td2);
+            var index = arr[i];
+            td1.innerHTML = index.name;
+            td2.innerHTML = "<a href="+index.href+">"+index.name+"</a>";
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

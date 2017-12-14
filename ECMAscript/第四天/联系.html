@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* function getCha(x, y) {
+     return x - y;
+     }*/
+    //一组数中的最大值
+    /*
+     function getMax(arr, boolean) {
+     var max = arr[0];
+     var min = arr[0];
+     if (boolean) {
+     for (var i = 0; i < arr.length; i++) {
+     if (max < arr[i]) {
+     max = arr[i];
+     }
+     }
+     return max;
+     } else{
+     for (var j = 0; j < arr.length; j++) {
+     if (min > arr[j]) {
+     min = arr[j];
+     }
+     }
+     return min;
+
+     }
+     }
+     console.log(getMax([1,2,3,4,5,6],false));*/
+
+    //求一组数字的和；
+    /*function getSum(arr) {
+     var sum = 0;
+     for(var i=0; i<arr.length; i++){
+     sum += arr[i];
+     }
+     return sum;
+     }*/
+    //  求一组数中的最大值，最小值，和
+    /**
+     *
+     * @param arr 传入的参数是一个数组。
+     * @returns {*[]} 返回值也是一个数组，第一个为最大值max， 第二个为最小值min，第三个为和sum。
+     */
+
+    function getMaxMinSum(arr) {
+        var max = arr[0];
+        var min = arr[0];
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+            sum += arr[i];
+        }
+        var array = [max, min, sum];
+        return array;
+    }
+    console.log(getMaxMinSum([1, 2, 3]));
+
+   /* //通过函数实现数组翻转
+    function reverseArray(arr) {
+        for (var i = 0; i < arr.length / 2; i++) {
+            var temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = arr[i];
+        }
+        return arr;
+    }
+    console.log(reverseArray([1, 2, 3, 4, 6]));*/
+
+    //函数封装冒泡
+    /*
+     function reverseArray(arr) {
+     for(var i=0; i<arr.length-1; i++){
+     for(var j=0; j<arr.length-1-i; j++){
+     if(arr[j]>arr[j+1]){
+     var temp = arr[j];
+     arr[j] = arr[j+1];
+     arr[j+1] = temp;
+     }//end if
+     }//end for
+     }//end for
+     return arr;
+     }
+     console.log(reverseArray([1, 2, 4, 6, 8, 4, 3, 8]));*/
+
+    /*//函数封装斐波那契数列
+    function getFb(num) {
+        var n1 = 1;
+        var n2 = 1;
+        var sum = 0;
+        for (var i = 3; i <= num; i++) {
+            sum = n1 + n2;
+            n1 = n2;
+            n2 = sum;
+        }
+        return sum;
+    }
+    console.log(getFb(12));*/
+
+    /*//输入年月日，获取这个日期是这一年的第几天
+    function getDays(years, month, day) {
+        //定义一个变量存储天数
+        var days = day;
+        if (month == 1) {
+            return days;
+        }
+        //月数
+        var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        for (var i = 0; i < month - 1; i++) {
+            days += months[i];
+        }
+        if (isRn(years) && month > 2) {
+            days++;
+        }
+        return days;
+    }
+    //判断闰年
+    function isRn(num) {
+        return num % 4 == 0 && num % 100 != 0 || num % 400 == 0;
+    }
+    console.log(getDays(1017, 3, 2));*/
+
+    //阶乘
+    /*function jc(num) {
+     if(num <= 1){
+     return 1;
+     }
+     return num * jc(num-1);
+     }
+     console.log(jc(5));*/
+
+   function f1() {
+       var sum = 0;
+       for(var i=0; i<arguments.length; i++){
+           sum += arguments[i];
+       }
+       return sum;
+   }
+    console.log(f1(1, 2, 3, 4, 5));
+
+
+</script>
+
+</body>
+</html>

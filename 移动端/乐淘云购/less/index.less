@@ -1,0 +1,162 @@
+@import "adapter.less";
+@import "adapter.less";
+@import "variable.less";
+@import "reset.less";
+
+//头部
+.lt-header {
+  .lt-header();
+}
+
+//底部
+.lt-footer {
+ .lt-footer();
+}
+
+//主体
+.lt-comment {
+  background: @write;
+  position: fixed;
+  top: 44px;
+  left: 0;
+  height: 100%;
+  .com{
+    width: 100%;
+  }
+  .carousel{
+    width: 100%;
+    .mui-content{
+      background-color: @write;
+    }
+  }
+  .shoe {
+    width: 100%;
+    .mui-table-view-cell {
+      padding: 0;
+    }
+    .mui-grid-view.mui-grid-9 .mui-table-view-cell {
+      border: none;
+    }
+    .mui-table-view-cell > a:not(.mui-btn) {
+      padding: 0;
+      border: none;
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+  .sale {
+    width: 100%;
+    font-size: 0;
+    .s-l {
+      width: 66.6666%;
+      font-size: 0;
+      display: inline-block;
+      a {
+        display: inline-block;
+        width: 50%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .s-r {
+      width: 33%;
+      display: inline-block;
+      a {
+        display: inline-block;
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+  .brand{
+    width: 100%;
+    margin-top: 15px;
+    .b_t{
+      width: 100%;
+      img{
+        width: 100%;
+      }
+    }
+    .b_b{
+      width: 100%;
+      font-size: 0;
+      a{
+        display: inline-block;
+        width: 25%;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .sport{
+    width: 100%;
+    .s_t{
+      width: 100%;
+      margin-top: 15px;
+      img{
+        width: 100%;
+      }
+    }
+    .s_b{
+      width: 100%;
+      text-align: justify;
+      padding-bottom:80px;
+      &:after{
+        content:"";
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+      }
+      .sport-show{
+        display: inline-block;
+        width: 49%;
+        margin: 5px 0;
+        color: #f0f0f0;
+        border: 1px solid @sport-show;
+        box-shadow: 0 0 6px @sport-showShadow;
+        border-radius: 2px;
+        p{
+          padding: 3px 15px;
+          font-size: 14px;
+          &.price{
+            text-align: center;
+            i{
+              color: @sportPrice;
+            }
+            span{
+              text-decoration: line-through;
+            }
+          }
+        }
+        .buy{
+          display: block;
+          width: 50%;
+          height: 30px;font-size: 14px;
+          line-height: 30px;
+          text-align: center;
+          margin: 0 auto 10px auto;
+          background: @sportBuy;
+          border-radius: 5px;
+          &:hover{
+            color: @write;;
+          }
+        }
+      }
+      a:first-child{
+        display: inline-block;
+        width: 100%;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}

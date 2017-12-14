@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+    click();
+    setInterval(click,1000);
+
+
+    //先清屏
+    function click() {
+    ctx.clearRect(0, 0, 600, 400);
+    ctx.beginPath();
+    //创建表盘
+    ctx.arc(canvas.width/2,canvas.height/2,100,0,Math.PI*2);
+    ctx.stroke();
+
+    //指针
+    var date = new Date();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    //秒
+    ctx.beginPath();
+    var x =canvas.width/2 + 90 *Math.cos(aTor(s*6-90));
+    var y =canvas.height/2 + 90 *Math.sin(aTor(s*6-90));
+    ctx.arc(x,y,10,0,Math.PI*2);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    //分
+    ctx.beginPath();
+    var x =canvas.width/2 + 80 *Math.cos(aTor(m*6-90));
+    var y =canvas.height/2 + 80 *Math.sin(aTor(m*6-90));
+    ctx.arc(x,y,10,0,Math.PI*2);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    //时
+    ctx.beginPath();
+    var x =canvas.width/2 + 70 *Math.cos(aTor(h*30-90));
+    var y =canvas.height/2 + 70 *Math.sin(aTor(h*30-90));
+    ctx.arc(x,y,10,0,Math.PI*2);
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+}
+
+
+    function aTor(a) {
+        return a *Math.PI/180;
+    }
+</script>
+</body>
+</html>

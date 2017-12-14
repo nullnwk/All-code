@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.moveTo(200,0);
+    ctx.lineTo(200,400);
+    ctx.stroke();
+    ctx.moveTo(400,0);
+    ctx.lineTo(400,400);
+    ctx.stroke();
+
+    ctx.beginPath();
+
+
+
+</script>
+</body>
+</html>

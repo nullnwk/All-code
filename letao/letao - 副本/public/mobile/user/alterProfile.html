@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LGo,一起购</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../lib/mui/mui.min.css">
+    <link rel="stylesheet" href="../lib/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/user/alterProfile.css">
+</head>
+<body class="mui-android mui-android-5 mui-android-5-0">
+<div class="lt-alterProfile">
+    <!--头部-->
+    <header class="lt-header mui-bar mui-bar-nav">
+        <a class="mui-icon fa fa-arrow-left mui-plus-visible"></a>
+        <h1 class="mui-title">收货地址管理</h1>
+    </header>
+
+    <!--底部-->
+    <footer class="lt-footer mui-bar mui-bar-tab ">
+        <a class="mui-item" href="../goodsIndex.html">
+            <span class="mui-icon fa fa-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-item" href="../classify.html">
+            <span class="mui-icon fa fa-align-justify"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-item" href="../shopping.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-item" href="user.html">
+            <span class="mui-icon fa fa-user"></span>
+            <span class="mui-tab-label mui-active">我的</span>
+        </a>
+    </footer>
+
+    <!--主体-->
+    <div class="comment w">
+        <!--tel-->
+        <div class="tel">
+            <label for="">姓名:</label>
+            <input type="text">
+        </div>
+        <!--邮编-->
+        <div class="postcode">
+            <label for="">邮编:</label>
+            <input type="text">
+        </div>
+        <!--地址-->
+        <div class="postcode">
+            <label for="">地址:</label>
+            <input type="text">
+        </div>
+        <!--详细地址-->
+        <div class="detailPost">
+            <label for="">详细地址:</label>
+            <textarea id="textarea" rows="6"></textarea>
+        </div>
+
+        <!--注册按钮-->
+        <div class="btn">
+            <button type="button" class="mui-btn mui-btn-primary" onclick="return false;">确认</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="../js/callback.js"></script>
+</body>
+</html>

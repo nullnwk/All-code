@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<button id="btn1">按钮</button>
+<script>
+    //第一种
+    /*my$("btn").onclick = function () {
+        console.log("111");
+    }
+    my$("btn1").onclick = function () {
+        my$("btn").onclick = null;
+    }*/
+
+    //第二种
+    /*my$("btn").addEventListener("click", f1,false);
+    my$("btn").addEventListener("click", f2,false);
+    function f1() {
+        console.log(111)
+    }
+    function f2() {
+        console.log(4444)
+    }*/
+
+    addEventListener(my$("btn"), "click", f1);
+    addEventListener(my$("btn"), "click", f2);
+    addEventListener(my$("btn1"),"click", function () {
+        removeEventListener(my$("btn"), "click", f1);
+    });
+    function f1() {
+        console.log(11);
+    }
+    function f2() {
+        console.log(22);
+    }
+</script>
+</body>
+</html>

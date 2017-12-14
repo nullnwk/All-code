@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .color {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model="a">
+      <!--v-once 一次性差值   :class v-bind动态绑定，可传单个数据，也可传对象、数组-->
+      <p v-once :class="{color:iscolor}">{{a}}</p>
+    </div>
+  </div>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    var data = {
+      a: 1,
+      iscolor:true
+    }
+    var vm = new Vue({
+      el: '#app',
+      data: data
+    })
+    //当a改变后调用
+    vm.$watch("a", function () {
+      alert(1);
+    })
+    // 定义在外面，这种才有效
+    console.log(vm.$data === data)
+    console.log(document.querySelector("#app") === vm.$el)
+  </script>
+</body>
+
+</html>

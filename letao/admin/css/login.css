@@ -1,0 +1,30 @@
+.modal-body .form-group i {
+  float: left;
+}
+.modal-body .form-control {
+  float: left;
+}
+.modal-content h5 {
+  text-align: center;
+  font-size: 16px;
+  background: #2b669a;
+  color: #fff;
+  padding: 20px 0;
+  margin: 0;
+}
+.modal-content label {
+  width: 200px;
+}
+.modal-content .inp {
+  margin-left: 30px;
+}
+.modal-content .addBtn {
+  margin: 0 auto;
+  text-align: center;
+}
+.modal-content .addBtn button {
+  margin: 10px 10px;
+}
+.modal-content .modal-body p {
+  color: red;
+}

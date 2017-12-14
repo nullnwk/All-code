@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    //横纵坐标
+    var l_p = 20;
+    var r_p = 20;
+    var t_p = 20;
+    var b_p = 20;
+
+    reseau(20,10,10);
+    check(10);
+    //网格
+    function reseau(n,t_w,t_h) {
+        var n = n;
+        //网格
+        var l1 = canvas.width / n;//竖线
+        var l2 = canvas.height / n;//竖线
+        for (var i = 0; i < l1; i++) {
+            ctx.moveTo(i * n, 0);
+            ctx.lineTo(i * n, canvas.height);
+        }
+        for (var i = 0; i < l2; i++) {
+            ctx.moveTo(0, i * n);
+            ctx.lineTo(canvas.width, i * n);
+            ctx.strokeStyle = "#ccc";
+            ctx.stroke()
+        }
+        //横纵坐标
+
+        //纵
+        ctx.beginPath();
+        ctx.moveTo(l_p, canvas.height - b_p);
+        ctx.lineTo(l_p, t_p);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        //横
+        ctx.moveTo(l_p, canvas.height - b_p);
+        ctx.lineTo(canvas.width - r_p, canvas.height - b_p);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+
+        //小三角
+        var t_w = t_w;
+        var t_h = t_h;
+        //y
+        ctx.beginPath();
+        ctx.moveTo(l_p, t_p);
+        ctx.lineTo(l_p - t_w / 2, t_p + t_p / 2);
+        ctx.lineTo(l_p + t_w / 2, t_p + t_p / 2);
+        ctx.closePath();
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        //x
+        ctx.moveTo(canvas.width - r_p, canvas.height - b_p);
+        ctx.lineTo(canvas.width - r_p - t_w, canvas.height - b_p - t_w / 2);
+        ctx.lineTo(canvas.width - r_p - t_w, canvas.height - b_p + t_w / 2);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+    }
+    //随机小方格
+    function check(zfx) {
+        //随机数
+        function myRandom(min, max) {
+            return ~~((max - min) * Math.random()) + min;
+        }
+
+        //设置随机生成点个数
+        var rnum = myRandom(3,10);
+        //创建数组，保存横纵坐标
+        var arr= [];
+        for(var i=0; i<rnum; i++){
+            var ox = myRandom(l_p,canvas.width-r_p);
+            var oy = myRandom(b_p,canvas.height-t_p);
+            var obj = {
+                x:ox,
+                y:oy
+            };
+            arr.push(obj);
+        }
+        console.log(arr);
+        //开始绘制点
+        var zfx = zfx;
+        ctx.strokeStyle = "orange";
+        for(var i=0; i<arr.length; i++){
+            ctx.moveTo(arr[i].x-zfx/2,arr[i].y-zfx/2);
+            ctx.lineTo(arr[i].x+zfx/2,arr[i].y-zfx/2);
+            ctx.lineTo(arr[i].x+zfx/2,arr[i].y+zfx/2);
+            ctx.lineTo(arr[i].x-zfx/2,arr[i].y+zfx/2);
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+        //从小到大
+        for(var i=0; i<arr.length; i++){
+            for(var j=0; j<arr.length-1-i; j++){
+                if(arr[j].x>arr[j+1].x){
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        ctx.moveTo(arr[0].x,arr[0].y);
+        for(var i=0; i<arr.length; i++){
+            ctx.lineTo(arr[i].x,arr[i].y);
+            ctx.stroke();
+        }
+    }
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

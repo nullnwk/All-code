@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Animal(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Animal.prototype.eat = function () {
+        console.log("吃月饼");
+    };
+    //狗的构造函数
+    function Dog(name,age,color) {
+        this.color = color;
+//        Animal.call(this, name, age);
+        Animal.apply(this, [name, age]);
+    }
+    Dog.prototype = new Animal();
+    Dog.prototype.eat = function () {
+        console.log("aaa");
+    };
+
+    var dog = new Dog("zxc",18, "red");
+    dog.eat();
+    console.log(dog.color);
+
+
+</script>
+
+</body>
+</html>

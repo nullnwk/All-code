@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function ajax(options) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(options.type, options.url, true);
+      if (options.data || options.type === "post") {
+        xhr.send(options.data);
+      } else {
+        xhr.send(null);
+      }
+      xhr.onreadystatechange = function () {
+        if (this.readystate == 4 && this.status == 200) {
+          options.success(this.responseText);
+        }
+      }
+    }
+    ajax({
+      type: "get",
+      data:{},
+      url: "./ajax~get.json",
+      success: function (data) {
+        console.log(data);
+      }
+    })
+  </script>
+</body>
+
+</html>

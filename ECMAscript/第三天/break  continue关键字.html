@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //break关键字： 如果在循环中使用，遇到
+    /*
+    for(var i=100; i<201; i++){
+        if(i%7==0){
+            console.log(i);
+            break;
+        }
+    }*/
+
+    //100-200之间的奇数和，用continue；
+    /*
+    var sum = 0;
+    for(var i=100; i<=200; i++){
+        if(i%2==0){
+            continue;
+        }
+        sum += i;
+    }
+    console.log(sum);
+
+    var sum1 = 0;
+    var i = 100;
+    while (i<=200){
+        if(i%2 == 0){
+            i++;
+            continue;
+        }
+        sum1 += i;
+        i++;
+    }
+    console.log(sum1);*/
+
+
+    //1-100的累加数，跳过个位数为3的数；
+    var sum = 0;
+    for(var i=0; i<101; i++){
+        if(i%10 == 3){
+            continue;
+        }
+        sum += i;
+    }
+    console.log(sum);
+
+    var sum1 = 0;
+    var i = 0;
+    while(i<101){
+        if(i%10 == 3){
+            i++;
+            continue;
+        }
+        sum1 += i;
+        i++;
+    }
+    console.log(sum1);
+
+
+</script>
+</body>
+</html>

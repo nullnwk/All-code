@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Template • TodoMVC</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/index.css">
+  <!-- CSS overrides - remove if you don't need it -->
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<script src="node_modules/vue/dist/vue.js"></script>
+
+<body>
+
+  <div id="app">
+    <section class="todoapp">
+      <header class="header">
+        <h1>todos</h1>
+        <form @submit.prevent="inp">
+          <input class="new-todo" placeholder="What needs to be done?" v-model="inp1" autofocus>
+        </form>
+      </header>
+      <section class="main">
+        <input class="toggle-all" type="checkbox">
+        <label></label>
+        <ul class="todo-list">
+          <li v-for="(item, index) in arr">
+            <div class="view">
+              <input class="toggle" type="checkbox" checked="item.checked" @click="check(index)">
+              <label>{{item.text}}</label>
+              <button class="destroy" @click="hide(index)"></button>
+            </div>
+            <input class="edit" value="Create a TodoMVC template">
+          </li>
+          <li>
+            <h5>已完成</h5>
+          </li>
+          <li class="completed" v-for="(item,index) in arr1">
+            <div class="view">
+              <input class="toggle" type="checkbox" checked="item.checked" @click="check1(index)">
+              <label>{{item.text}}</label>
+              <button class="destroy" @click="hide(index)"></button>
+            </div>
+            <input class="edit" value="Rule the web">
+          </li>
+        </ul>
+      </section>
+      <footer class="footer">
+        <span class="todo-count"><strong>{{arr.length}}</strong> item left</span>
+        <button class="clear-completed">Clear completed</button>
+      </footer>
+    </section>
+  </div>
+</body>
+
+<script>
+  const arr = [];
+  const arr1 = [];
+  var app = new Vue({
+    el: "#app",
+    data: {
+      arr,
+      arr1,
+      inp1: "",
+      text: 2134
+    },
+    methods: {
+      inp() {
+        console.log(this.arr);
+        this.arr.push({
+          text: this.inp1,
+          checked: false
+        });
+        this.inp1 = "";
+      },
+      check(index) {
+        var todo = this.arr.splice(index, 1)[0];
+        // console.log(todo);
+        this.arr1.push({
+          text: todo.text,
+          checked: true
+        })
+      },
+      check1(index) {
+        var todo = this.arr.splice(index, 1)[0];
+        console.log(todo);
+        this.arr.push({
+          text: todo.text,
+          checked: false
+        })
+      },
+      hide(index) {
+        this.arr.splice(index, 1)[0] || this.arr1.splice(index, 1)[0]
+      }
+    }
+
+
+
+  })
+</script>
+
+</html>

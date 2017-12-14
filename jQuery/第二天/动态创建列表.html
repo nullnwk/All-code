@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        var arr = ["水电费","水电费","水电费","水电费","水电费","水电费","水电费","水电费","水电费","水电费"];
+        $(function () {
+            $("#btn").click(function () {
+                $("div").append("<ul></ul>");
+                for(var i=0; i<arr.length; i++){
+                    $("ul").append("<li>"+arr[i]+"</li>");
+                }
+                $("div>ul>li").mouseenter(function () {
+                    $(this).css("backgroundColor","red").siblings().css("backgroundColor","");
+                }).click(function () {
+                    $(this).css({"fontFamily":"全新硬笔行书简","fontSize":"30px"});
+                });
+            });
+        });
+
+
+    </script>
+
+
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<div></div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 800px;
+            height: 600px;
+            background: silver;
+        }
+    </style>
+</head>
+<body>
+<div id="dv"></div>
+<script>
+    //随机数
+    (function (win) {
+        function Random() {
+        }
+
+        Random.prototype.getRandom = function (min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        };
+        win.Random = new Random();
+    })(window);
+    //小方块
+    (function (win) {
+        var dv = document.getElementById("dv");
+        //小方块的构造函数
+        function Food(width, height, color) {
+            this.ele = document.createElement("div");
+            this.width = width || 20;
+            this.height = height || 20;
+            this.color = color;
+            //坐标值
+            this.x = 0;
+            this.y = 0;
+        }
+        //给小方块设置样式
+        Food.prototype.init = function (dv) {
+            var div = this.ele;
+            div.style.position = "absolute";
+            div.style.width = this.width + "px";
+            div.style.height = this.height + "px";
+            div.style.backgroundColor = this.color;
+
+            dv.appendChild(div);
+            this.render(dv);
+        };
+        //产生随机位置
+        Food.prototype.render = function (dv) {
+            this.x = Random.getRandom(0, dv.offsetWidth/this.ele.offsetWidth) * this.width;
+            this.y = Random.getRandom(0, dv.offsetHeight/this.ele.offsetHeight) * this.height;
+            this.ele.style.left = this.x + "px";
+            this.ele.style.top = this.y + "px";
+        };
+        console.log(1);
+
+        var fd = new Food(20,20,"red");
+        fd.init(dv);
+    })(window);
+
+</script>
+
+</body>
+</html>

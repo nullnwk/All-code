@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+           $("#btn").click(function () {
+               $("div p:lt(3)").css("backgroundColor","red");
+               $("div p:gt(5)").css("backgroundColor","blue");
+               $("div p:eq(6):lt(3)").css("backgroundColor","yellow");
+           });
+        });
+
+
+
+    </script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div>
+    <p>sdfsdsdsfsd</p>
+    <p>sdfdssdfdsfd</p>
+    <p>dsfdsds</p>
+    <p>sdfsddfs</p>
+    <p>sdfsdf</p>
+    <p>sdfsdf</p>
+    <p>sdfsdf</p>
+    <p>sdfsdf</p>
+    <p>sdfsdf</p>
+    <p>sdfsdf</p>
+</div>
+</body>
+</html>

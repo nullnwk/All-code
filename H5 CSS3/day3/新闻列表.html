@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻列表</title>
+	<style type="text/css">
+		
+		 * {
+		 	 margin: 0;
+		 	 padding: 0;
+		 	 list-style: none;
+		 }
+
+		 .tab_box {
+		 	 width: 300px;
+		 	 height: 400px;
+		 	 border:  1px solid red;
+		 	 margin: 50px auto;
+		 }
+
+		 .title {
+		 	 height: 50px;
+		 	 line-height: 50px;
+		 	 border-bottom: 1px solid #ccc;
+		 }
+
+		 .title li {
+		 	 float: left;
+		 	 width: 33.33%;
+		 }
+
+		 .title li a {
+		 	 width: 100%;
+		 	 height: 100%;
+		 	 display: block;
+		 	 text-align: center;
+		 	 text-decoration: none;
+		 }
+
+		 .content {
+		 	 height: 350px;
+		 }
+
+		 .content>div {
+		 	 height: 350px;
+		 	 padding: 50px 30px;
+		 	 box-sizing: border-box;
+		 }
+		 .content>div li {
+		  	 height: 30px;
+		  	 line-height: 30px;
+		 }
+
+
+		 .active {
+		 	 background-color: orange;
+		 	 color: #fff;
+		 }
+	</style>
+</head>
+<body>
+	
+
+	 <div class="tab_box">
+	 	
+	 	 <div class="title">
+	 	 	 <ul>
+	 	 	 	 <li>
+	 	 	 	 	<a href="#" data-name="sell">促销</a>
+	 	 	 	 </li>
+	 	 	 	 <li>
+	 	 	 	 	<a href="#" data-name="notice">公告</a>
+	 	 	 	 </li>
+	 	 	 	 <li>
+	 	 	 	 	<a href="#" data-name="more">更多</a>
+	 	 	 	 </li>
+	 	 	 </ul>
+	 	 </div>
+
+	 	 <div class="content">
+			 <div class="sell" id="sell" style="display: none;">
+				 <ul>
+					 <li>家纺自营满199减100</li>
+					 <li>200元优惠券限量抢！</li>
+					 <li>智能家电领券100减50</li>
+					 <li>每日享折扣 京东品质游</li>
+				 </ul>
+			 </div>
+			 <div class="more" id="more" style="display: none;">
+	 	 	 	 <ul>
+	 	 	 	 	 <li>TCL空调制暖季 2017-10-17 </li>
+	 	 	 	 	 <li>TCL空调制暖季 2017-10-17 </li>
+	 	 	 	 	 <li>TCL空调制暖季 2017-10-17 </li>
+	 	 	 	 	 <li>TCL空调制暖季 2017-10-17 </li>
+	 	 	 	 </ul>
+	 	 	 </div>
+	 	 	 <div class="notice" id="notice" style="display: none">
+	 	 	 	 <ul>
+	 	 	 	 	<li>京东全球售升级 新域名同</li>
+	 	 	 	 	<li>京东知识服务正式上线 打造</li>
+	 	 	 	 	<li>东大件物流“送装一体</li>
+	 	 	 	 	<li>京东全球售升级 新域名同</li>
+	 	 	 	 </ul>
+	 	 	 </div>
+	 	 	 
+	 	 </div>
+	 </div>
+
+
+	 <script type="text/javascript">
+		 
+		 (function setFn(index) {
+		 	var aObj = document.querySelectorAll("li a");
+			if(index>=aObj.length){
+				aObj[aObj.length-1].classList.add("active");
+				document.getElementById(aObj[aObj.length-1].dataset.name).style.display = "block";
+			}else if(index<=0){
+				aObj[0].classList.add("active");
+				document.getElementById(aObj[0].dataset.name).style.display = "block";
+			}else {
+				aObj[index].classList.add("active");
+				document.getElementById(aObj[index].dataset.name).style.display = "block";
+			}
+			//循环，点击事件
+			 for(var i=0;i<aObj.length; i++ ){
+				 aObj[i].onclick = function () {
+					 //先隐藏具有active类名的内容
+					 var closeId = document.querySelector(".active").dataset.name;
+					 document.getElementById(closeId).style.display = "none";
+
+					 //有先删除，没有添加
+					 document.querySelector(".active").classList.remove("active");
+					 this.classList.add("active");
+
+					 //通过自定义属性，设置id
+					 var id = this.dataset.name;
+					 document.getElementById(id).style.display = "block";
+				 }
+			 }
+		 })(1);
+		 
+
+//		setFn(4);
+
+	 	
+
+	 	
+	 </script>
+</body>
+</html>

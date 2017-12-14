@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //普通函数
+    function f1() {
+        console.log(this);
+    }
+    f1();
+    //对象.方法
+    var obj = {
+        play:function () {
+            console.log(this);
+        }
+    };
+    obj.play();
+    //构造函数
+    function F2() {
+        console.log(this);
+    }
+    var f2 = new F2();
+    //原型对象中
+    function F3() {
+    }
+    F3.prototype.play = function () {
+        console.log(this);
+    };
+    var f3 = new F3();
+    f3.play();
+    //定时器中
+    setInterval(function () {
+        console.log(this);
+    },1);
+
+</script>
+
+</body>
+</html>

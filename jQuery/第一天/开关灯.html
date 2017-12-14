@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .current {
+            background-color: #000;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn">关灯</button>
+<script src="../jquery-1.12.1.js"></script>
+<script>
+    /* $("#btn").on("click", function () {
+     if($("body").hasClass("current")){
+     $("body").removeClass("current");
+     }else {
+     $("body").addClass("current");
+     }
+
+     // $("body").toggleClass("current");
+     })*/
+
+
+    $("#btn").on("click", function () {
+        if ($("#btn").text() == "关灯") {
+            $("body").addClass("current");
+            $(this).text("开灯")
+        } else {
+            $("body").removeClass("current");
+            $(this).text("关灯")
+        }
+
+    })
+
+</script>
+</body>
+</html>

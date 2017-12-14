@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../jquery-1.12.1.min.js"></script>
+<script>
+    $(window).load(function () {
+        console.log(1);
+    });
+    $(function () {
+        console.log(2);
+    });
+    jQuery(function () {
+        console.log(3);
+    });
+    $(document).ready(function () {
+        console.log(4);
+    });
+
+
+
+
+    $("#div");
+    $(".div");
+    $("div");
+    $("div.p");
+    $("div,p");
+    $("div p");
+    $("div>p");
+    $("div~p");
+    $("div+p span");
+    $("ul li:eq(2)");
+    $("ul li").index();
+    $("ul").children();
+    $("input").val("hhhh");
+    $("div").text("sdfsdf");
+    $("div").html("sdfsdf");
+    $("div").css();
+    $("div").show();
+    $("div").hide();
+    $("div").stop();
+    $("div").mouseenter();
+    $("div").mouseleave();
+    $("div").blur();
+    $("div").keyup();
+    jQuery是一个js库，也可以叫做js函数库，里面封装了很多兼容性代码
+    免费  体积小 写的少做的多  开源  方便 隐式迭代 链式编程
+
+    ExtJs proto dojo
+    BOM中的顶级对象：window
+    DOM中的顶级对象：document
+    jQuery中的顶级对象：$或jQuery
+
+
+
+
+</script>
+
+</body>
+</html>

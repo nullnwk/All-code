@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<img src="../images/b.jpg" alt="" id="images">
+<script src="../common.js"></script>
+<script>
+    var getScroll = {
+        //获取event、e
+        getEvent: function (e) {
+            return e || window.event;
+        },
+        //获取卷去出去的内容
+        getScrollL: function (e) {
+            return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft ||0;
+        },
+        getScrollR : function (e) {
+            return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop ||0;
+        },
+        //获取可视区域内容
+        getClientX : function (e) {
+            return this.getEvent(e).clientX;
+        },
+        getClientY: function (e) {
+            return this.getEvent(e).clientY;
+        },
+        //page或者scroll+slient
+        getPageX : function (e) {
+            return this.getEvent(e).pageX || this.getScrollL(e)+this.getClientX(e);
+        },
+        getPageY : function (e) {
+            return this.getEvent(e).pageY || this.getScrollR(e)+this.getClientY(e);
+        }
+
+    }
+
+
+    document.onmousemove = function (e) {
+        my$("images").style.left = getScroll.getPageX(e) + "px";
+        my$("images").style.top = getScroll.getPageY(e) + "px";
+    }
+
+
+</script>
+</body>
+</html>

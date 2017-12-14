@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #000;
+        }
+        .cover{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div id="covert"></div>
+    <script>
+      /*  my$("btn").onclick = function () {
+            my$("covert").style.display = "none";
+        }*/
+      my$("btn").onclick = function () {
+          my$("covert").className = "cover"
+      }
+
+
+
+    </script>
+</body>
+</html>

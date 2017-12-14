@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(document).mousedown(function (e) {
+            if(e.altKey){
+                console.log("鼠标按下了左键和ale");
+            }else if(e.shiftKey){
+                console.log("鼠标按下了左键和shift");
+            }else if(e.ctrlKey){
+                console.log("鼠标按下了左键和ctrl");
+            }else {
+                console.log("鼠标按下了左键");
+            }
+        });
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

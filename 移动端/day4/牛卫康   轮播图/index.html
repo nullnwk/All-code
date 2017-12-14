@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 1000%;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+
+        li {
+            width: 10%;
+            list-style: none;
+            float: left;
+        }
+
+        li img {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><a href="###"><img src="image/0.png" alt=""></a></li>
+        <li><img src="image/1.png" alt=""></li>
+        <li><img src="image/2.png" alt=""></li>
+        <li><img src="image/3.png" alt=""></li>
+        <li><img src="image/4.png" alt=""></li>
+        <li><img src="image/5.png" alt=""></li>
+        <li><img src="image/6.png" alt=""></li>
+        <li><img src="image/7.png" alt=""></li>
+    </ul>
+</div>
+
+<script>
+    var box = document.querySelector('.box');
+    var ul = document.querySelector("ul");
+    var firstLi = document.querySelector("li:first-child");
+    var lastLi = document.querySelector("li:last-child");
+    //前后各添加一张图片
+    function init() {
+        ul.appendChild(firstLi.cloneNode(true));
+        ul.insertBefore(lastLi.cloneNode(true), firstLi);
+//            console.log(ul.children.length);
+        //获取ul li的宽度
+        var li = document.querySelectorAll("li");
+//        ul.style.width = box.offsetWidth;
+        for (var i = 0; i < li.length; i++) {
+            li[i].style.width = box.offsetWidth;
+        }
+        //从0 开始
+        ul.style.left = -box.offsetWidth + "px";
+        autoplay();
+    }
+    init();
+
+    //设置自动轮播
+    var index = 0;
+    var timer;
+    var flag = true;
+    function autoplay() {
+        timer = setInterval(function () {
+            index++;
+            ul.style.left = -box.offsetWidth * index + "px";
+            ul.style.transition = ".5s all linear";
+            console.log(index);
+        }, 1000);
+        //从头开始
+        ul.addEventListener("webkitTransitionEnd", function () {
+            flag = true;
+            if(index == 0){
+//                console.log("hahaha");
+                index = 8;
+                ul.style.left = -box.offsetWidth * index + "px";
+                ul.style.transition = "";
+            }
+            if (index == 10) {
+                index = 2;
+                ul.style.left = -box.offsetWidth * index + "px";
+                ul.style.transition = "";
+            }
+
+
+        })
+
+    }
+
+    //设置手指滑动
+    var startX, endX;
+    ul.addEventListener("touchstart", function (e) {
+        //清除定时器，手指移上停止
+        clearInterval(timer);
+        var touches = e.targetTouches[0];
+        startX = touches.clientX;
+    });
+    ul.addEventListener("touchend", function (e) {
+        //加锁
+        if(flag == false){
+            return false;
+        }
+        flag = false;
+
+        //打开定时器
+        autoplay();
+        var touches = e.changedTouches[0];
+        endX = touches.clientX;
+        if(endX-startX >0){
+           index--;
+        }else {
+           index++;
+
+        }
+        ul.style.left = -box.offsetWidth * index + "px";
+        ul.style.transition = "1s all linear";
+        console.log(ul.style.left);
+    })
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        name: "小红",
+        age: 18,
+        play : function () {
+            console.log(1);
+        }
+    };
+    var obj1 = {};
+   function extend(obj, obj1) {
+       for(var k in obj){
+           var item = obj[k];
+           if(item instanceof Array){
+               obj1 = [];
+               extend(item, obj1);
+           }else if(item instanceof Object){
+               obj1 = {};
+               extend(item, obj1);
+           }else {
+               obj1[k] = item;
+           }
+       }
+   }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

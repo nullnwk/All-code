@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*var str = "zxc";
+    console.log(str.charAt(1));
+    console.log(String.fromCharCode(3));
+    console.log(str.concat("123"));*/
+
+
+    /*var str = "我爱中华人民共和国";
+    //console.log(str.substr(str.indexOf("中华"), 2));
+    var index = str.indexOf("中华");
+    str = str.substr(index, 2);
+    console.log(str);*/
+
+
+    /*var str = "hello dw ose fwo";
+    var index = 0;
+    var key = "o";
+    while ((index = str.indexOf(key,index)) != -1){
+        console.log(index);
+        index +=key.length;
+    }*/
+
+
+    var arr = ["zxcvb","12345","sdfdf", "sd"];
+    var relust = arr.every(function (ele, index) {
+        return ele.length < 3;
+    });
+    console.log(relust);
+
+    var som = arr.some(function (ele, index) {
+        return ele.length < 3;
+    })
+    console.log(som);
+
+
+</script>
+
+</body>
+</html>

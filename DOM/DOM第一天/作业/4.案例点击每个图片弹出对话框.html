@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="../images/1-small.jpg" alt="">
+<img src="../images/1-small.jpg" alt="">
+<img src="../images/1-small.jpg" alt="">
+<img src="../images/1-small.jpg" alt="">
+<img src="../images/1-small.jpg" alt="">
+<script>
+    var imgs = document.getElementsByTagName("img");
+    for(var i=0; i<imgs.length; i++){
+        imgs[i].onclick = function () {
+            alert(1);
+        }
+    }
+
+
+</script>
+</body>
+</html>

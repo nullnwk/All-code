@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            text-align: justify;
+        }
+        p:after{
+            content: '';
+            display: inline-block;
+            width: 100%;
+            overflow:hidden;
+        }
+        /*div为父元素，子元素是行内块元素或者是行内元素，
+          给父元素设置，如下：*/
+        div{
+            text-align: justify;
+            width: 100%;
+        }
+        div:after{
+            content: '';
+            display: inline-block;
+            width: 100%;
+            overflow:hidden;
+        }
+
+
+    </style>
+</head>
+<body>
+<p>发放到沙发斯蒂芬风飒飒发生</p>
+
+<div>
+    <span>公司电</span>
+    <span>公司电</span>
+    <span>公司电</span>
+    <span>公司电</span>
+    <span>公司电</span>
+    <span>公司电</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>没怀孕</button>
+<button>没怀孕</button>
+<button>没怀孕</button>
+<button>没怀孕</button>
+<button>没怀孕</button>
+<button>没怀孕</button>
+<script>
+    var btns = document.getElementsByTagName("button");
+    for(var i=0; i<btns.length; i++){
+        btns[i].onclick = function () {
+            for(var j=0; j<btns.length; j++){
+                btns[j].innerText = "没怀孕";
+            }
+            this.innerText = "怀孕了";
+        }
+    }
+    
+</script>
+</body>
+</html>

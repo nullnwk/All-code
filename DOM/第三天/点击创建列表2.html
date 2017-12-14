@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+
+
+<script>
+    var kungfu = ["连城诀", "连城诀", "连城诀", "连城诀", "连城诀", "连城诀"];
+    my$("btn").onclick = function () {
+        var ulObj = document.createElement("ul");
+        my$("dv").appendChild(ulObj);
+        for (var i = 0; i < kungfu.length; i++) {
+            var liObj = document.createElement("li");
+            liObj.innerHTML = kungfu[i];
+            ulObj.appendChild(liObj);
+            liObj.onmouseover = mouseoverHandle;
+            liObj.onmouseout = mouseoutHandle;
+        }
+    };
+    function mouseoverHandle() {
+        this.style.backgroundColor = "red";
+    }
+    function mouseoutHandle() {
+        this.style.backgroundColor = "";
+    }
+
+
+</script>
+</body>
+</html>

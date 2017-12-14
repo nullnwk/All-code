@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历DOM树</title>
+</head>
+
+<body>
+<h1>遍历 DOM 树</h1>
+<p style="color: green;">Tip: 可以在遍历的回调函数中任意定制需求</p>
+<div>
+    <ul>
+        <li>123</li>
+        <li>456</li>
+        <li>789</li>
+    </ul>
+    <div>
+        <div>
+            <span>haha</span>
+        </div>
+    </div>
+</div>
+<div id="demo_node">
+    <ul>
+        <li>123</li>
+    </ul>
+    <p>hello</p>
+    <h2>world</h2>
+    <div>
+        <p>dsa</p>
+        <h3>
+            <span>dsads</span>
+        </h3>
+    </div>
+</div>
+<script>
+
+
+
+
+
+    //  第一个函数:给我根节点,我会找到所有的子节点:forDOM(根节点)
+    //  获取这个根节点的子节点
+    //  var children=根节点的.children
+    //  调用第二个函数
+    //
+    //  第二个函数:给我所有的子节点,我把每个子节点的名字显示出来(children)
+    //  for(var i=0;i<children.length;i++){
+    //    每个子节点
+    //    var child=children[i];
+    //    f1(child);给我节点,我显示该节点的名字
+    //    child是子节点,但是如果child里面还有子节点,此时child就是爹了
+    //    child.children&&第一个函数(child)
+    //
+    //  }
+
+
+    var root = document.documentElement;
+    //根据根节点，显示根节点的名字
+    function forDOM(root1) {
+        //显示每个子节点的名字
+        f1(root1);
+        var children = root1.children;
+        forchildren(children)
+    }
+    //根据子节点，把子节点下面的子节点显示出来
+    function forchildren(children) {
+        //遍历所有子节点
+        for(var i=0; i<children.length; i++){
+            var child = children[i];
+            //显示每个子节点的名字
+            f1(child);
+            child.children&&forDOM(child);
+        }
+    }
+    //函数调用，传入根节点
+    forDOM(root);
+    function f1(node) {
+        console.log("节点的名字" + node.nodeName);
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

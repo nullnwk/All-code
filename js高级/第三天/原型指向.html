@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(age) {
+        this.name = age;
+    }
+    Person.prototype.play = function () {
+        console.log("wan");
+    };
+    Person.prototype = {
+        eat:function () {
+            console.log("chgi");
+        }
+    };
+
+    var per = new Person(18);
+    per.eat();
+    per.play();
+
+
+
+
+</script>
+</body>
+</html>

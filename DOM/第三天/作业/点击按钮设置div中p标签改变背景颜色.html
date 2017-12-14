@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<div id="dv">
+    <p>asd</p>
+    <a href="#">sdfsdf</a>
+    <p>sdf</p>
+    <span>dsfsd</span>
+    <p>sd</p>
+    <span>sdfsd</span>
+    <p>sdf</p>
+</div>
+<script>
+    var pp = my$("dv").children;
+    for(var i=0; i<pp.length; i++){
+        if(pp[i].nodeName == "P"){
+            pp[i].style.backgroundColor = "red";
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

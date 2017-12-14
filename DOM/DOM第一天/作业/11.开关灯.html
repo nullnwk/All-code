@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bd{
+           background: pink;
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">开/关灯</button>
+<script>
+    var bd = document.body;
+    my$("btn").onclick = function () {
+        bd.className = bd.className == "bd" ? "":"bd";
+    }
+
+
+
+</script>
+</body>
+</html>

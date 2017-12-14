@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 1150px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        div li {
+            width: 240px;
+            height: 400px;
+            float: left;
+        }
+
+        div ul {
+            width: 1300px;
+        }
+
+
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+           $("#box ul li").mouseenter(function () {
+               //$(this).css("width","800px").siblings("li").css("width", "100px");
+               $(this).stop().animate({"width":"800px"},500).siblings("li").stop().animate({"width":"100px"},500)
+           });
+            $("#box").mouseleave(function () {
+                $(this).find("li").stop().animate({"width":"240px"},500)
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="images/1.jpg"/></li>
+        <li><img src="images/2.jpg"/></li>
+        <li><img src="images/3.jpg"/></li>
+        <li><img src="images/4.jpg"/></li>
+        <li><img src="images/5.jpg"/></li>
+    </ul>
+</div>
+
+</body>
+</html>

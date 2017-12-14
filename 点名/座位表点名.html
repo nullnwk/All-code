@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #d0d0d0;
+        }
+
+        h1 {
+            color: #0099cc;
+            text-align: center;
+            margin-bottom: 10px;
+            transition: 2s all;
+        }
+
+        #box {
+            width: 1200px;
+            height: 600px;
+            margin: 0 auto;
+            background: url("images/3.jpg");
+            background-size: cover;
+            padding-top: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #box1 {
+            width: 1200px;
+            height: 500px;
+            margin: 0 auto;
+            background-size: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #box1 div {
+            text-align: center;
+            margin: 50px 0 0 0;
+            transition: all 2s;
+            cursor: pointer;
+        }
+
+        .hint {
+            color: #666;
+            text-align: center;
+        }
+
+        #font {
+            width: 250px;
+            height: 25px;
+            position: fixed;
+            right: 80px;
+            bottom: 12px;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <h1 id="tit">前端就业36期点名表</h1>
+    <div id="box1"></div>
+</div>
+<div class="hint">请点击屏幕任意区域</div>
+<div id="font"></div>
+
+<audio src="爱很美.mp3" autoplay></audio>
+<script src="common.js"></script>
+<script>
+    var box = document.getElementById("box");
+    var box1 = document.getElementById("box1");
+    var title = document.getElementById("tit");
+    var font = document.getElementById("font");
+    //随机数
+    (function (win) {
+        function Random() {
+        }
+        Random.prototype.getRandom = function (min, max) {
+            return Math.floor(Math.random() * (max - min) + min)
+        };
+        win.Random = new Random();
+    })(window);
+    //方格构造函数
+    function Student(width, height, colorArr) {
+        this.ele = document.createElement("div");
+        this.width = width || 80;
+        this.height = height || 50;
+        this.color = colorArr;
+        this.name = [];
+        this.left = 0;
+        this.top = 0;
+    }
+    //div设置样式
+    Student.prototype.init = function (box) {
+        var ele = this.ele;
+        ele.style.fontSize = "18px";
+        ele.style.width = this.width + "px";
+        ele.style.height = this.height + "px";
+        ele.style.lineHeight = this.height + "px";
+        ele.style.position = "absolute";
+        ele.style.borderRadius = "10px";
+        box.appendChild(ele);
+        this.long(box);
+        this.perName(name1);
+        this.bgColor(colorArr);
+    };
+    Student.prototype.init1 = function (trans) {
+        var ele = this.ele;
+        ele.style.width = "120px";
+        ele.style.height = "70px";
+        ele.style.fontSize = "30px";
+        ele.style.textAlign = "center";
+        ele.style.lineHeight = "70px";
+        ele.style.transition = "all 2s";
+        ele.style.backgroundColor = this.color;
+        ele.style.left = box.offsetWidth / 2 - 50 + "px";
+        ele.style.top = "10px";
+        ele.style.borderRadius = "10px";
+        this.rotate(trans);
+        this.bgColor(colorArr);
+    };
+    //方格背景颜色
+    Student.prototype.bgColor = function (colorArr) {
+        var index = Math.floor(Math.random() * colorArr.length);
+        for (var i = 0; i < colorArr.length; i++) {
+            this.color = colorArr[index];
+            this.ele.style.backgroundColor = this.color;
+        }
+    };
+    //名字旋转
+    Student.prototype.rotate = function (trans) {
+        this.ele.style.transform = trans;
+    };
+    //随机
+    Student.prototype.long = function (box) {
+        this.left = Random.getRandom(0, box.offsetWidth / this.width) * this.width;
+        this.top = Random.getRandom(0, box.offsetHeight / this.height) * this.height - 50;
+        this.ele.style.left = this.left + "px";
+        this.ele.style.top = this.top + "px";
+    };
+    //人名
+    Student.prototype.perName = function (name1) {
+        var index = Math.floor(Math.random() * name1.length);
+        for (var i = 0; i < name1.length; i++) {
+            this.ele.innerHTML = name1[index];
+        }
+    };
+    //背景的构造函数
+    function Bg(img) {
+        this.img = img;
+    }
+    Bg.prototype.getColor = function () {
+        var imgIndex = parseInt(Math.random() * this.img.length);
+        for (var i = 1; i < this.img.length; i++) {
+            box.style.backgroundImage = "url(" + this.img[imgIndex] + ")";
+        }
+    };
+    //标题的构造函数
+    function Title(ele,colorArr, trans) {
+        this.ele = ele;
+        this.colorArr = colorArr;
+        this.trans = trans;
+    }
+    Title.prototype.getCol = function () {
+        var num = parseInt(Math.random() * this.colorArr.length);
+        for (var k = 0; k < this.colorArr.length; k++) {
+            this.ele.style.color = this.colorArr[num];
+        }
+        this.ele.style.transform = this.trans;
+
+    };
+    //右下角小字的构造函数
+    function Font(colorArr, fontArr) {
+        this.ele = document.createElement("div");
+        this.color = colorArr;
+        this.fontArr = fontArr;
+        font.appendChild(this.ele);
+        this.font();
+    }
+    Font.prototype.font = function () {
+        var ind = Math.floor(Math.random() * this.color.length);
+        var index = Math.floor(Math.random() * this.fontArr.length);
+        this.ele.innerHTML = this.fontArr [index];
+        this.ele.style.color = this.color[index];
+    };
+
+
+
+
+
+
+    function Arr(width, height, colorArr) {
+        this.ele = document.createElement("div");
+        this.width = width || 80;
+        this.height = height || 50;
+        this.color = colorArr;
+        this.name = [];
+        this.left = 0;
+        this.top = 0;
+    }
+    //div设置样式
+    Arr.prototype.init = function (box) {
+        var ele = this.ele;
+        ele.style.fontSize = "12px";
+        ele.style.width = this.width + "px";
+        ele.style.height = this.height + "px";
+        ele.style.lineHeight = this.height + "px";
+        ele.style.position = "absolute";
+        ele.style.borderRadius = "10px";
+        box.appendChild(ele);
+        this.long(box);
+        this.perName(name1);
+        this.bgColor(colorArr);
+    };
+    Arr.prototype.init1 = function (trans) {
+        var ele = this.ele;
+        ele.style.width = "350px";
+        ele.style.height = "50px";
+        ele.style.fontSize = "20px";
+        ele.style.textAlign = "center";
+        ele.style.lineHeight = "20px";
+        ele.style.transition = "all 2s";
+        ele.style.backgroundColor = this.color;
+        ele.style.left = box.offsetWidth / 2 - 50 + "px";
+        ele.style.top = "10px";
+        ele.style.borderRadius = "10px";
+        this.rotate(trans);
+        this.bgColor(colorArr);
+    };
+    //方格背景颜色
+    Arr.prototype.bgColor = function (colorArr) {
+        var index = Math.floor(Math.random() * colorArr.length);
+        for (var i = 0; i < colorArr.length; i++) {
+            this.color = colorArr[index];
+            this.ele.style.backgroundColor = this.color;
+        }
+    };
+    //名字旋转
+    Arr.prototype.rotate = function (trans) {
+        this.ele.style.transform = trans;
+    };
+    Arr.prototype.long = function (box) {
+        this.left = Random.getRandom(0, box.offsetWidth / this.width) * this.width;
+        this.top = Random.getRandom(0, box.offsetHeight / this.height) * this.height - 50;
+        this.ele.style.left = this.left + "px";
+        this.ele.style.top = this.top + "px";
+    };
+    //人名
+    Arr.prototype.perName = function (name1) {
+        var index = Math.floor(Math.random() * name1.length);
+        for (var i = 0; i < name1.length; i++) {
+            this.ele.innerHTML = name1[index];
+        }
+    };
+
+
+    function Student1(width, height, colorArr) {
+        this.ele = document.createElement("div");
+        this.width = width || 80;
+        this.height = height || 50;
+        this.color = colorArr;
+        this.name = [];
+        this.left = 0;
+        this.top = 0;
+    }
+    //div设置样式
+    Student1.prototype.init = function (box) {
+        var ele = this.ele;
+        ele.style.fontSize = "18px";
+        ele.style.width = this.width + "px";
+        ele.style.height = this.height + "px";
+        ele.style.lineHeight = this.height + "px";
+        ele.style.position = "absolute";
+        ele.style.borderRadius = "10px";
+        box1.appendChild(ele);
+        this.long(box);
+        this.perName(name1);
+        this.bgColor(colorArr);
+    };
+    Student1.prototype.init1 = function (trans) {
+        var ele = this.ele;
+        ele.style.width = "120px";
+        ele.style.height = "70px";
+        ele.style.fontSize = "30px";
+        ele.style.textAlign = "center";
+        ele.style.lineHeight = "70px";
+        ele.style.transition = "all 2s";
+        ele.style.backgroundColor = this.color;
+        ele.style.left = box.offsetWidth / 2 - 50 + "px";
+        ele.style.top = "10px";
+        ele.style.borderRadius = "10px";
+        this.rotate(trans);
+        this.bgColor(colorArr);
+    };
+    //方格背景颜色
+    Student1.prototype.bgColor = function (colorArr) {
+        var index = Math.floor(Math.random() * colorArr.length);
+        for (var i = 0; i < colorArr.length; i++) {
+            this.color = colorArr[index];
+            this.ele.style.backgroundColor = this.color;
+        }
+    };
+    //名字旋转
+    Student1.prototype.rotate = function (trans) {
+        this.ele.style.transform = trans;
+    };
+    //随机
+    Student1.prototype.long = function (box) {
+        this.left = Random.getRandom(0, box.offsetWidth / this.width) * this.width;
+        this.top = Random.getRandom(0, box.offsetHeight / this.height) * this.height - 50;
+        this.ele.style.left = this.left + "px";
+        this.ele.style.top = this.top + "px";
+    };
+    //人名
+    Student1.prototype.perName = function (name1) {
+        var index = Math.floor(Math.random() * name1.length);
+        for (var i = 0; i < name1.length; i++) {
+            this.ele.innerHTML = name1[index];
+        }
+    };
+
+    var name1 = ["刘邦邦", "汪浩", "张洪飞", "李燃", "修立新", "王景昌", "杨晓娟", "康同", "曹少华", "姚树壮", "杨坤", "郑转转", "张亚", "孙悦", "赵思博", "俞曾雪",
+        "赵佳辉", "周广云", "李玲玲", "谢莹", "郭晓丽", "王斌晶", "吴季坤", "李佳音", "松江伟", "李铭佳", "武江涛", "刘洪浩", "马良", "王洁", "杨丽",
+        "宋鑫峰", "聂茗", "项文", "杨赫利", "郝晶晶", "董然", "杨飒", "都巾莉", "郭媚玲", "吕昌路", "侯怡倩", "杨方方", "刘梦圆", "张旭", "杨亚丽", "刑俊豪", "朱传永",
+        "韩雅丽", "谈晨笑", "索建超", "金秋光", "王欣然", "牛卫康", "刘广鹏", "杨艺琳", "胡世鹏"];
+    var arr1 = ["要适当吃一点，才有力气减肥嘛","班长，讲个故事好吗，我想听葫芦娃的故事", "恭喜你，成功中奖，奖励是重新玩一下这个游戏", "哈哈，又是你，你的运气也太好了，连老天都照顾你", "同学们，大家说我帅吗？", "美女，交个朋友好吗，你看我长得多帅啊","种草不让人去躺，不如改种仙人掌","政府想着怎么合理收税，老板想着怎么合理避税，而我想着怎么合理多睡","人生最大悲催事，莫过于我想早恋却已经晚了","谎言与誓言的区别在于：一个是听的人当真了，一个是说的人当真了","真正的好朋友，并不是有聊不完的话题，而是在一起，就算不说话，也不会尴尬","人生没有彩排，每天都是直播，不仅收视率低，而且工资也不高","看到我以后你会突然发现--啊，原来帅也可以这样具体啊"];
+
+    var fontArr = ["终于轮到你", "回答有奖哦", "哈哈，又是你", "同学们，大家说我帅吗？", "美女，交个朋友好吗"];
+    var colorArr = ["red", "yellow", "pink", "#FF3E96", "#00FFFF", "#87cefa", "#8a2be2", "#ff7f50", "#F08080", "#E0FFFF", "#B9D3EE", "#00FF00"];
+    var pic = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg"];
+
+    //方格
+    var stu = new Student(80, 50, colorArr);
+    //标题
+    var tit = new Title(title,colorArr,"rotateY(360deg)");
+    //背景颜色
+    var bg = new Bg(pic);
+    //右下角小图片
+    var ft = new Font(colorArr, fontArr);
+
+
+    var arr = new Arr(300,50, colorArr);
+    var stu1 = new Student(80,50, colorArr);
+
+    //点击document开始停止
+    var timer = null;
+    var bool = true;
+    document.onclick = function () {
+        if (bool) {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                stu.init(box1);
+                stu.perName(name1);
+                stu1.init(box1);
+                stu1.perName(name1);
+                arr.init(box1);
+                arr.perName(arr1);
+                bool = false;
+            }, 100)
+        } else {
+            clearInterval(timer);
+            stu.init1("rotateY(360deg)");
+            ft.font();
+            bool = true;
+        }
+    };
+    //背景图片、标题2秒一变
+    setInterval(function () {
+        bg.getColor();
+        tit.getCol();
+    }, 2000);
+</script>
+</body>
+</html>

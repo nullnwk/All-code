@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<div></div>
+<script>
+    //通过DOM实现列表高亮显示效果：页面中有一个按钮和一个div标签,
+    // 点击按钮在div标签中以无序列表的方式动态创建5个球队，
+    // 鼠标进入某个球队则显示高亮效果(改变背景颜色即可)，
+    // 鼠标离开某个球队则失去高亮效果(背景颜色还原即可)。
+    // 要求:使用createElement()方法进行元素创建，并且页面中只能存在一对ul标签。
+
+    document.getElementById("btn").onclick = function () {
+        var ul = document.createElement("ul");
+        for(var i=0; i<5; i++){
+            var li = document.createElement("li");
+            li.innerHTML = i+1;
+            li.onmouseover = function () {
+              this.style.backgroundColor = "red";
+            };
+            li.onmouseout = function () {
+                this.style.backgroundColor = "";
+            };
+            ul.appendChild(li);
+        }
+        document.body.appendChild(ul);
+    };
+</script>
+
+</body>
+</html>

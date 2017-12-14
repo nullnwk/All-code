@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            background: white;
+        }
+
+    </style>
+</head>
+<body>
+<input type="color" id="color"><br>
+<div class="box"></div>
+
+<script>
+    var box = document.querySelector(".box");
+    var color = document.querySelector("#color");
+
+
+    function DisColor(width, height, margin, color) {
+        this.ele = document.createElement("span");
+        this.width = width || 50;
+        this.height = height || 30;
+        this.margin = margin || 10;
+        this.color = color || "red";
+    }
+    //初始化
+    DisColor.prototype.init = function (box, inp) {
+        var ele = this.ele;
+        ele.style.width = this.width + "px";
+        ele.style.height = this.height + "px";
+        ele.style.margin = this.margin + "px";
+        ele.style.display = "inline-block";
+        this.color = inp.value;
+        ele.style.backgroundColor = this.color;
+        box.appendChild(ele);
+    };
+    //存储在本地
+    DisColor.prototype.setLocal = function (arr, inp) {
+        //判断数组中是否有这个值
+        if (arr.indexOf(inp.value) == -1) {
+            arr.push(inp.value);
+            //数组转成字符串，存到本地
+            var arr_str = arr.toString();
+            localStorage.setItem("color", arr_str);
+        }
+    };
+    //读取存储在本地内容
+    DisColor.prototype.getLocal = function (arr,box) {
+        var str_arr =  localStorage.getItem("color");
+        str_arr = str_arr.split(",");
+        arr.push(str_arr);
+
+        for(var i=0; i<arr.length; i++){
+            var span = document.createElement("span");
+
+            span.style.width ="50px";
+            span.style.height ="30px";
+            span.style.margin = "10px";
+            span.style.display = "inline-block";
+            span.style.backgroundColor += str_arr[i];
+        }
+        box.appendChild(span);
+
+
+        console.log(arr);
+
+    };
+
+    var arr = [];
+    color.onchange = function () {
+        var span = new DisColor();
+        span.init(box, color);
+        span.ele.onclick = function () {
+            span.setLocal(arr, color);
+            document.body.style.backgroundColor = span.color;
+        }
+
+    };
+    window.onload = function () {
+        var span = new DisColor();
+//        span.init(box, color);
+        span.getLocal(arr,box);
+        span.ele.onclick = function () {
+            document.body.style.backgroundColor = span.color;
+        }
+
+
+
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

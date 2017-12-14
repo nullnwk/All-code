@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        name: "小红",
+        age: 18,
+        play : function () {
+            console.log(1);
+        }
+    };
+    var obj1 = {}
+    for(var k in obj){
+        obj1[k] = obj[k]
+    }
+    console.dir(obj1);
+    obj1.play()
+
+</script>
+
+</body>
+</html>

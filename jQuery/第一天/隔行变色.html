@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul li{
+            list-style: none;
+        }
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                $("ul>li:odd").css("backgroundColor", "red");
+                $("ul>li:even").css("backgroundColor", "yellow");
+            });
+
+        })
+
+
+    </script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<ul>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+</ul>
+</body>
+</html>

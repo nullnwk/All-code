@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 400px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        p {
+            background: red;
+        }
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            /*$("#btn").click(function () {
+             $("div").append("<p>哈哈哈</p>");
+             $("p").click(function () {
+             alert(1111);
+             });
+             $("div").append("<p>哈哈</p>");
+             });*/
+            /* $("#btn").bind("click",function () {
+             $("div").append("<p>哈哈哈</p>");
+             $("p").click(function () {
+             alert(1111);
+             });
+             $("div").append("<p>哈哈</p>");
+             });*/
+            /*$("#btn").click(function () {
+                $("div").append("<p>哈哈哈</p>");
+                $("div").delegate("p", "click", function () {
+                        alert(1111);
+                });
+                $("div").append("<p>哈哈</p>");
+            });*/
+
+
+
+           /* $("#btn").click(function () {
+                $("div").append("<p>哈哈哈</p>");
+                $("div").on("click","p", function () {
+                    alert(1111);
+                });
+                $("div").append("<p>哈哈</p>");
+            });*/
+            $("#btn").click(function () {
+                $("div").append("<p>哈哈哈</p>");
+                $("p").on("click",function () {
+                    alert(1111);
+                });
+                $("div").append("<p>哈哈</p>");
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<div></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj1 = {
+        age:10,
+        sex:"男",
+        dog:{
+            name:"大黄",
+            age:5
+        },
+        car:["奔驰","宝马"]
+    };
+    var obj2 = {};
+
+    function extent(a,b) {
+        for(var k in a){
+            var item = a[k];
+            if(item instanceof Array){
+                b[k] = [];
+                extent(item, b[k]);
+            }else if(item instanceof Object){
+                b[k] = {};
+                extent(item, b[k]);
+            }else {
+                b[k] = item;
+            }
+        }
+    }
+
+    extent(obj1, obj2);
+    console.log(obj1);
+    console.log(obj2);
+
+
+</script>
+
+</body>
+</html>

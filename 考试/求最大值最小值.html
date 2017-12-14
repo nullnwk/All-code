@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //求数组中元素的和，最大值、最小值
+    function getSum(arr) {
+        //和
+        var sum = 0;
+        for(var i=0; i<=arr.length; i++){
+            sum+=i;
+        }
+        //最大值
+        var max = arr[0];
+        var min = arr[0];
+        for (var j = 0; j < arr.length; j++) {
+            if (arr[j] < arr[j + 1]) {
+                arr[j] = arr[j + 1];
+                max = arr[j];
+            }
+            if (arr[j] > arr[j + 1]) {
+                arr[j] = arr[j + 1];
+                min = arr[j];
+            }
+        }
+        var arr1 = [sum, max, min];
+        return arr1;
+    }
+
+    var arr = [1,2,3,4,5];
+    console.log(getSum(arr));
+    
+</script>
+
+</body>
+</html>

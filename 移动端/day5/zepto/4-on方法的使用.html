@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>今天天气不错</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #box{
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+    }
+  </style>
+  <script src="js/zepto.js"></script>
+  <script>
+    $(function () {
+      //使用on方法，统一了所有的事件设置方式(重点内容，必须要会)
+      //1 使用on方法进行基本事件设置
+      // $('#crt').on('click',function(){
+      //   console.log(1);
+      // })
+      //2 使用on进行多个事件的设置
+        // $('#crt').on({
+        //   tap:function(){
+        //     console.log(1);
+        //   },
+        //   click:function(){
+        //     console.log(2);
+        //   }
+        // })
+      
+      //3 进行事件委托设置
+      $('#crt').on('click',function(){
+        $('#box').append("<p>我是box中原有的p标签</p>")
+      })
+
+      $('#box').on('tap','p',function(){
+        console.log(1);
+        $(this).css({
+          "backgroundColor":'red'
+        })
+      })
+      
+    });
+  </script>
+</head>
+<body>
+<button id="crt">创建p标签放入到box中</button>
+<div id="box">
+  <span>我是span</span>
+  <!-- <p>我是box中原有的p标签</p> -->
+</div>
+
+</body>
+</html>

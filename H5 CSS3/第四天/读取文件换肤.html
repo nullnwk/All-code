@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+<input type="file" name="" id="fileId">
+<script>
+    document.getElementById("fileId").onchange = function () {
+        var file = this.files[0];
+        var read = new FileReader();
+        //可读取的类型
+        var arr = [".html",".css","js"];
+        //截取字符串
+        var str = file.name.substr(file.name.lastIndexOf("."));
+        for(var i=0 ;i<arr.length; i++){
+//            console.log(arr[i]);
+            var flag = false;
+            if(arr[i] == str){
+                flag = true;
+                break;
+            }
+        }
+        if(flag){
+            read.readAsText(file);
+            read.onload = function () {
+                var result = read.result;
+                var style = document.querySelector("style");
+                style.innerHTML = result;
+                document.head.appendChild(style);
+            }
+        }else {
+            alert("输入错误");
+        }
+
+
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

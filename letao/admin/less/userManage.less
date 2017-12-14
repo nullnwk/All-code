@@ -1,0 +1,136 @@
+@import "variable.less";
+@import "reset.less";
+
+.box {
+  width: 100%;
+  .header {
+    width: 100%;
+    height: 50px;
+    background: #018db7;
+    position: relative;
+    z-index: 1;
+    h2 {
+      width: 180px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      margin-top: 0;
+      float: left;
+      color: @write;
+      font-weight: bolder;
+      font-size: 20px
+    }
+    .header-l {
+      float: left;
+    }
+    .header-r {
+      float: right;
+    }
+
+
+  }
+  .commin {
+    width: 100%;
+    height: 100%;
+    .com-l {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 180px;
+      height: 100%;
+      background: #223233;
+      padding-top: 80px;
+      padding-left: 20px;
+      box-sizing: border-box;
+
+      .com-l-top {
+        color: @write;
+        font-size: 12px;
+        a {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+          vertical-align: middle;
+          img {
+            width: 100%;
+            vertical-align: middle;
+          }
+
+        }
+      }
+
+      ul {
+        width: 100%;
+        margin-top: 40px;
+        padding-left: 10px;
+        & > li {
+          width: 100%;
+          height: 30px;
+          line-height: 30px;
+          color: @write;
+          font-size: 16px;
+          i {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+
+          }
+          &:last-child {
+            margin-top: 60px;
+          }
+          ol {
+            padding-left: 36px;
+            li {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .com-r {
+      padding: 10px 10px 20px 190px;
+      width: 100%;
+      height: 30px;
+
+      box-sizing: border-box;
+      .com-r-t {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 20px;
+        background: #f6f5f4;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        a {
+          display: inline-block;
+          font-size: 16px;
+        }
+      }
+
+    }
+    .pagination {
+      float: right;
+    }
+    .modal-content {
+
+      .addBtn {
+        width: 100%;
+        height: 70px;
+        overflow: hidden;
+
+        .btn {
+          float: right;
+          margin-right: 15px;
+        }
+
+      }
+    }
+  }
+  .modal-body{
+    p{
+      color:red;
+    }
+  }
+}

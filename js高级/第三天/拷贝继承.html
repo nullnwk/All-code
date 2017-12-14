@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(sex) {
+        this.sex = sex;
+    }
+    Person.prototype.name = "xiao";
+    Person.prototype.age = 18;
+    Person.prototype.play = function () {
+        console.log("aaaa");
+    };
+
+    var stu= {};
+    for(var k in Person.prototype){
+        stu[k] = Person.prototype[k];
+    }
+
+    var per = new Person(4);
+
+    console.dir(stu);
+    console.log(stu.sex);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+
+        .yuan{
+            width: 10px;
+            height: 10px;
+            border: 2px solid #1fcf6d;
+            border-radius: 50%;
+            margin: 0 auto;
+            background: #1fcf6d;
+        }
+
+        .xian1{
+            height: 100px;
+            width: 5px;
+            background-color: #1fcf6d;
+            margin: 0 auto;
+            margin-top:-10px;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 5px solid mediumseagreen;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            /*background-color: rgba(0, 0, 0, .1);*/
+            background: url("1.jpg") center;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .line {
+            width: 300px;
+            height: 3px;
+            background-color: lightseagreen;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+        }
+
+        .line1 {
+            height: 100%;
+            background-color: yellow;
+            transform: rotateZ(30deg);
+        }
+
+        .line2 {
+            height: 100%;
+            background-color: coral;
+            transform: rotateZ(60deg);
+        }
+
+        .line3 {
+            height: 100%;
+            background-color: greenyellow;
+            transform: rotateZ(90deg);
+        }
+
+        .line4 {
+            height: 100%;
+            background-color: sandybrown;
+            transform: rotateZ(120deg);
+        }
+
+        .line5 {
+            height: 100%;
+            background-color: blueviolet;
+            transform: rotateZ(150deg);
+        }
+
+        .smallBox {
+            width: 260px;
+            height: 260px;
+            background: url("1.jpg") center;
+            background-size: cover;
+            border-radius: 50%;
+            position: absolute;
+            left: 6%;
+            top: 7%;
+            margin-left:1px ;
+        }
+
+
+        .dian {
+            width: 10px;
+            height: 10px;
+            background-color: #ef3f52;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -5px;
+            z-index: 10;
+        }
+
+        .s {
+            width: 3px;
+            height: 125px;
+            background-color: greenyellow;
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform-origin: bottom;
+        }
+
+        .m {
+            width: 3px;
+            height: 115px;
+            background-color: yellow;
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            transform-origin: bottom;
+        }
+
+        .h {
+            width: 3px;
+            height: 105px;
+            background-color: royalblue;
+            position: absolute;
+            left: 50%;
+            top: 50px;
+            transform-origin: bottom;
+        }
+        .box_time{
+            animation: time 2s linear infinite alternate;
+            transform-origin: top;
+        }
+
+        @keyframes time {
+            from{
+                transform: rotateZ(0deg);
+            }
+            50%{
+                transform: rotateZ(45deg);
+            }
+            to{
+                transform: rotateZ(-45deg);
+            }
+        }
+        @keyframes time1 {
+            from{
+                transform: rotateZ(0deg);
+            }
+            to{
+                transform: rotateZ(0deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="yuan"></div>
+    <div class="box_time">
+        <div class="xian">
+            <div class="xian1"></div>
+        </div>
+        <div class="box">
+            <div class="line">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+                <div class="line4"></div>
+                <div class="line5"></div>
+                <div class="line6"></div>
+            </div>
+            <div class="smallBox"></div>
+            <div class="smallBox1"></div>
+            <div class="dian"></div>
+            <div class="h"></div>
+            <div class="m"></div>
+            <div class="s"></div>
+
+        </div>
+    </div>
+
+
+
+
+<script>
+    timer();
+    function timer() {
+        var time = new Date();
+        var h = time.getHours();
+        var s = time.getSeconds();
+        var m = time.getMinutes();
+        m= m+s/60;
+        h= h+m/60;
+        document.querySelector(".h").style.transform = "rotate(" + (h * 30) + "deg)";
+        document.querySelector(".m").style.transform = "rotate(" + (m * 6) + "deg)";
+        document.querySelector(".s").style.transform = "rotate(" + (s * 6) + "deg)";
+    }
+    setInterval(function () {
+        timer()
+    }, 1000);
+    var temp;
+        document.onclick = function () {
+            if(temp){
+                temp = false;
+                document.querySelector(".box_time").style.animation=" time1 2s linear infinite alternate";
+            }else {
+                document.querySelector(".box_time").style.animation=" time 2s linear infinite alternate";
+                temp = true;
+            }
+        };
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //创建一个电脑对象,有颜色,有重量,有品牌,有型号,可以看电影,可以听音乐,可以打游戏,可以敲代码
+    //第一种
+   /* function com(color, weight, name, model) {
+        var com = new Object();
+        com.color = color;
+        com.weight = weight;
+        com.name = name;
+        com.model = model;
+        com.movie = function () {
+            console.log("看电影");
+        };
+        com.music = function () {
+            console.log("听音乐");
+        };
+        com.game = function () {
+            console.log("打游戏");
+        };
+        com.code = function () {
+            console.log("敲代码");
+        };
+        return com;
+    }
+    var com = com("red","180g", "lenovo", "g480")
+    console.log(com.name);*/
+    //第二种
+   /* function Com(name, weight, model, color) {
+        this.name = name;
+        this.weight = weight;
+        this.model = model;
+        this.color = color;
+        this.move = function () {
+            console.log("看电影");
+        }
+    }
+    var com = new Com("lenovo", "180g", "g480",  "red");
+    console.log(com.name);
+    com.move()*/
+   //第三种
+  /*  var com = {
+        name : "lenovo",
+        color : "red",
+        model : "180g",
+        move : function () {
+            console.log("看电影");
+        }
+    };
+    console.log(com.model);
+    com.move();*/
+
+
+    //创建一个按钮对象,宽,高,背景颜色,点击行为,按钮有鼠标进入的行为
+    //第一种：
+    /*function button(w, h, bg) {
+        var btn = new Object();
+        btn.w = w;
+        btn.h = h;
+        btn.bg = bg;
+        btn.hit = function () {
+            console.log("点击行为");
+        }
+        btn.join = function () {
+            console.log("鼠标进入");
+        }
+        return btn;
+    }
+    var btn = button(20, 30, "red");
+    btn.hit();
+    console.log(btn.h);*/
+    //第二种
+    /*function Button(w, h, bg) {
+        this.w = w;
+        this.h = h;
+        this. bg = bg;
+        this.hit = function () {
+            console.log("点击");
+        }
+    }
+    var but = new Button(20, 30, "red");
+    console.log(but.w);
+    but.hit();*/
+    //第三种：
+    /*var button = {
+        width : 20,
+        height : 30,
+        bg : "red",
+        hit : function () {
+            console.log("点击");
+        }
+    };
+    console.log(button.bg);
+    button.hit();*/
+
+
+    //创建一个车的对象,有重量,颜色,牌子,可以载人,拉货
+    //第一种
+    /*function car(weight, color, name) {
+        var car = new Object();
+       car.weight = weight;
+        car.color = color;
+        car.name = name;
+        car.anction = function () {
+            console.log("可以载人");
+        };
+        return car;
+    }
+    var car = car(20,"red", "越野");
+    console.log(car.name);
+    car.anction();*/
+    //第二种方法
+    /*function Car(weight, color, name) {
+        this.weight = weight;
+        this.name = name;
+        this.color = color;
+        this.action = function () {
+            console.log("可以载人");
+        }
+    }
+    var car = new Car(10,"red","越野");
+    console.log(car.name);
+    car.action();*/
+    //第三种
+    /*var car = {
+        name : "越野",
+        color : "red",
+        weight : 20,
+        action : function () {
+            console.log("可以载人");
+        }
+    }
+    console.log(car.name);
+    car.action();*/
+
+
+
+
+  /* function person(name, age, sex) {
+        var person = new Object();
+       person.name = name;
+       person.age = 18;
+       person.sex = sex;
+       person.run = function () {
+           console.log("我会跑");
+       };
+       return person;
+    }
+    var person = person("zxc", 18, "nam");
+    console.log(person.name);*/
+
+  /*function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+      this.run = function () {
+          console.log("我会跑");
+      }
+  }
+  var person = new Person("zxc", 18, "man");
+    console.log(person.name);*/
+
+  /*var person = {
+      name : "zxc",
+      age : 18,
+      sex : "man",
+      run : function () {
+          console.log("我会跑");
+      }
+  };
+  person.run();
+*/
+
+    console.log(Math.max(1, 2, 3, 4));
+    console.log(Math.min(1, 2, 3, 4));
+    console.log(Math.ceil(1.3));
+    console.log(Math.floor(1.3));
+    console.log(Math.pow(2, 2));
+    console.log(Math.random());
+    console.log(Math.random()*5);
+    console.log(parseInt(Math.random()*20+1));//1--20
+    console.log(parseInt(Math.random()*15+1));//1--15
+    console.log(parseInt(Math.random()*25+25));//25---50
+    console.log(Math.ceil(Math.random()*5));
+
+</script>
+</body>
+</html>

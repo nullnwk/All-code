@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 800px;
+            height: 600px;
+            background: silver;
+        }
+    </style>
+</head>
+<body>
+<div id="dv"></div>
+<script>
+    (function (win) {
+        function Random() {
+
+        }
+        Random.prototype.getRandom =function (max, min) {
+            return Math.floor(Math.random()*(max-min)+min)
+        };
+        win.Random = new Random();
+    })(window);
+
+    (function(win) {
+        var map = document.getElementById("dv");
+        //小方格的构造函数
+        function Foot(width, height, color) {
+            this.ele = document.createElement("div");
+            this.width = width || 20;
+            this.height = height || 20;
+            this.color = color;
+            //移动的距离
+            this.left = 0;
+            this.top = 0;
+        }
+        //初始化小盒子
+        Foot.prototype.init = function (map) {
+            var ele = this.ele;
+            ele.style.position = "absolute";
+            ele.style.width = this.width+"px";
+            ele.style.height = this.height+"px";
+            ele.style.backgroundColor = this.color;
+            map.appendChild(ele);
+            this.long(map);
+        };
+        //移动的距离
+        Foot.prototype.long = function (map) {
+            this.left = Random.getRandom(0,map.offsetWidth/this.width)*this.width;
+            this.top = Random.getRandom(0,map.offsetHeight/this.height)*this.height;
+            this.ele.style.left = this.left+"px";
+            this.ele.style.top = this.top+"px";
+        };
+        var ft = new Foot(20, 20, "red");
+        ft.init(map);
+
+
+    })(window);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   s
+<script>
+    var evt = {
+        //event或e
+        getEvent: function (e) {
+            return window.event || e;
+        },
+        //可视区域
+        getClientX: function (e) {
+            return this.getEvent(e).clientX;
+        },
+        getClientY: function (e) {
+            return this.getEvent(e).clientY;
+        },
+        //卷去出去的距离
+        getScrollLeft: function () {
+            return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft ||0;
+        },
+        getScrollTop: function () {
+            return window.pageYOffset || document.documentElement.scrollTop|| document.body.scrollTop ||0;
+
+        },
+        //page或者scroll+client
+        getPageX:function (e) {
+            return this.getEvent(e).pageX || this.getClientX(e)+this.getScrollLeft(e);
+        },
+        getPageY:function (e) {
+            return this.getEvent(e).pageY || this.getClientY(e)+this.getScrollTop(e);
+        }
+    };
+
+
+    document.onmousemove = function (e) {
+        my$("images").style.left = evt.getPageX(e) + "px";
+        my$("images").style.top = evt.getPageY(e) + "px";
+    }
+
+
+</script>
+</body>
+</html>

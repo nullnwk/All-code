@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .current{
+            background-color: #000;
+        }
+    </style>
+</head>
+<script src="../../jquery-1.12.1.js"></script>
+<script>
+    $(function () {
+        $("#btn").on("click", function () {
+            $("body").toggleClass("current");
+        });
+    })
+
+
+
+</script>
+<body>
+<button id="btn">开/关灯</button>
+
+</body>
+</html>

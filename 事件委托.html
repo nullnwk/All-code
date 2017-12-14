@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>sfsdfsd</li>
+    <li>sfsdfsd</li>
+    <li>sfsdfsd</li>
+    <li>sfsdfsd</li>
+    <li>sfsdfsd</li>
+</ul>
+<script>
+    document.getElementsByTagName("ul")[0].onclick = function (e) {
+        var e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (target.nodeName.toLowerCase() == "li") {
+            target.style.backgroundColor ="red";
+        }
+    };
+
+
+</script>
+</body>
+</html>

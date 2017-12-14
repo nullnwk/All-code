@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: rebeccapurple;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script src="../common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        animate(my$("dv"), {"width": 500, "left": 400, "opacity": 0.3},function () {
+            animate(my$("dv"), {"width": 50, "left": 40, "opacity": 1})
+        })
+    };
+
+
+    //获取任意元素的任意属性
+    function getStyle(ele, attr) {
+        return window.getComputedStyle ? window.getComputedStyle(ele, null)[attr] : ele.currentStyle[attr] || 0;
+    }
+
+    function animate(ele, json, fn) {
+        //要用定时器，先清定时器
+        clearInterval(ele.timer);
+        ele.timer = setInterval(function () {
+            var bool = true;
+            //for in循环遍历所有属性、属性值
+            for (var attr in json) {
+                //改变透明度
+                if (attr == "opacity") {
+                    //获取当前透明度，放大100倍
+                    var current = parseInt(getStyle(ele, attr) * 100);//当前位置
+                    //目标透明度放大一百倍
+                    var target = json[attr] * 100;
+                    var step = (target - current) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    current += step;
+                    ele.style[attr] = current / 100;
+                } else if (attr == "zIndex") {//改变层级
+                    ele.style[attr] = json[attr];
+                } else {
+                    var current = parseInt(getStyle(ele, attr));//当前位置
+                    var target = json[attr];
+                    var step = (target - current) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    current += step;
+                    ele.style[attr] = current + "px";
+                }
+                //看是否到达目标
+                if (target != current) {
+                    bool = false;
+                }
+            }
+            if (bool) {
+                clearInterval(ele.timer);
+                if (fn) {
+                    fn();
+                }
+            }
+            console.log("目标位置:" + target + ",当前位置:" + current + ",每次移动步数:" + step);
+        }, 20)
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+           $("#btn").click(function () {
+               $(this).siblings("div").css({"backgroundColor":"red","width":"200px","height":"200px"})
+           });
+
+
+        });
+
+
+
+    </script>
+
+
+</head>
+<body>
+<button id="btn">按钮</button>
+<div></div>
+
+</body>
+</html>

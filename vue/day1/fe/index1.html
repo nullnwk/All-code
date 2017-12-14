@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="top">
+    <ul>
+      <li><a href="#/head">头部</a></li>
+      <li><a href="#/foot">底部</a></li>
+    </ul>
+  </div>
+  <div class="container"></div>
+
+
+ <script src="node_modules/jquery/dist/jquery.js"></script>
+ <script src="node_modules/art-template/lib/template-web.js"></script>
+<script>
+  window.onhashchange = function(){
+    var hash = window.location.hash.substr(1);
+    if(hash === "/head"){
+      $.get("./top.html",function(data){
+        $(".container").html(data)
+      })
+    }
+    if(hash === "/foot"){
+      $.get("./foot.html",function(data){
+        $(".container").html(data)
+      })
+    }
+  }
+
+
+
+
+</script>
+
+
+</body>
+
+</html>

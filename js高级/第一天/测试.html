@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>哈哈哈</title>
+</head>
+<body>
+<script>
+    //string number boolean undefined null object
+    //string number boolean
+    //脚本语言  弱类型语言  基于对象的语言 动态类型的语言  解释型语言
+    //函数声明
+    function f1() {
+
+    }
+    //函数表达式
+    var f1 = function () {
+
+    };
+    //String Number Array Math Date Object
+    var arr = [12,3,4,5,6];
+    for(var i=0; i<arr.length-1; i++){
+        for(var j =0; j<arr.length-1-i; j++){
+            if(arr[j]<arr[j+1]){
+                var temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+    console.log(arr);
+
+    //字面量创建对象
+    var obj = {
+        name:"zxc",
+        sing:function () {
+            console.log("我会唱歌");
+        }
+    }
+
+    var obj1 = new  Object();
+    obj1.name = "zxc";
+    obj1.sing = function () {
+        console.log("哈哈哈");
+    }
+
+    function Person(name) {
+        this.name = name;
+        this.sing = function () {
+            console.log("哈哈哈");
+        }
+    }
+    var per = new Person("小明")
+    per.sing();
+
+
+
+    //slice substr substring
+    //split
+    //trim
+    //toUpperCase
+    //push
+    //unshift
+    //shift
+    //pop
+    //forEach    ele index array
+    //reverse sort
+    //join
+    //indexOf
+    //typeOf
+    //instanceof isArray
+
+</script>
+
+</body>
+</html>

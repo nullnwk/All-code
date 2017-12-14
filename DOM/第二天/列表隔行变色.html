@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+    <style>
+        .color {
+            background: blue;
+        }
+
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">隔行变色</button>
+<ul id="uu">
+    <li>saasdasdas</li>
+    <li>saasdasdas</li>
+    <li>saasdasdas</li>
+    <li>saasdasdas</li>
+    <li>saasdasdas</li>
+    <li>saasdasdas</li>
+</ul>
+<script>
+    var list = my$("uu").getElementsByTagName("li");
+    for (var i = 0; i < list.length; i++) {
+        list[i].style.backgroundColor = i % 2 == 0 ? "pink" : "yellow";
+        var color = "";
+        list[i].onmouseover = function () {
+            color = this.style.backgroundColor;
+            this.style.backgroundColor = "blue";
+        };
+        list[i].onmouseout = function () {
+            this.style.backgroundColor = color;
+        }
+    }
+
+
+</script>
+</body>
+</html>

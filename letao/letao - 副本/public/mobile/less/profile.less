@@ -1,0 +1,71 @@
+@import "adapter.less";
+@import "adapter.less";
+@import "variable.less";
+@import "reset.less";
+
+//头部
+.lt-header {
+  .lt-header();
+  .mui-plus-visible {
+    display: inline-block !important;
+  }
+}
+
+//底部
+.lt-footer {
+  width: 100%;
+  .mui-item {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+  }
+  .mui-tab-label {
+    font-size: 14px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 5px;
+    padding-bottom: 3px;
+  }
+  .mui-item.mui-active {
+    color: @footer-home;
+  }
+  .mui-icon {
+    font-size: 22px;
+  }
+}
+
+//主体
+.comment{
+  margin-top: 44px;
+  a {
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    font: 16px/1.16 arial;
+    &.mui-navigate-right:after, .mui-push-right:after {
+      content: '>';
+      right: 15px;
+      font-size: 20px;
+    }
+  }
+  h3{
+    text-align: center;
+    font-size: 20px;
+  }
+  .postcode,.receiver{
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

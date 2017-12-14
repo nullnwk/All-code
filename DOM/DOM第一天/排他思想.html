@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="你好">
+<input type="button" value="你好">
+<input type="button" value="你好">
+<input type="button" value="你好">
+<input type="button" value="你好">
+<script>
+    var inp = document.getElementsByTagName("input");
+    for(var i=0; i<inp.length; i++){
+        inp[i].onclick = function () {
+            for(var j=0; j<inp.length; j++){
+                inp[j].value = "你好";
+            }
+            this.value = "我好";
+        };
+    }
+
+</script>
+</body>
+</html>

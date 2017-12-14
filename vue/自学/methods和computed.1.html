@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <label for="">firstName:<input type="text" v-model="first" @keyup="first1"></label>
+      <label for="">lastName:<input type="text" v-model="last" @keyup="last1"></label>
+      <p>{{message}}</p>
+    </div>
+  </div>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        first: 1,
+        last: 2,
+        message: ""
+      },
+      methods: {
+        first1() {
+          this.message = this.first + " " + this.last;
+        },
+        last1() {
+          this.message = this.first + " " + this.last;
+        }
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>

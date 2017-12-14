@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dv1{
+            width: 300px;
+            height: 200px;
+            background: red;
+        }
+        #dv2{
+            width: 200px;
+            height: 150px;
+            background: green;
+        }
+        #dv3{
+            width: 100px;
+            height: 110px;
+            background: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="dv1">
+    <div id="dv2">
+        <div id="dv3"></div>
+    </div>
+</div>
+<script src="../common.js"></script>
+<script>
+    addEventListener(my$("dv1"), "click", function () {
+        console.log(1);
+    });
+    addEventListener(my$("dv2"), "click", function () {
+        console.log(2);
+    });
+    addEventListener(my$("dv3"), "click", function (e) {
+        console.log(3);
+        window.event.cancelBubble=true;
+//        e.stopPropagation();
+    });
+
+
+
+</script>
+
+
+</body>
+</html>

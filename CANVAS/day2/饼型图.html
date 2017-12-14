@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="300"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var x = -90;
+    var arr=[30,50,60,80,160];
+    var color = ["red","pink","orange","green","blue"];
+    for(var i=0; i<arr.length; i++){
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2,canvas.height/2);
+        ctx.arc(canvas.width/2,canvas.height/2,100,aTor(x),aTor(x+=arr[i]));
+        ctx.fillStyle = color[i];
+        ctx.fill();
+    }
+
+
+
+    function aTor(a) {
+        return a *Math.PI/180;
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

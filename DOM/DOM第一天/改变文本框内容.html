@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<input type="text" value="">
+<input type="text" value="">
+<input type="text" value="">
+<input type="text" value="">
+<input type="text" value="">
+<script>
+    var btn = document.getElementById("btn");
+    var inps = document.getElementsByTagName("input");
+    btn.onclick = function () {
+        for(var i=0; i<inps.length; i++){
+            if(inps[i].type != "button"){
+                inps[i].value = "aa";
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="fileId">
+<script>
+    var fileId = document.querySelector("input");
+    fileId.onchange =function () {
+        var file = this.files[0];
+        var read = new FileReader();
+        read.readAsText(file);
+//        console.log(this.files[0]);
+
+        var arr = [".jpg",".png",".gif",".css"];
+//      console.log(file);
+        var str = file.name.substr(file.name.lastIndexOf("."));
+        for(var i=0; i<arr.length; i++){
+            var flag = false;
+            if(arr[i] == str){
+               flag = true;
+               break;
+            }
+        }
+        if(flag){
+            read.onload = function () {
+                var result = read.result;
+                var div = document.createElement("div");
+                div.innerHTML = result;
+                document.body.appendChild(div);
+            }
+        }else {
+            alert("格式错误");
+        }
+
+
+
+    }
+
+
+
+</script>
+</body>
+</html>

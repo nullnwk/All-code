@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            background-color: rgba(0,0,0,.2);
+        }
+
+        span {
+            width: 50px;
+            height: 30px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+<input type="color" id="color"><br>
+<div class="box"></div>
+
+<script>
+    var color = document.getElementById("color");
+    var box = document.querySelector(".box");
+    var arr = [];
+    color.addEventListener("change", function (e) {
+        if (arr.length < 10) {
+            //判断数组中存不存在这个值
+            if (arr.indexOf(e.target.value) == -1) {
+                var span = document.createElement("span");
+                span.style.backgroundColor += e.target.value;
+                box.appendChild(span);
+                arr.push(e.target.value);
+                //把数组转为字符串
+                var arr_str = arr.toString();
+                span.onclick = function () {
+                    //保存数据
+                    localStorage.setItem("color", arr_str);
+                    document.body.style.backgroundColor = this.style.backgroundColor;
+                }
+            }
+            console.log(box.lastElementChild);
+            console.log(arr);
+        } else {
+            alert("超出最大数量")
+        }
+
+
+    });
+
+
+        //页面加载完成，读取数据
+        window.onload = function () {
+    //        console.log(box.children);
+            var str_arr = localStorage.getItem("color");
+            //字符串转为数组,追加到arr中
+            str_arr = str_arr.split(",");
+            for (var i = 0; i < str_arr.length; i++) {
+                arr.push(str_arr[i]);
+                var span = document.createElement("span");
+    //            console.log(str_arr[i]);
+                span.style.backgroundColor += str_arr[i];
+                box.appendChild(span);
+                span.onclick = function () {
+                    document.body.style.backgroundColor = this.style.backgroundColor;
+                }
+            }
+            document.body.style.backgroundColor =box.lastElementChild.style.backgroundColor;
+    //        console.log(box.children);
+
+        }
+
+</script>
+
+
+</body>
+</html>

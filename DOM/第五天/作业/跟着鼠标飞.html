@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="../images/1.jpg" alt="" width="50" id="im" style="position: absolute">
+<script src="../common.js"></script>
+<script>
+
+    document.onmousemove = function (e) {
+        e= e || window.event;
+        my$("im").style.left = e.clientX-25 +  "px";
+        my$("im").style.top = e.clientY-15 + "px";
+    }
+
+</script>
+</body>
+</html>

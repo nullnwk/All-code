@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/letao" libraries="{letao/letao/node_modules}" />
+    <file url="file://$PROJECT_DIR$/letao-master" libraries="{letao/letao-master/node_modules}" />
+  </component>
+</project>

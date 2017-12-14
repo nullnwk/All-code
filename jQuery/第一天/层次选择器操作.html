@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                //$(".dv span").css("backgroundColor", "red");
+               // $(".dv~span").css("backgroundColor", "red");
+                $(".dv+span").css("backgroundColor", "red");
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<span>qian一个</span>
+<div class="dv">
+    <p class="pp">sdfsdsf</p>
+    <p>sdfsdsf</p>
+    <span>dfsdf</span>
+    <div>sdfsdfdf</div>
+    <ul>
+        <li class="list">asfdsdf</li>
+        <li>asfdsdf</li>
+        <li>asfdsdf
+            <span>sadsdfds</span>
+        </li>
+        <li>asfdsdf</li>
+    </ul>
+</div>
+<span>后一个</span>
+<span>后huo一个</span>
+</body>
+</html>

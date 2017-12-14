@@ -1,0 +1,96 @@
+@import "adapter.less";
+@import "adapter.less";
+@import "variable.less";
+@import "reset.less";
+
+//头部
+.lt-header {
+  .lt-header();
+  .mui-plus-visible {
+    display: inline-block !important;
+  }
+}
+
+//底部
+.lt-footer {
+  .lt-footer();
+}
+
+//主体
+.comment {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 44px;
+  .commentBox {
+    width: 100%;
+    padding-bottom: 130px;
+  }
+  .com-box {
+    font-size: 0;
+    padding: 6px 0 10px 0;
+    //height: 100%;
+    border-bottom: 1px solid #ccc;
+    .com_l {
+      width: 30%;
+      display: inline-block;
+      a {
+        width: 100%;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .com_r {
+      display: inline-block;
+      vertical-align: top;
+      width: 65%;
+      padding: 10px;
+      box-sizing: border-box;
+      p {
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 5px;
+        &.price {
+          i {
+            color: @sportPrice;
+          }
+          .del {
+            text-decoration: line-through;
+          }
+          span:last-child {
+            float: right;
+          }
+        }
+      }
+
+    }
+  }
+  .comment-bottom {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    height:35px;
+    line-height: 35px;
+    color: @sportPrice;
+    background: #ebebeb;
+    span {
+      margin-left: 30px;
+      font-size: 16px;
+    }
+    a{
+      display: inline-block;
+      width: 100px;
+      height: 100%;
+      font-size: 16px;
+      color: @write;
+      float: right;
+      text-align: center;
+      background: red;
+      border-radius: 5px;
+    }
+  }
+}

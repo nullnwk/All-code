@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+    <script src="../jquery-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+           $("#btn").on("click", function () {
+               if($("p").length ==0){
+                   $("<p>sdfsd</p>").appendTo($("div"));
+               }
+           })
+        });
+
+    </script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div></div>
+
+</body>
+</html>

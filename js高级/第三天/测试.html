@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function Phone(color,weight) {
+    this.color = color;
+    this.weight = weight;
+}
+Phone.prototype.play = function () {
+        console.log("发短信");
+};
+var phone = new Phone("red",18);
+    phone.play()
+
+
+
+</script>
+
+</body>
+</html>

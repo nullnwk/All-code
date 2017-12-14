@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name) {
+        this.name = name;
+    }
+    Person.prototype.eat = function () {
+        console.log("吃饭");
+    };
+
+    function Student(name) {
+        this.name = name;
+    }
+    Student.prototype.eat1 = function () {
+        console.log("学生吃饭");
+    };
+    
+    Student.prototype = new Person("小红");
+     var stu = new Student();
+    stu.eat1();
+</script>
+
+</body>
+</html>

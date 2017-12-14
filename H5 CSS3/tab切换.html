@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            width: 50px;
+            height: 30px;
+            background: rebeccapurple;
+            list-style: none;
+            float: left;
+            line-height: 30px;
+            text-align: center;
+        }
+        .active{
+            background: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>aaa</li>
+        <li>aaa</li>
+        <li>aaa</li>
+    </ul>
+    <script>
+        var li = document.getElementsByTagName("li");
+        for(var i=0; i<li.length; i++){
+            li[i].onclick = function () {
+                for(var j=0; j<li.length; j++){
+                    li[j].classList.remove("active");
+                }
+                this.classList.add("active");
+            }
+        }
+
+
+    </script>
+</body>
+</html>

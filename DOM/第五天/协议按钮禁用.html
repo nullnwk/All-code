@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+<input type="button" value="请仔细阅读协议（5）" id="btn">
+<input type="button" value="同意" id="btn1" disabled>
+<script src="common.js"></script>
+<script>
+    var input = 5;
+    var timer = setInterval(function () {
+        input--;
+        my$("btn").value = "请仔细阅读协议（"+input+"）";
+        if(input<=0){
+            my$("btn1").disabled = false;
+            clearInterval(timer);
+        }
+
+
+    },1000)
+
+
+</script>
+</body>
+</html>

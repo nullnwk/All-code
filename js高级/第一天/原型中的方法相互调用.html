@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Student() {
+        this.eat =function () {
+            console.log("我不吃饭了");
+        };
+        
+    }
+    Student.prototype = {
+        consturator: Student,
+        eat:function () {
+            console.log("吃饭");
+            this.play();
+        },
+        play:function () {
+            console.log("打篮球");
+            this.sleep();
+        },
+        sleep:function () {
+            console.log("睡觉了");
+        }
+    };
+    var stu = new Student();
+    stu.eat();
+
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person() {
+        this.sayHi = function (txt) {
+            if (txt) {
+                console.log("你好啊:" + txt);
+                return this;
+            } else {
+                console.log("你好啊");
+            }
+        };
+        this.play = function (txt) {
+            if (txt) {
+                console.log("111");
+                return this;
+            } else {
+                console.log(222);
+            }
+        };
+    }
+    var per = new Person();
+    per.sayHi("").play();
+
+
+</script>
+
+</body>
+</html>

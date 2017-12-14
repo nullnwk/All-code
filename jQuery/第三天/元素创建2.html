@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                $("<input type='button' value='按钮'>").appendTo($("div"));
+                $(this).after("<span>fdsdfffddf</span>");
+                $("div").children("input").eq(0).before("<p>sdfffddf</p>");
+                $("div").prepend("<p>反反复复</p>");
+
+                $("div").after("<i>dddddddddddddddddd</i>")
+
+            });
+        });
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+<input type="button" value="创建按钮" id="btn">
+<div></div>
+<p>sdfsd</p>
+</body>
+</html>

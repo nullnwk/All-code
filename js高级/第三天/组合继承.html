@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    Person.prototype.seiHi = function () {
+        console.log("哈哈");
+    };
+
+    function Stu(name, age, sex, score) {
+        this.score = score;
+        //继承属性
+        Person.call(this, name, age, sex)
+    }
+    //继承方法
+    Stu.prototype = new Person();
+    Stu.prototype.play = function () {
+        console.log("玩");
+    };
+
+
+    var stu1 = new Stu("xiao", 20, "男", 29);
+    var stu2 = new Stu("xi", 23, "男", 25);
+    var stu3 = new Stu("x", 26, "男", 24);
+    console.log(stu1.name, stu1.age, stu1.sex, stu1.score);
+    console.log(stu2.name, stu2.age, stu2.sex, stu2.score);
+    console.log(stu3.name, stu3.age, stu3.sex, stu3.score);
+    stu1.play();
+    console.log(stu1 instanceof Stu);
+    console.log(stu1 instanceof Person);
+</script>
+
+</body>
+</html>

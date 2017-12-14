@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 600px;
+            height: 400px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        var arr = [
+            {"name": "优酷", "href": "http://youku.com"},
+            {"name": "优酷", "href": "http://youku.com"},
+            {"name": "优酷", "href": "http://youku.com"},
+            {"name": "优酷", "href": "http://youku.com"},
+            {"name": "优酷", "href": "http://youku.com"}
+        ];
+
+
+        $(function () {
+            $("#btn").click(function () {
+                $("<table border='1'></table>").appendTo($("div"));
+                for (var i = 0; i < arr.length; i++) {
+                    $("table").append($("<tr></tr>"));
+                    var td1 = $("<td>" + arr[i].name + "</td>");
+                    var td2 = $("<td><a href=" + arr[i].href + ">" + arr[i].name + "</a></td>");
+                }
+                $("tr").append(td1).append(td2).mouseenter(function () {
+                    $(this).css("backgroundColor","red").siblings().css("backgroundColor","");
+                });
+            });
+            $("#removeBtn").click(function () {
+                $("div").empty();
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮1">
+<input type="button" id="removeBtn" value="按钮2">
+<div></div>
+
+
+</body>
+</html>

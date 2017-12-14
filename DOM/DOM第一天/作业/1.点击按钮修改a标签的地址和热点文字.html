@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<a href="www.baidu.com">百度</a>
+<script>
+    var btn = document.querySelector("#btn");
+    var aa = document.querySelector("a");
+
+    btn.onclick = function () {
+        aa.href = "www.jd.com";
+        aa.innerText = "京东";
+    }
+
+
+</script>
+</body>
+</html>

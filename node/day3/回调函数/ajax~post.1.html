@@ -1,0 +1,28 @@
+52952702<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function post(url,callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("post", url, true);
+      xhr.setRequestHeader("COntent-Type", "application/x-www-form-urlencoded");
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          callback(this.responseText);
+        }
+      }
+    }
+     post('./ajax~get.json', function (data) {
+      console.log('接收到响应结果了：', data)
+    });
+  </script>
+</body>
+
+</html>

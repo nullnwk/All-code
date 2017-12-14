@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = "abc:123,zxc:234,asd:456";
+    var arr = str.split(",");
+    var obj = {};
+    for(var i=0; i<arr.length; i++){
+        var arr1 = arr[i].split(":");
+        obj[arr1[0]] = arr[i][1];
+    }
+    console.log(obj);
+
+
+    var a = [1,2,3,4];
+    var b = a.indexOf(4);
+    console.log(b);
+    var c = "1233";
+    var d = c.indexOf("3");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+    //背景方格大小 坐标线箭头大小
+    var obj = {
+        //方格
+        l_p: 20,
+        r_p: 20,
+        t_p: 20,
+        b_p: 20,
+        //三角宽高
+        s_w: 10,
+        s_h: 10
+    };
+    //随机正方形大小
+    var zfx ={
+        z_W: 10,
+        z_H: 10
+    };
+    fangGe();
+    jianTou();
+    dian();
+
+    //随机点
+    function dian() {
+        //随机生成3--8个
+        var rnum = myRandom(3,8);
+        //创建数组，保存坐标
+        var arr = [];
+        for(var i=0; i<rnum; i++){
+            var ox = myRandom(obj.l_p*2,canvas.width-obj.r_p);
+            var oy = myRandom(obj.b_p*2,canvas.height-obj.t_p);
+            var obj1 = {
+                x:ox,
+                y:oy
+            };
+            arr.push(obj1);
+        }
+        console.log(arr);
+        //绘制点
+        for(var i=0; i<arr.length; i++){
+            ctx.moveTo(arr[i].x-zfx.z_W/2,arr[i].y-zfx.z_H/2);
+            ctx.lineTo(arr[i].x+zfx.z_W/2,arr[i].y-zfx.z_H/2);
+            ctx.lineTo(arr[i].x+zfx.z_W/2,arr[i].y+zfx.z_H/2);
+            ctx.lineTo(arr[i].x-zfx.z_W/2,arr[i].y+zfx.z_H/2);
+            ctx.closePath();
+            ctx.fill();
+        }
+        //排序
+        for(var i=0; i<arr.length; i++){
+            for (var j = 0; j <arr.length-1-i; j++) {
+                if(arr[j].x >arr[j+1].x){
+                    var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        //连线
+        ctx.moveTo(arr[0].x,arr[0].y);
+        for(var i=0; i<arr.length; i++){
+            ctx.lineTo(arr[i].x,arr[i].y);
+            ctx.stroke();
+        }
+    }
+    //背景  方格
+    function fangGe() {
+        var x = 20;
+        for (var i = 0; i < 20; i++) {
+            ctx.moveTo(0, i * x);
+            ctx.lineTo(600, i * x);
+            ctx.strokeStyle = "#ccc";
+            ctx.stroke();
+        }
+        for (var i = 0; i < 30; i++) {
+            ctx.moveTo(i * x, 0);
+            ctx.lineTo(i * x, 400);
+            ctx.stroke();
+        }
+    }
+    //坐标线 箭头
+    function jianTou() {
+        //线
+        ctx.beginPath();
+        ctx.moveTo(obj.l_p, canvas.height - obj.b_p);
+        ctx.lineTo(obj.l_p, obj.t_p);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(obj.l_p, canvas.height - obj.b_p);
+        ctx.lineTo(canvas.width - obj.r_p, canvas.height - obj.b_p);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        //小三角
+        ctx.beginPath();
+        ctx.moveTo(obj.l_p, obj.t_p);
+        ctx.lineTo(obj.l_p-obj.s_w/2,obj.t_p/2+obj.t_p);
+        ctx.lineTo(obj.l_p+obj.s_w/2,obj.t_p/2+obj.t_p);
+        ctx.closePath();
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(canvas.width-obj.r_p, canvas.height - obj.b_p);
+        ctx.lineTo(canvas.width-obj.r_p-obj.s_w,canvas.height - obj.b_p+obj.s_w/2);
+        ctx.lineTo(canvas.width-obj.r_p-obj.s_w,canvas.height - obj.b_p-obj.s_w/2);
+        ctx.closePath();
+        ctx.fillStyle = "blue";
+        ctx.fill();
+
+    }
+    //随机数
+    function myRandom(min,max) {
+        return ~~((max-min)*Math.random())+min;
+    }
+
+</script>
+</body>
+</html>

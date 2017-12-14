@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function get(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", url);
+      xhr.send(null);
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          callback(JSON.parse(this.responseText));
+        }
+      }
+    }
+
+    function stu(id, callback) {
+      //get方法请求数据,获取单个学生
+      var student = null;
+      get("./data/students.json", function (data) {
+        data.forEach(function (ele) {
+          if (id === ele.id) {
+            student = ele;
+          }
+        }, this);
+      })
+      // 获取学科
+      get("./data/subjects.json", function (data) {
+        data.forEach(function (ele) {
+          if (ele.id == student.subject_id) {
+            console.log(ele.title);
+          }
+        })
+      })
+    }
+
+    stu(1);
+  </script>
+</body>
+
+</html>

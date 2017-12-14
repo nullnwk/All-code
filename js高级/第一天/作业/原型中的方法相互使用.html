@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person() {}
+    Person.prototype.play = function () {
+        console.log(111);
+        this.eat();
+    };
+    Person.prototype.eat = function () {
+        console.log(222);
+    };
+    var per = new Person();
+    per.play()
+</script>
+
+</body>
+</html>

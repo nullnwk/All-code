@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pp{
+            background-color: red;
+        }
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                $("p.pp").css("backgroundColor", "blue");
+                $("p.pp").css("width", "200px");
+                $("p.pp").css("height", "200px");
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<p class="pp">sdfsdsf</p>
+<p>sdfsdsf</p>
+<div class="pp">sdfsdfdf</div>
+</body>
+</html>

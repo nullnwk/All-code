@@ -1,0 +1,145 @@
+@import "adapter.less";
+@import "adapter.less";
+@import "variable.less";
+@import "reset.less";
+
+body{
+  background: #EFEFF4;
+}
+//头部
+.lt-header {
+  .lt-header();
+  .mui-plus-visible {
+    display: inline-block !important;
+  }
+}
+
+//底部
+.lt-footer {
+  .lt-footer();
+}
+
+
+
+
+
+
+.sear{
+
+  position: relative;
+  background: #EFEFF4;
+  z-index: 10;
+}
+.code {
+  width: 100%;
+  height: 35px;
+  position: relative;
+  margin: 45px 0 -2px 0;
+  .inputHis {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #d9edf7;
+    -webkit-text-fill-color: #666;
+    font: 14px/1.14 arial;
+    box-shadow: 0 0 10px #d9edf7;
+  }
+  .searchHis{
+    position: absolute;
+    right: 12px;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+    box-sizing: border-box;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.lt-order [data-type='price'].activee{
+  color:red
+}
+.lt-order [data-type='num'].activee{
+  color:red
+}
+
+
+.lt-list .lt-order {
+  height: 30px;
+  line-height: 30px;
+  background: #efeff4;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.lt-list .lt-order a {
+  width: 25%;
+  font-size: 12px;
+  color: #333;
+  float: left;
+  text-align: center;
+}
+
+.mui-scroll-wrapper {
+  position: absolute;
+  z-index: 0;
+  top: 109px;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 48px;
+}
+.lt-search-result{
+  background: @write;
+}
+
+.item {
+  float: left;
+  width: 50%;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+
+.item .box {
+  width: 100%;
+  box-shadow: 0 0 5px #ccc;
+  text-align: center;
+  padding: 10px 0;
+  img{
+    width: 100%;
+  }
+}
+
+.item .box .name {
+  padding: 0 10px;
+  height: 36px;
+  line-height: 18px;
+  overflow: hidden;
+}
+
+.item .box .price {
+  font-size: 12px;
+  color: #f30;
+  margin-right: 10px;
+}
+
+.item .box .oldPrice {
+  font-size: 12px;
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.item .box .button {
+  display: block;
+  width: 50%;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  margin: 5px auto 0 auto;
+  background: @sportBuy;
+  border-radius: 5px;
+  color: @write;
+ }

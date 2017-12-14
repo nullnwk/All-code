@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .click {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background-color: greenyellow;
+    }
+
+    .tap {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      background-color: goldenrod;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+
+    <div class="click"></div>
+    <div class="tap"></div>
+  </div>
+  <script src="js/zepto.js"></script>
+  <!-- <script src="./js/fastclick.js"></script> -->
+  <script>
+    // 解决点透
+    // FastClick.attach(document.body);
+
+    $('.tap').tap(function(){
+      console.log(1);
+      // $(this).hide();
+
+      console.time('timer');
+    })
+
+
+    $('.tap').click(function(){
+      console.log(2);
+      console.timeEnd('timer');
+
+    })
+
+    // $('.click').click(function(){
+    //   console.log("click事件触发了");
+    // })
+
+    // 在移动端经常会出现的一个场景-- 点透
+    // 1.要有两个元素 一个a在上 一个b在下
+    // 2. a绑定一个事件  b绑定一个事件
+    // 3.a绑定事件触发一横 让a自己隐藏  b就会自动触发（类似与应用了点击a的时候触发的click）
+    // 以上的场景叫点透
+
+    // 解决点透
+    // fastclick
+  </script>
+</body>
+
+</html>

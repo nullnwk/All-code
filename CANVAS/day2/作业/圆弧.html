@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.arc(100,100,50,0,aTor(360));
+    ctx.stroke();
+
+
+    function aTor(a) {
+        return a * Math.PI / 180
+    }
+
+
+</script>
+</body>
+</html>

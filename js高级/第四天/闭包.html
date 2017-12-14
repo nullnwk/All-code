@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //函数模式的闭包
+    function f1() {
+        var num = 10;
+        return function () {
+            console.log(num);
+        };
+    }
+    f1()();
+    //对象模式的闭包
+    function f2() {
+        var num = 2;
+        return {
+            num: num
+        }
+    }
+    console.log(f2().num);
+
+
+    /* function f1() {
+     var num = 1;
+     return function () {
+     num++;
+     return num;
+     }
+     }
+     var ff = f1();
+     console.log(ff());
+     console.log(ff());
+     console.log(ff());*/
+
+    https://smart.sug.so.com/suggest?pid=webpage&word=1&srcg=&src=hao_home&encodein=utf-8&encodeout=utf-8&callback=__jsonp14__&t=1509529155301
+
+            //闭包产生相同的随机数
+            function f1() {
+                var num = parseInt(Math.random() * 10 + 1);
+                return function () {
+                    console.log(num);
+                }
+            }
+    var ff = f1();
+    ff();
+    ff();
+    ff();
+
+</script>
+
+</body>
+</html>

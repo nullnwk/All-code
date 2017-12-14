@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 600px;
+            height: 100px;
+            margin: 50px auto;
+            background-image: linear-gradient(
+                    135deg,
+                    red 20%,
+                    green 20%,
+                    green 40%,
+                    red 40%,
+                    red 60%,
+                    green 60%,
+                    green 80%,
+                    red 80%,
+                    red
+            );
+            background-size:  135px 200px;
+            animation: positionImg 2s linear infinite ;
+        }
+        @keyframes positionImg {
+            from{
+                background-position: 0;
+            }
+            to{
+                background-position: 135px;
+
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            color: gray;
+        }
+        div{
+            position: relative;
+        }
+        label {
+            position: absolute;
+            top: 0;
+            left: 8px;
+            color: gray;
+        }
+
+    </style>
+    <script src="../common.js"></script>
+</head>
+<body>
+<input type="text" value="请输入内容" id="inp">京东 <br>
+<div>
+    <label for="" id="lab">我是淘宝</label>
+    <input type="text" id="inp1">
+    淘宝
+</div>
+<script>
+    my$("inp").onfocus = function () {
+        this.value = "";
+        this.style.color = "black";
+    };
+    my$("inp").onblur = function () {
+        this.value = "请输入内容";
+        this.style.color = "gray";
+    };
+    my$("inp1").oninput = function () {
+        if(this.value == ""){
+            my$("lab").style.display = "block";
+        }else {
+            this.style.color = "black";
+            my$("lab").style.display = "none";
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

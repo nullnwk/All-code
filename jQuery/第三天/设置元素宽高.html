@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: red;
+            top: 50px;
+        }
+    </style>
+    <script src="../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+           $("#btn").click(function () {
+               $("div").css("top",$("div").offset().top*5);
+               $("div").width();
+           });
+        });
+
+
+
+    </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<div></div>
+
+</body>
+</html>

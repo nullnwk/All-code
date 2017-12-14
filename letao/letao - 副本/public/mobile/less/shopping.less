@@ -1,0 +1,168 @@
+@import "adapter.less";
+@import "adapter.less";
+@import "variable.less";
+@import "reset.less";
+
+//头部
+.lt-header {
+  .lt-header();
+  .mui-plus-visible {
+    display: inline-block !important;
+  }
+}
+
+//底部
+.lt-footer {
+  .lt-footer();
+}
+
+//主体
+.comment {
+  width: 100%;
+  height: 100%;
+  margin-top: 44px;
+  .clear {
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    background: @write;
+    margin-left: -80px;
+    z-index: 100;
+    display: none;
+
+    p {
+      width: 160px;
+      height: 40px;
+      line-height: 40px;
+
+      &:nth-child(2) {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      }
+      a {
+        display: inline-block;
+        width: 100%;
+        padding-left: 10px;
+      }
+    }
+  }
+  .zhezhao {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    //z-index: 5;
+    display: none;
+  }
+
+  .commentB {
+    margin-top: 44px;
+    margin-bottom: 80px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .com-box .active{
+    display: block;
+    background: #2ac845;
+    z-index: 100;
+  }
+  .com-box {
+    font-size: 0;
+    padding: 6px 0 10px 50px;
+    //height: 100%;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    .cheBox{
+      display: inline-block;
+      position: absolute;
+      left: 15px;
+      top: 50px;
+      width: 26px;
+      height: 26px;
+      background: #faf2cc;
+      border-radius: 50%;
+      i{
+        position: relative;
+        left: 6px;
+        top: 8px;
+        display: inline-block;
+        border: 4px solid orangered;
+        border-top-width: 0;
+        border-right-width: 0;
+        width: 16px;
+        height: 8px;
+        transform: rotateZ(-53deg);
+        opacity: 0;
+      }
+    }
+    //input[type='checkbox']{
+    //  visibility: hidden;
+    //}
+    .com_l {
+      width: 30%;
+      display: inline-block;
+      a {
+        width: 100%;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .com_r {
+      display: inline-block;
+      vertical-align: top;
+      width: 65%;
+      padding: 10px;
+      box-sizing: border-box;
+      p {
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 5px;
+        overflow: hidden;
+        &.price {
+          i {
+            color: @sportPrice;
+          }
+          .del {
+            text-decoration: line-through;
+          }
+          span:last-child {
+            float: right;
+          }
+        }
+      }
+
+    }
+
+  }
+  .comment-bottom {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    color: @sportPrice;
+    background: #ebebeb;
+    z-index: 10000;
+    overflow: hidden;
+    span {
+      margin-left: 30px;
+      font-size: 16px;
+    }
+    a {
+      display: inline-block;
+      width: 100px;
+      height: 100%;
+      font-size: 16px;
+      color: @write;
+      float: right;
+      text-align: center;
+      background: red;
+      border-radius: 5px;
+    }
+  }
+}

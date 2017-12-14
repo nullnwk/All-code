@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<button id="btn1">按钮</button>
+<p id="pp">sdfsdfdsf</p>
+<script>
+    my$("btn").onclick = function () {
+        console.log(getInnerText(my$("pp")));
+    }
+    my$("btn1").onclick = function () {
+        console.log(setInnerText(my$("pp"), "哈哈哈"));
+    }
+
+
+
+</script>
+</body>
+</html>

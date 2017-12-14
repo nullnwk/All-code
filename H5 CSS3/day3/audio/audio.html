@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 350px;
+			height: 350px;
+			margin: 50px auto;
+		}
+		.box1{
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			background: url('2.jpg') no-repeat;
+			animation: box1 5s linear infinite;
+			animation-play-state: paused;
+
+		}
+		@keyframes box1 {
+			from{
+				transform: rotateZ(0deg);
+			}
+			to{
+				transform: rotateZ(360deg);
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box1"></div>
+		<audio src="爱很美.mp3"></audio>
+		<button id="btn">按钮</button>
+	</div>
+	<script>
+		var btn = document.getElementById("btn");
+		var box1 = document.querySelector(".box1");
+		var audio = document.getElementsByTagName("audio")[0];
+		var flag = true;
+		btn.onclick = function() {
+			if(flag){
+				this.innerHTML = "暂停";
+				audio.play();
+				box1.style.animationPlayState = "running";
+				flag = false;
+			}else {
+				this.innerHTML = "播放";
+				audio.pause();
+				box1.style.animationPlayState = "paused";
+				flag = true;
+			}
+
+		}
+
+
+
+
+	</script>
+</body>
+</html>

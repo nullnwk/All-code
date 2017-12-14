@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" name="" id="fileId">
+
+<script>
+    document.getElementById("fileId").onchange = function () {
+        //获取上传文件
+        var file = this.files[0];
+        //创建读取器
+        var reader = new FileReader();
+        //开始读取操作
+        reader.readAsText(file);
+        //保证文件读取完成才获取结果
+        reader.onload = function () {
+            //获取读取结果
+            var result = reader.result;
+            console.log(result);
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style: none;
+        }
+    </style>
+    <script src="../../jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+           $("#btn").on("click", function () {
+                $("ul>li:odd").css("backgroundColor","red");
+                $("ul>li:even").css("backgroundColor","blue");
+           });
+            $("ul>li").on("mouseenter", function () {
+                $(this).css("backgroundColor", "yellow");
+            }).on("mouseleave", function () {
+                $("ul>li:odd").css("backgroundColor","red");
+                $("ul>li:even").css("backgroundColor","blue");
+                $(this).css({"fontFamily":"宋体","fontSize":"18px"});
+            }).on("click", function () {
+                $(this).css({"backgroundColor":"green", "fontFamily":"全新硬笔行书简","fontSize":"30px"});
+            })
+        });
+
+
+
+    </script>
+</head>
+<body>
+
+<button id="btn">按钮</button>
+<ul>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+    <li>sdfsdfsdfsdf</li>
+</ul>
+</body>
+</html>

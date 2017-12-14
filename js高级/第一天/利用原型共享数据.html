@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Student(name ,age) {
+        this.name = name;
+        this.age = age;
+    }
+    Student.prototype = {
+        consturator : Student,
+        height:"55kg",
+        paly : function () {
+            console.log("lanqiu");
+        }
+    }
+    var stu = new Student("晨光", 33);
+    console.log(stu.height);
+
+    console.dir(stu);
+    console.dir(Student);
+
+
+</script>
+
+</body>
+</html>

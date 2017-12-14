@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<div id="dv">
+    <p>sdfsd</p>
+    <p>jkhkh</p>
+    <p id="pp">werew</p>
+    <p>aaaaaaa</p>
+    <p>ajjjjjjk</p>
+</div>
+<script>
+    var dv = my$("dv");
+    var pp = my$("pp");
+    //获取父节点、父元素
+    console.log(pp.parentNode);
+    console.log(pp.parentElement);
+    //获取子节点、子元素
+    console.log(dv.childNodes);
+    console.log(dv.children);
+    //获取第一个子节点、子元素
+    console.log(dv.firstChild);
+    console.log(dv.firstElementChild);
+    //获取最后一个子节点、子元素
+    console.log(dv.lastChild);
+    console.log(dv.lastElementChild);
+    //获取上一个兄弟节点、元素
+    console.log(pp.previousSibling);
+    console.log(pp.previousElementSibling);
+    //获取下一个兄弟节点、元素
+    console.log(pp.nextSibling);
+    console.log(pp.nextElementSibling);
+
+
+</script>
+
+</body>
+</html>

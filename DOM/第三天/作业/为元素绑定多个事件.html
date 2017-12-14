@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="../common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script>
+    /* my$("btn").onclick = function () {
+     //判断这个属性有没有，没有就创建
+     if(!my$("btn2")){
+     var input = document.createElement("input");
+     input.id = "btn2";
+     input.type = "button";
+     input.value = "按钮";
+     my$("dv").appendChild(input);
+     }
+     };
+
+docu
+
+     my$("btn").onclick = function () {
+     //判断这个属性有没有, 有就删除, 然后再创建
+     if (my$("btn2")) {
+     my$("dv").removeChild(my$("btn2"));
+     }
+     var obj = document.createElement("input");
+     obj.type = "button";
+     obj.value = "按钮";
+     obj.id = "btn2";
+     my$("dv").appendChild(obj);
+     };*/
+
+
+    /*my$("btn").addEventListener("click", function () {
+        console.log("小样1好帅啊");
+    })
+    my$("btn").addEventListener("click", function () {
+        console.log("小样2好帅啊");
+    })
+    my$("btn").addEventListener("click", function () {
+        console.log("小样3好帅啊");
+    })*/
+    my$("btn").onclick= function () {
+       my$("dv").innerHTML = "<p>34543</p>"
+    }
+</script>
+
+</body>
+</html>

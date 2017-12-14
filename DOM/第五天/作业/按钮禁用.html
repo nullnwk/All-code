@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+<button id="btn" disabled>请仔细阅读(5)</button>
+<script src="../common.js"></script>
+<script>
+    var index = 5;
+    var timer = setInterval(function () {
+        my$("btn").innerText = "请仔细阅读("+index+")";
+        index--;
+        if(index<0){
+            my$("btn").innerText = "确定";
+            my$("btn").disabled = false;
+            clearInterval(timer);
+        }
+
+    },1000)
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+.lf {
+  float: left;
+}
+.rf {
+  float: right;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.nav_back_close {
+  display: block;
+  font-size: 0.8125rem;
+  margin-left: 0.8125rem;
+  vertical-align: middle;
+}
+.banner_a {
+  width: 100%;
+}
+.main1 {
+  background: #ffffff;
+  margin-bottom: 0.625rem;
+  padding: 1.125rem 0.78125rem;
+}
+.main1 p {
+  font-size: 0.9375rem;
+}
+.main1 p:last-child {
+  font-size: 0.75rem;
+}
+.main1 p:last-child a {
+  color: orange;
+}
+.main1 .intro {
+  width: 100%;
+  height: 4.03125rem;
+  padding: 0.8125rem 0;
+  box-sizing: border-box;
+  position: relative;
+}
+.main1 .intro i {
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: url("../images/icon.png");
+  background-size: 42px;
+}
+.main1 .intro span {
+  display: block;
+  width: 12.6875rem;
+  height: 2.65625rem;
+  background: url("../images/main.png");
+  background-size: 12.75rem 2.65625rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 0.78125rem;
+}
+.footer_ul {
+  width: 100%;
+  height: 3.0625rem;
+}

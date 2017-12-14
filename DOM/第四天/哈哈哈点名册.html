@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="点" id="btn1"/>
+<input type="button" value="停" id="btn2"/>
+<input type="button" value="选中行" id="btn3"/>
+<input type="button" value="停止行" id="btn4"/>
+<table>
+    <tr id="tr1">
+        <td>小红</td>
+        <td>小明</td>
+        <td>小黄</td>
+        <td>小绿</td>
+    </tr>
+    <tr id="tr2">
+        <td>小红</td>
+        <td>小明</td>
+        <td>小黄</td>
+        <td>小绿</td>
+    </tr>
+    <tr id="tr3">
+        <td>小红</td>
+        <td>小明</td>
+        <td>小黄</td>
+        <td>小绿</td>
+    </tr>
+    <tr id="tr4">
+        <td>小红</td>
+        <td>小明</td>
+        <td>小黄</td>
+        <td>小绿</td>
+    </tr>
+</table>
+
+<script src="common.js"></script>
+<script>
+
+
+    var tds = document.getElementsByTagName("td");
+    var trObj = document.getElementsByTagName("tr");
+    var timer = null;
+    var timer1 = null;
+
+    //一个
+    addEventListener(my$("btn1"), "click", call);
+    function call() {
+        for(var k=0; k<trObj.length;k++){
+            trObj[k].style.backgroundColor = "";
+        }
+        clearInterval(timer1);
+        timer1 = setInterval(function () {
+            for (var i = 0; i < tds.length; i++) {
+                var index = parseInt(Math.random() *tds.length);
+                for (var j = 0; j < tds.length; j++) {
+                    tds[j].style.backgroundColor = "";
+                }
+                tds[index].style.backgroundColor = "pink";
+            }
+        }, 100);
+    }
+    addEventListener(my$("btn2"), "click", clear);
+    function clear() {
+        clearInterval(timer1);
+    }
+
+    //选中行
+    addEventListener(my$("btn3"),"click", click);
+    function click() {
+        for(var k=0; k<tds.length;k++){
+            tds[k].style.backgroundColor = "";
+        }
+        clearInterval(timer);
+        timer = setInterval(function () {
+            //循环遍历得到所有tr
+            var num = parseInt(Math.random() * trObj.length);
+            for (var i = 0; i < trObj.length; i++) {
+                for (var j = 0; j < trObj.length; j++) {
+                    trObj[j].style.backgroundColor = "";
+                }
+                trObj[num].style.backgroundColor = "red";
+            }
+        }, 100)
+    }
+    addEventListener(my$("btn4"),"click", clear1);
+    function clear1() {
+        clearInterval(timer);
+    }
+
+
+
+
+</script>
+</body>
+</html>

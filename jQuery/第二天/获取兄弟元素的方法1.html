@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $("li").mouseenter(function () {
+                $(this).css("backgroundColor", "red").siblings("li").css("backgroundColor","");
+            }).mouseleave(function () {
+                $(this).css("backgroundColor", "").nextAll("li").css("backgroundColor","").prevAll("li").css("backgroundColor","");
+            }).click(function () {
+               // $(this).css("backgroundColor", "green");
+                $(this).nextAll("li").css("backgroundColor","yellow");
+                $(this).prevAll("li").css("backgroundColor","blue");
+            })
+        });
+
+
+    </script>
+</head>
+<body>
+<ul>
+    <li>sfdsfdsf</li>
+    <li>sfdsfdsf</li>
+    <li>sfdsfdsf</li>
+    <li>sfdsfdsf</li>
+    <li>sfdsfdsf</li>
+    <li>sfdsfdsf</li>
+</ul>
+</body>
+</html>

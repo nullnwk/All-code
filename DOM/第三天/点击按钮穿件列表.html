@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="dv"></div>
+<script>
+    var arr = ["杨过", "杨过", "杨过", "杨过", "杨过"];
+    my$("btn").onclick = function () {
+        var str = "<ul style='cursor:pointer;'>";
+        for (var i = 0; i < arr.length; i++) {
+            str += "<li>" + arr[i] + "</li>";
+        }
+        str += "</ul>";
+        my$("dv").innerHTML = str;
+        var lis = document.getElementsByTagName("li");
+        for (var j = 0; j < lis.length; j++) {
+            lis[j].onmouseover = function () {
+                this.style.backgroundColor = "red";
+            };
+            lis[j].onmouseout = function () {
+                this.style.backgroundColor = "yellow";
+            };
+        }
+    };
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    var n = 2;
+    var z = 1;
+    setInterval(function () {
+        ctx.clearRect(0, 0, 600, 50);
+        ctx.fillRect(n,0,100,50);
+        n+=2*z;
+       if(n>600){
+           z=-1;
+       }
+
+    }, 10)
+
+
+</script>
+
+</body>
+</html>
